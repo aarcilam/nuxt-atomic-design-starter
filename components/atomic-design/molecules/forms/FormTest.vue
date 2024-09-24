@@ -3,8 +3,10 @@ import FormWrap from '@/components/atomic-design/atoms/forms/FormWrap.vue'
 import FormCreator from '@/components/atomic-design/atoms/forms/FormCreator.vue'
 import Heading1 from '@/components/atomic-design/atoms/Heading1.vue'
 import BodyText from '@/components/atomic-design/atoms/BodyText.vue'
+import { FormGroup, FormField } from "@/interfaces/FormConfig"
+
 const submit = (datos: any) => {
-    console.log(datos) 
+    console.log(datos)
 }
 
 const datosUsuario = {
@@ -23,14 +25,14 @@ const datosUsuario = {
     }
 }
 
-const formConfig = [
+const formConfig: (FormGroup | FormField)[] = [
     {
         type: 'group',
         name: 'usuario',
         fields: [
             {
                 type: 'text',
-                name: 'nombre', 
+                name: 'nombre',
                 id: 'nombre',
                 validation: 'required | minLength:3',
                 label: 'Nombre'
@@ -38,7 +40,7 @@ const formConfig = [
             {
                 type: 'text',
                 name: 'correo',
-                id: 'correo',   
+                id: 'correo',
                 validation: 'required | email',
                 label: 'Correo Electrónico'
             },
@@ -46,7 +48,7 @@ const formConfig = [
                 type: 'text',
                 name: 'edad',
                 id: 'edad',
-                validation: 'required | number | between:18,100',   
+                validation: 'required | number | between:18,100',
                 label: 'Edad'
             },
             {
@@ -55,14 +57,14 @@ const formConfig = [
                 id: 'direccion',
                 validation: 'required',
                 label: 'Dirección'
-            },      
+            },
             {
                 type: 'text',
                 name: 'ciudad',
                 id: 'ciudad',
                 validation: 'required',
                 label: 'Ciudad'
-            },  
+            },
             {
                 type: 'text',
                 name: 'pais',
@@ -87,7 +89,7 @@ const formConfig = [
                 type: 'text',
                 name: 'notificaciones',
                 id: 'notificaciones',
-                validation: 'required',     
+                validation: 'required',
                 label: 'Notificaciones'
             }
         ]
@@ -100,11 +102,11 @@ const formConfig = [
         label: 'Test'
     }
 ]
-            
-            
+
+
 </script>
 
-<template>  
+<template>
     <Heading1>Formulario de Prueba</Heading1>
     <BodyText>Este es un formulario de prueba para demostrar la funcionalidad de FormKit.</BodyText>
     <FormWrap :value="datosUsuario" formId="formularioPrueba" @submit="submit">
