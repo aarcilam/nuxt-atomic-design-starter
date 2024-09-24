@@ -71,6 +71,32 @@ const formConfig: (FormGroup | FormField)[] = [
                 id: 'pais',
                 validation: 'required',
                 label: 'País'
+            },
+            {
+                type: 'password',
+                name: 'contrasena',
+                id: 'contrasena',
+                validation: 'required | minLength:6',
+                label: 'Contraseña'
+            },
+            {
+                type: 'select',
+                name: 'genero',
+                id: 'genero',
+                validation: 'required',
+                label: 'Género',
+                options: {
+                    masculino: 'Masculino',
+                    femenino: 'Femenino',
+                    otro: 'Otro'
+                }
+            },
+            {
+                type: 'textarea',
+                name: 'biografia',
+                id: 'biografia',
+                validation: 'required | minLength:10',
+                label: 'Biografía'
             }
         ]
     },

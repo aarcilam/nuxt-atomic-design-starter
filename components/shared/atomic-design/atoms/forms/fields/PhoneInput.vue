@@ -1,7 +1,8 @@
 <template>
     <FormKit
-      type="text"
+      type="tel"
       :name="name"
+      placeholder="xxx-xxx-xxxx"
       :id="id"
       :validation="validation"
       :validation-messages="validationMessages"
@@ -14,7 +15,7 @@
 </template>
 
 <script setup>
-defineProps({ 
+defineProps({
   name: {
     type: String,
     required: true

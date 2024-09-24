@@ -1,5 +1,5 @@
 <template>
-    <FormKit type="password" :name="name" :id="id" :validation="validation" :label="label" :classes="{
+    <FormKit type="password" :name="name" :id="id" :validation="validation" :validation-messages="validationMessages" :label="label" :classes="{
         'outer': 'p-2',
         'input': 'input input-bordered w-full',
     }" />
@@ -19,6 +19,10 @@ const props = defineProps({
     validation: {
         type: String,
         default: ''
+    },
+    validationMessages: {
+        type: Object,
+        default: () => ({})
     },
     label: {
         type: String,

@@ -4,6 +4,9 @@ import TextInput from '@/components/shared/atomic-design/atoms/forms/fields/Text
 import Heading1 from '@/components/shared/atomic-design/atoms/Heading1.vue';
 import PassInput from '@/components/shared/atomic-design/atoms/forms/fields/PassInput.vue';
 import BodyText from '@/components/shared/atomic-design/atoms/BodyText.vue';
+import TextArea from '@/components/shared/atomic-design/atoms/forms/fields/TextArea.vue';
+import SelectInput from '@/components/shared/atomic-design/atoms/forms/fields/SelectInput.vue';
+import PhoneInput from '@/components/shared/atomic-design/atoms/forms/fields/PhoneInput.vue';
 
 const props = defineProps({
   formConfig: {
@@ -30,13 +33,37 @@ const renderFormField = (field: any) => {
         label: field.label
       });
       break;
+    case 'textarea':
+      return h(TextArea, {
+        name: field.name,
+        id: field.id,
+        validation: field.validation,
+        label: field.label
+      });
+      break;
+    case 'select':
+      return h(SelectInput, {
+        name: field.name,
+        id: field.id,
+        validation: field.validation,
+        label: field.label,
+        options: field.options
+      });
+      break;
+    case 'phone':
+      return h(PhoneInput, {
+        name: field.name,
+        id: field.id,
+        validation: field.validation,
+        label: field.label
+      });
+      break;
     case 'title':
       return h(Heading1, {}, () => field.label);
       break;
     case 'body':
       return h(BodyText, {}, () => field.label);
       break;
-    // Aquí puedes agregar más casos para otros tipos de campos
     default:
       return null;
   }

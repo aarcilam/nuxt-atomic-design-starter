@@ -1,6 +1,6 @@
 <template>
     <FormKit
-      type="text"
+      type="textarea"
       :name="name"
       :id="id"
       :validation="validation"
@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-defineProps({ 
+defineProps({
   name: {
     type: String,
     required: true
