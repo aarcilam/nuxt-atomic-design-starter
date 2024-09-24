@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import FormGroup from '@/components/atomic-design/atoms/forms/FormGroup.vue';
-import TextInput from '@/components/atomic-design/atoms/forms/fields/TextInput.vue';
-import Heading1 from '@/components/atomic-design/atoms/Heading1.vue';
-import PassInput from '@/components/atomic-design/atoms/forms/fields/PassInput.vue';
-import BodyText from '@/components/atomic-design/atoms/BodyText.vue';
+import FormGroup from '@/components/shared/atomic-design/atoms/forms/FormGroup.vue';
+import TextInput from '@/components/shared/atomic-design/atoms/forms/fields/TextInput.vue';
+import Heading1 from '@/components/shared/atomic-design/atoms/Heading1.vue';
+import PassInput from '@/components/shared/atomic-design/atoms/forms/fields/PassInput.vue';
+import BodyText from '@/components/shared/atomic-design/atoms/BodyText.vue';
 
 const props = defineProps({
   formConfig: {
