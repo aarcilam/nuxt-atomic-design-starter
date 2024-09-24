@@ -41,8 +41,10 @@ const formConfig: (FormGroup | FormField)[] = [
     }
 ]
 
-const submit = (data: any) => {
-    console.log(data)
+const submit = async (formData: any) => {
+    console.log(formData)
+    const { data: signUpData, error: signUpError } = await useSupabaseClient().auth.signUp(formData)
+    console.log(signUpData, signUpError)
 }
 </script>
 

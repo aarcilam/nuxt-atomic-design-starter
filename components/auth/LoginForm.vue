@@ -2,7 +2,6 @@
 import FormWrap from '@/components/shared/atomic-design/atoms/forms/FormWrap.vue'
 import FormCreator from '@/components/shared/atomic-design/molecules/forms/FormCreator.vue'
 import { FormGroup, FormField } from "@/interfaces/FormConfig"
-
 const formConfig: (FormGroup | FormField)[] = [
     {
         type: 'text',
@@ -20,8 +19,10 @@ const formConfig: (FormGroup | FormField)[] = [
     }
 ]
 
-const submit = (data: any) => {
-    console.log(data)
+const submit = async (formData: any) => {
+    console.log(formData)
+    const { data: signInData, error: signInError } = await useSupabaseClient().auth.signInWithPassword(formData)
+    console.log(signInData, signInError)
 }
 
 </script>
