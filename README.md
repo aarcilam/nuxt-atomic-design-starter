@@ -2,20 +2,53 @@
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-## Setup
 
-Make sure to install the dependencies:
+## Atomic Design and Components
+
+This project uses the Atomic Design approach for structuring its components. Atomic Design is a methodology that divides the user interface into five distinct levels:
+
+1. **Atoms**: The most basic components, such as buttons, inputs, labels.
+2. **Molecules**: Simple combinations of atoms that form functional units.
+3. **Organisms**: Groups of molecules that form distinct sections of an interface.
+4. **Templates**: Page layouts that organize organisms and molecules.
+5. **Pages**: Specific instances of templates with actual content.
+
+### Our Components
+
+Following this methodology, our components are organized as follows:
+
+- **Atoms**: 
+
+  
+- **Molecules**:
+
+  
+- **Organisms**:
+
+  
+- **Templates**:
+
+  
+- **Pages**:
+
+
+## Dependencies
+
+This project uses the following main dependencies:
+
+- @formkit/nuxt: ^1.6.7
+- @nuxtjs/tailwindcss: ^6.12.1
+- nuxt: ^3.13.0
+- vue: latest
+- vue-router: latest
+
+And the following development dependencies:
+
+- daisyui: ^4.12.10
+
+To install all dependencies, run the following command:
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
 # bun
 bun install
 ```
@@ -25,15 +58,6 @@ bun install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
 # bun
 bun run dev
 ```
@@ -41,35 +65,11 @@ bun run dev
 ## Production
 
 Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
 # bun
 bun run build
 ```
 
 Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
 # bun
 bun run preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
