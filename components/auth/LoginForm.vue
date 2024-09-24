@@ -6,12 +6,14 @@ import { FormGroup, FormField } from "@/interfaces/FormConfig"
 const formConfig: (FormGroup | FormField)[] = [
     {
         type: 'text',
+        id: 'email-login',
         name: 'email',
         label: 'Email',
         validation: 'required|email'
     },
     {
         type: 'password',
+        id: 'password-login',
         name: 'password',
         label: 'Password',
         validation: 'required'
