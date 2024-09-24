@@ -1,5 +1,7 @@
-<template>  
-    <FormKit :value="value" :submit-label="submitLabel" type="form" :id="formId" @submit="submit">
+<template>
+    <FormKit :value="value" :submit-label="submitLabel" type="form" :id="formId" @submit="submit" :classes="{
+        'form': '',
+    }">
         <slot />
     </FormKit>
 </template>
@@ -27,3 +29,10 @@ const submit = (data: any) => {
 }
 
 </script>
+
+<style >
+.formkit-input[type="submit"] {
+    margin-top: 1rem;
+    @apply btn btn-primary;
+}
+</style>

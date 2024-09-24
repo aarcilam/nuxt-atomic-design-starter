@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import FormWrap from '@/components/atomic-design/atoms/forms/FormWrap.vue'
 import FormCreator from '@/components/atomic-design/atoms/forms/FormCreator.vue'
-
+import Heading1 from '@/components/atomic-design/atoms/Heading1.vue'
+import BodyText from '@/components/atomic-design/atoms/BodyText.vue'
 const submit = (datos: any) => {
     console.log(datos) 
 }
@@ -104,6 +105,8 @@ const formConfig = [
 </script>
 
 <template>  
+    <Heading1>Formulario de Prueba</Heading1>
+    <BodyText>Este es un formulario de prueba para demostrar la funcionalidad de FormKit.</BodyText>
     <FormWrap :value="datosUsuario" formId="formularioPrueba" @submit="submit">
         <FormCreator :formConfig="formConfig" />
     </FormWrap>

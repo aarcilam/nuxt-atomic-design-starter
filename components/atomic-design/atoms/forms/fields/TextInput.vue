@@ -5,6 +5,9 @@
       :id="id"
       :validation="validation"
       :label="label"
+      :classes="{
+        'input': 'input input-bordered w-full max-w-xs',
+      }"
     />
 </template>
 
