@@ -1,5 +1,5 @@
 <template>
-    <FormKit :value="value" :submit-label="submitLabel" type="form" :id="formId" @submit="submit" :classes="{
+    <FormKit :actions="actions" :value="value" :submit-label="submitLabel" type="form" :id="formId" @submit="submit" :classes="{
         'form': '',
     }">
         <slot />
@@ -21,6 +21,10 @@ const props = defineProps({
     value: {
         type: Object,
         default: () => ({})
+    },
+    actions: {
+        type: Boolean,
+        default: true
     }
 })
 

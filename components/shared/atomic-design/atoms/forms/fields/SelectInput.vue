@@ -37,7 +37,7 @@ defineProps({
     required: true
   },
   options: {
-    type: Array,
+    type: Object,
     required: true
   }
 })
