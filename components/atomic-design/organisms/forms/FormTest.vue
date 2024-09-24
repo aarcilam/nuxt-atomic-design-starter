@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import FormWrap from '@/components/atomic-design/atoms/forms/FormWrap.vue'
-import FormCreator from '@/components/atomic-design/atoms/forms/FormCreator.vue'
+import FormCreator from '@/components/atomic-design/molecules/forms/FormCreator.vue'
 import Heading1 from '@/components/atomic-design/atoms/Heading1.vue'
 import BodyText from '@/components/atomic-design/atoms/BodyText.vue'
 import { FormGroup, FormField } from "@/interfaces/FormConfig"
@@ -75,8 +75,13 @@ const formConfig: (FormGroup | FormField)[] = [
         ]
     },
     {
+        type: 'title',
+        label: 'Preferencias'
+    },
+    {
         type: 'group',
         name: 'preferencias',
+        dFlex: true,
         fields: [
             {
                 type: 'text',

@@ -1,6 +1,7 @@
-<template>  
+<template>
     <FormKit type="password" :name="name" :id="id" :validation="validation" :label="label" :classes="{
-        'input': 'input input-bordered w-full max-w-xs',
+        'outer': 'p-2',
+        'input': 'input input-bordered w-full',
     }" />
 </template>
 

@@ -1,6 +1,8 @@
 <template>
-    <FormKit type="group" :name="name">
-        <slot />
+    <FormKit type="group" :name="name" >
+        <div :class="{ 'flex': dFlex }" class="group-form">
+            <slot />
+        </div>
     </FormKit>
 </template>
 
@@ -9,6 +11,10 @@ const props = defineProps({
     name: {
         type: String,
         required: true
+    },
+    dFlex: {
+        type: Boolean,
+        default: false
     }
 })
 </script>

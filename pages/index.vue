@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FormTest from '@/components/atomic-design/molecules/forms/FormTest.vue'
+import FormTest from '@/components/atomic-design/organisms/forms/FormTest.vue'
 </script>
 
 <template>
