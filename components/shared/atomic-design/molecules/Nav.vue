@@ -3,7 +3,6 @@ import { useRouter } from 'vue-router'
 import { useViewTransition } from '~/composables/useViewTransition'
 
 const user = useSupabaseUser()
-const router = useRouter()
 const { startViewTransition } = useViewTransition()
 
 </script>
@@ -18,6 +17,7 @@ const { startViewTransition } = useViewTransition()
                 <li><a @click="startViewTransition('/')">Home</a></li>
                 <li v-if="!user"><a @click="startViewTransition('/login')">Login</a></li>
                 <li><a @click="startViewTransition('/edit-blocks')">Edit Blocks</a></li>
+                <li><a @click="startViewTransition('/test')">View transition</a></li>
             </ul>
             <div class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle">

@@ -39,6 +39,6 @@ const addItem = (index: number, type: string) => {
     <FormWrap :value="itemsObject" formId="blocks-form" @submit="submit">
         <JumbotronForm v-for="(item, index) in items" :index="index" />
     </FormWrap>
-    <Button @click="addItem(items.length, 'jumbotron')">add</Button>
-
+    <Button @click="addItem(items.length, 'jumbotron')">add jumbotron</Button>
+    <Button @click="addItem(items.length, 'mediaSection')">add mecia section</Button>
 </template>

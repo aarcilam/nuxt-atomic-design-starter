@@ -14,11 +14,10 @@ const handleSubmit = (formData: any) => {
 <template>
     <h1 v-transition="'title'">edit blocks</h1>
     <div class="flex gap-4">
-
-        <div class="w-1/2">
+        <div class="w-1/3">
             <BlocksForm @submit="handleSubmit" />
         </div>
-        <div class="w-1/2">
+        <div class="w-2/3">
             <DisplayBlocks :blocks="blocks" />
         </div>
     </div>
