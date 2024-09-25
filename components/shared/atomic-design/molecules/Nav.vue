@@ -11,7 +11,7 @@ const user = useSupabaseUser()
             <ul class="menu menu-horizontal px-1">
                 <li><NuxtLink to="/">Home</NuxtLink></li>
                 <li><NuxtLink to="/login" v-if="!user">Login</NuxtLink></li>
-                
+                <li><NuxtLink to="/edit-blocks">Edit Blocks</NuxtLink></li>
             </ul>
             <div class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle">

@@ -1,16 +1,13 @@
 <script setup lang="ts">
-import LoginForm from '@/components/auth/LoginForm.vue'
-import RegisterForm from '@/components/auth/RegisterForm.vue'
+import DisplayBlocks from '@/components/blocks/DisplayBlocks.vue'
 
-const submit = (datos: any) => {
-    console.log(datos)
-}
 </script>
 
 <template>
   <NuxtLayout name="basic">
     <div class="p-5">
       <h1>home</h1>
+      <DisplayBlocks />
     </div>
   </NuxtLayout>
 </template>

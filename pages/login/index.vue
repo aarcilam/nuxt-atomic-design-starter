@@ -3,7 +3,7 @@ import LoginForm from '@/components/auth/LoginForm.vue'
 import RegisterForm from '@/components/auth/RegisterForm.vue'
 
 definePageMeta({
-  layout: 'basic'
+  middleware: 'no-auth'
 })
 
 const submit = (datos: any) => {
