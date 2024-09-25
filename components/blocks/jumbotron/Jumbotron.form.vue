@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import FormWrap from '@/components/shared/atomic-design/molecules/forms/FormWrap.vue'
-import FormCreator from '@/components/shared/atomic-design/molecules/forms/FormCreator.vue'
+import FormFieldsCreator from '@/components/shared/atomic-design/molecules/forms/FormFieldsCreator.vue'
 import { FormGroup, FormField } from "@/interfaces/FormConfig"
 
 const props = defineProps<{
@@ -39,6 +39,6 @@ const submit = (formData: any) => {
 
 <template>
     <!-- <FormWrap formId="jumbotron-form" @submit="submit"> -->
-    <FormCreator :form-config="formConfig" />
+    <FormFieldsCreator :form-config="formConfig" />
     <!-- </FormWrap> -->
 </template>
