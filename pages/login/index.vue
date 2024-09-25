@@ -13,6 +13,8 @@ const submit = (datos: any) => {
 
 <template>
   <NuxtLayout name="basic">
+    <br><br><br><br><br>
+    <h1 v-transition="'title'">login</h1>
     <div class="p-5">
       <div class="flex gap-4">
         <div class="w-1/2">

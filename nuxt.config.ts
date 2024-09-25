@@ -12,5 +12,8 @@ export default defineNuxtConfig({
   },
   supabase: {
     redirect: false
+  },
+  experimental: {
+    viewTransition: true
   }
 })

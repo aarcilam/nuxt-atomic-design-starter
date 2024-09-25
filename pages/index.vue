@@ -6,8 +6,8 @@ import DisplayBlocks from '@/components/blocks/DisplayBlocks.vue'
 <template>
   <NuxtLayout name="basic">
     <div class="p-5">
-      <h1>home</h1>
-      <DisplayBlocks />
+      <h1 v-transition="'title'">home</h1>
+      <!-- <DisplayBlocks /> -->
     </div>
   </NuxtLayout>
 </template>

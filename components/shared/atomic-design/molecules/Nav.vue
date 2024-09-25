@@ -1,5 +1,16 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
+import { useViewTransition } from '~/composables/useViewTransition'
+
 const user = useSupabaseUser()
+const router = useRouter()
+const { startViewTransition } = useViewTransition()
+
+const navigate = (ruta: string) => {
+  startViewTransition(() => {
+    router.push(ruta)
+  })
+}
 </script>
 
 <template>
@@ -9,9 +20,9 @@ const user = useSupabaseUser()
         </div>
         <div class="flex-none">
             <ul class="menu menu-horizontal px-1">
-                <li><NuxtLink to="/">Home</NuxtLink></li>
-                <li><NuxtLink to="/login" v-if="!user">Login</NuxtLink></li>
-                <li><NuxtLink to="/edit-blocks">Edit Blocks</NuxtLink></li>
+                <li><a @click="navigate('/')">Home</a></li>
+                <li v-if="!user"><a @click="navigate('/login')">Login</a></li>
+                <li><a @click="navigate('/edit-blocks')">Edit Blocks</a></li>
             </ul>
             <div class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
@@ -43,7 +54,7 @@ const user = useSupabaseUser()
                 </div>
                 <ul tabindex="0"
                     class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                    <li><NuxtLink to="/user" v-if="user">User <span class="badge">New</span></NuxtLink></li>
+                    <li><a @click="navigate('/user')" v-if="user">User <span class="badge">New</span></a></li>
                     <li><a>Settings</a></li>
                     <li><a>Logout</a></li>
                 </ul>
