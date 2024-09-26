@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import Heading1 from '@/components/shared/atomic-design/atoms/Heading1.vue'
+
 defineProps({
     title: {
         type: String,
@@ -12,8 +14,15 @@ defineProps({
 </script>
 
 <template>
-    <div class="bg-blue-500 text-white p-4 rounded-lg">
-        <h1 class="text-2xl font-bold">{{ title }}</h1>
-        <p class="text-sm">{{ description }}</p>
+    <div class="hero bg-base-200 min-h-screen">
+        <div class="hero-content text-center">
+            <div class="max-w-md">
+                <Heading1 v-transition="'title-primary'"> {{ title }} </Heading1>
+                <p class="py-6">
+                    {{ description }}
+                </p>
+                <button class="btn btn-primary">Get Started</button>
+            </div>
+        </div>
     </div>
 </template>

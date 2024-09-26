@@ -6,11 +6,11 @@ export function useViewTransition() {
     const vTransition: Directive = {
         mounted(el, binding) {
             el.style.viewTransitionName = binding.value
-            transitionAnimation(el, binding)
+            // transitionAnimation(el, binding)
         },
         updated(el, binding) {
             el.style.viewTransitionName = binding.value
-            transitionAnimation(el, binding)
+            // transitionAnimation(el, binding)
         }
     }
 
@@ -19,7 +19,7 @@ export function useViewTransition() {
             (document as any).startViewTransition(() => {
                 router.push(ruta)
                 callback()
-                applyTransitionStyles()
+                // applyTransitionStyles()
             })
         } else {
             router.push(ruta)

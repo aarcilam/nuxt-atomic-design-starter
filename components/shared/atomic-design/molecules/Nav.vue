@@ -8,7 +8,7 @@ const { startViewTransition } = useViewTransition()
 </script>
 
 <template>
-    <div class="navbar bg-base-100">    
+    <div class="navbar bg-base-100 fixed w-full z-50">    
         <div class="flex-1">
             <a class="btn btn-ghost text-xl">daisyUI</a>
         </div>
