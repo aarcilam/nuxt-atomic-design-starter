@@ -14,16 +14,16 @@ export function useViewTransition() {
         }
     }
 
-    const startViewTransition = (ruta: string, callback: () => void | Promise<void>) => {
+    const startViewTransition = (ruta: string, callback?: () => void | Promise<void>) => {
         if ('startViewTransition' in document) {
             (document as any).startViewTransition(() => {
                 router.push(ruta)
-                callback()
+                if(callback)callback()
                 // applyTransitionStyles()
             })
         } else {
             router.push(ruta)
-            callback()
+            if(callback)callback()
         }
     }
 

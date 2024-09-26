@@ -1,6 +1,6 @@
 <template>
   <div class="grid grid-cols-3 gap-4">
-    <SharedAtomicDesignMoleculesCard @click="startViewTransition('test')"  v-for="item in items" :title="item.title" :description="item.description" :image="item.image" :id="item.id" /> 
+    <SharedAtomicDesignMoleculesCard @click="startViewTransition('/test')"  v-for="item in items" :title="item.title" :description="item.description" :image="item.image" :id="item.id" /> 
   </div>
 </template>
 
@@ -12,8 +12,6 @@ const props = defineProps({
     },
 });
 import { useViewTransition } from '~/composables/useViewTransition'
-
-const user = useSupabaseUser()
 const { startViewTransition } = useViewTransition()
 </script>
 
