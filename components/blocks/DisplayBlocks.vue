@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Jumbotron from '@/components/blocks/jumbotron/jumbotron.component.vue'
+import Jumbotron from '@/components/blocks/jumbotron/Jumbotron.component.vue'
 
 const props = defineProps<{
     blocks: Object
