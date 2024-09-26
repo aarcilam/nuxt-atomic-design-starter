@@ -5,12 +5,16 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps({
-    items: {
-        type: Array,
-        required: true
-    },
-});
+interface Item {
+    id: number;
+    title: string;
+    description: string;
+    image: string;
+}
+const props = defineProps<{
+    items: Item[];
+}>();
+
 import { useViewTransition } from '~/composables/useViewTransition'
 const { startViewTransition } = useViewTransition()
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="card glass">
     <figure>
-      <img v-transition="'pug-'+id" :src="image" alt="car!" />
+      <img :v-transition="'pug-'+id" :src="image" alt="car!" />
     </figure>
     <div class="card-body">
       <h2 class="card-title">{{ title }}</h2>
@@ -18,9 +18,6 @@ const props = defineProps({
   id: {
     type: Number,
     required: true
-  },
-  type: {
-    type: String,
   },
   title: {
     type: String,

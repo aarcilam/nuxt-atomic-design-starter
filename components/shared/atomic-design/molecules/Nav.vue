@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
 import { useViewTransition } from '~/composables/useViewTransition'
 
 const user = useSupabaseUser()
