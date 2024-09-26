@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import LoginForm from '@/components/auth/LoginForm.vue'
 import RegisterForm from '@/components/auth/RegisterForm.vue'
+import Heading1 from '@/components/shared/atomic-design/atoms/Heading1.vue'
 
 definePageMeta({
   middleware: 'no-auth'
@@ -14,7 +15,7 @@ const submit = (datos: any) => {
 <template>
   <NuxtLayout name="basic">
     <br><br><br><br><br>
-    <h1 v-transition="'title'">login</h1>
+    <Heading1>login</Heading1>
     <div class="p-5">
       <div class="flex gap-4">
         <div class="w-1/2">
