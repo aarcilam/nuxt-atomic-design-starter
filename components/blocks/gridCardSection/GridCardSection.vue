@@ -1,17 +1,20 @@
 <template>
-  <div class="flex gap-5 columns-3 flex-wrap">
-    <Card v-for="item in items" :title="item.title" :description="item.description" :image="item.image" /> 
+  <div class="grid grid-cols-3 gap-4">
+    <SharedAtomicDesignMoleculesCard @click="startViewTransition('test')"  v-for="item in items" :title="item.title" :description="item.description" :image="item.image" :id="item.id" /> 
   </div>
 </template>
 
 <script lang="ts" setup>
-import Card from '@/components/shared/atomic-design/molecules/Card.vue'
 const props = defineProps({
     items: {
         type: Array,
         required: true
     },
 });
+import { useViewTransition } from '~/composables/useViewTransition'
+
+const user = useSupabaseUser()
+const { startViewTransition } = useViewTransition()
 </script>
 
 <style>

@@ -1,10 +1,10 @@
 <template>
   <div class="card glass">
     <figure>
-      <img :src="image" alt="car!" />
+      <img v-transition="'pug-'+id" :src="image" alt="car!" />
     </figure>
     <div class="card-body">
-      <h2 class="card-title">{{title}}</h2>
+      <h2 class="card-title">{{ title }}</h2>
       <p>{{ description }}</p>
       <div class="card-actions justify-end">
         <button class="btn btn-primary">Learn now!</button>
@@ -15,22 +15,25 @@
 
 <script lang="ts" setup>
 const props = defineProps({
-    type: {
-        type: String,
-        required: true
-    },
-    title: {
-        type: String,
-        required: true
-    },
-    description: {
-        type: String,
-        required: true
-    },
-    image: {
-        type: String,
-        required: true
-    }
+  id: {
+    type: Number,
+    required: true
+  },
+  type: {
+    type: String,
+  },
+  title: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  image: {
+    type: String,
+    required: true
+  }
 })
 </script>
 
