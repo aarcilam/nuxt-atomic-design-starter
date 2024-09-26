@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
-import JumbotronForm from './jumbotron/jumbotron.form.vue'
+import JumbotronForm from '@/components/blocks/jumbotron/jumbotron.form.vue'
 import FormWrap from '@/components/shared/atomic-design/atoms/forms/FormWrap.vue'
 
 const emit = defineEmits(['submit'])
