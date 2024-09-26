@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
-import JumbotronForm from '@/components/blocks/jumbotron/Jumbotron.form.vue'
-import FormWrap from '@/components/shared/atomic-design/atoms/forms/FormWrap.vue'
 
 const emit = defineEmits(['submit'])
 
@@ -9,14 +7,7 @@ const submit = (formData: any) => {
     emit('submit', formData)
 }   
 
-const items = reactive([
-    {
-        'jumbotron-0': {
-            title: 'Hello World',
-            description: 'This is a test'
-        }
-    }
-])
+const items = reactive([])
 
 const itemsObject = reactive(
     items.reduce((acc, item) => {
@@ -26,19 +17,20 @@ const itemsObject = reactive(
     }, {})
 );
 
-
-
-
 const addItem = (index: number, type: string) => {
     console.log(index, type)
-    items.push({[type+'-'+index]: {title: '', description: ''}})
+    items.push({[type+'-'+index]: {type: type, title: '', description: ''}})
 }
 </script>
 
 <template>
-    <FormWrap :value="itemsObject" formId="blocks-form" @submit="submit">
-        <JumbotronForm v-for="(item, index) in items" :index="index" />
-    </FormWrap>
+    <SharedAtomicDesignAtomsFormsFormWrap v-if="items.length>0" :value="itemsObject" formId="blocks-form" @submit="submit" submitLabel="Save">
+        <div v-for="(item, index) in items">
+            <BlocksJumbotronForm v-if="item[Object.keys(item)[0]].type == 'jumbotron'" :index="index" />
+            <BlocksMediaSectionForm v-if="item[Object.keys(item)[0]].type == 'mediaSection'" :index="index" />
+        </div>
+    </SharedAtomicDesignAtomsFormsFormWrap>
     <Button @click="addItem(items.length, 'jumbotron')">add jumbotron</Button>
-    <Button @click="addItem(items.length, 'mediaSection')">add mecia section</Button>
+    <br>
+    <Button @click="addItem(items.length, 'mediaSection')">add media section</Button>
 </template>

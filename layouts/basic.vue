@@ -2,7 +2,7 @@
 </script>
 <template>
     <SharedAtomicDesignMoleculesNav />
-    <main>
+    <main style="padding-top: 70px;">
         <slot />
     </main>
 </template>

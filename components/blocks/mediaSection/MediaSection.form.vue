@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import FormWrap from '@/components/shared/atomic-design/molecules/forms/FormWrap.vue'
 import FormFieldsCreator from '@/components/shared/atomic-design/molecules/forms/FormFieldsCreator.vue'
-import { FormGroup, FormField } from "@/interfaces/FormConfig"
+import type { FormGroup, FormField } from "@/interfaces/FormConfig"
 
 const props = defineProps<{
     index: number
@@ -10,7 +9,7 @@ const props = defineProps<{
 const formConfig: (FormGroup | FormField)[] = [
     {
         type: 'group',
-        name: `jumbotron-${props.index}`,
+        name: `mediaSection-${props.index}`,
         fields: [
             {
                 type: 'text',
@@ -45,7 +44,5 @@ const submit = (formData: any) => {
 </script>
 
 <template>
-    <!-- <FormWrap formId="jumbotron-form" @submit="submit"> -->
     <FormFieldsCreator :form-config="formConfig" />
-    <!-- </FormWrap> -->
 </template>

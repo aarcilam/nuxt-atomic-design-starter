@@ -1,25 +1,29 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
 import BlocksForm from '@/components/blocks/BlocksForm.vue'
 import DisplayBlocks from '@/components/blocks/DisplayBlocks.vue'
 import Heading1 from '@/components/shared/atomic-design/atoms/Heading1.vue'
 
-const blocks = reactive({})
+const blocks = ref([])
 
-const handleSubmit = (formData: any) => {
-    blocks.value = formData
-    console.log(formData)
+const handleSubmit = (formData: object) => {
+    // Convertimos el objeto formData en un array de objetos clave-valor
+    blocks.value = Object.entries(formData).map(([key, value]) => ({ key, value }));
+
+    // Imprimimos el formData original y el arreglo resultante
+    console.log(formData, blocks.value);
 }
 </script>
 
 <template>
-    <Heading1 >login</Heading1>
-    <div class="flex gap-4">
-        <div class="w-1/3">
-            <BlocksForm @submit="handleSubmit" />
+    <NuxtLayout name="basic">
+        <div class="flex gap-4">
+            <div class="w-1/4">
+                <Heading1>Edit Template</Heading1>
+                <BlocksForm @submit="handleSubmit" />
+            </div>
+            <div class="w-3/4">
+                <DisplayBlocks :blocks="blocks" />
+            </div>
         </div>
-        <div class="w-2/3">
-            <DisplayBlocks :blocks="blocks" />
-        </div>
-    </div>
+    </NuxtLayout>
 </template>
