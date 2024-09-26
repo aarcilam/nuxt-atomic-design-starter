@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import FormWrap from '@/components/shared/atomic-design/atoms/forms/FormWrap.vue'
-import FormFieeldsCreator from '@/components/shared/atomic-design/molecules/forms/FormFieeldsCreator.vue'
+import FormFieldsCreator from '@/components/shared/atomic-design/molecules/forms/FormFieldsCreator.vue'
 import { FormGroup, FormField } from "@/interfaces/FormConfig"
 const formConfig: (FormGroup | FormField)[] = [
     {
@@ -29,6 +29,6 @@ const submit = async (formData: any) => {
 
 <template>
     <FormWrap formId="login-form" @submit="submit">
-        <FormFieeldsCreator :form-config="formConfig" />
+        <FormFieldsCreator :form-config="formConfig" />
     </FormWrap>
 </template>

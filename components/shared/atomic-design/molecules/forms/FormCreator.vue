@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import FormWrap from '@/components/shared/atoms/forms/FormWrap.vue'
-import FormFieldsCreator from './FormFieeldsCreator.vue'
+import FormFieldsCreator from './FormFieldsCreator.vue'
 
 const props = defineProps({
   formConfig: {
