@@ -10,7 +10,7 @@ const handleSubmit = (formData: object) => {
     blocks.value = Object.entries(formData).map(([key, value]) => ({ key, value }));
 
     // Imprimimos el formData original y el arreglo resultante
-    console.log(formData, blocks.value);
+    console.log("Resultado",blocks.value);
 }
 </script>
 

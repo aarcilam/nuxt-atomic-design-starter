@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import homeBlocks from '~/utils/homeBlocks';
+
 
 const cardItems = [
   {
@@ -29,5 +31,6 @@ const cardItems = [
       <BlocksJumbotronComponent title="test" description="test" />
       <BlocksGridCardSection :items="cardItems" />
     </div>
+    <BlocksDisplayBlocks :blocks="homeBlocks()"></BlocksDisplayBlocks>
   </NuxtLayout>
 </template>
