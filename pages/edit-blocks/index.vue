@@ -17,13 +17,19 @@ const handleSubmit = (formData: object) => {
 
 <template>
     <NuxtLayout name="basic">
-        <div class="flex gap-4">
-            <div class="w-1/4">
-                <Heading1>Edit Template</Heading1>
-                <BlocksForm :blocks="blocks" @submit="handleSubmit" />
-            </div>
-            <div class="w-3/4">
+        <div class="drawer">
+            <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+            <div class="drawer-content">
+                <!-- Page content here -->
+                <label for="my-drawer" class="btn btn-primary drawer-button">Open Editor</label>
                 <DisplayBlocks :blocks="blocks" />
+            </div>
+            <div class="drawer-side">
+                <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+                <ul class="menu bg-base-200 text-base-content min-h-full w-1/2 p-4">
+                    <Heading1>Edit Template</Heading1>
+                    <BlocksForm :blocks="blocks" @submit="handleSubmit" />
+                </ul>
             </div>
         </div>
     </NuxtLayout>
