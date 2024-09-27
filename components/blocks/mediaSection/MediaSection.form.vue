@@ -26,11 +26,12 @@ const formConfig: (FormGroup | FormField)[] = [
                 validation: 'required'
             },
             {
-                type: 'text',
+                type: 'file',
                 id: 'image',
                 name: 'image',
                 label: 'Image',
-                validation: 'required'
+                validation: 'required',
+                accept: '.png,.jpng,.jpeg'
             }
         ]
     }

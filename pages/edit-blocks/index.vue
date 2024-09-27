@@ -4,8 +4,10 @@ import DisplayBlocks from '@/components/blocks/DisplayBlocks.vue'
 import Heading1 from '@/components/shared/atomic-design/atoms/Heading1.vue'
 import { useMyThemeStore } from '~/stores/theme';
 
-const blocks = ref([])
 const themeStore = useMyThemeStore()
+const blocks = ref(themeStore.blocksArray.length > 0 ? themeStore.blocksArray : homeBlocks())
+
+
 console.log(themeStore);
 const handleSubmit = (formData: object) => {
     blocks.value = Object.entries(formData).map(([key, value]) => ({ key, value }));
@@ -18,7 +20,7 @@ const handleSubmit = (formData: object) => {
         <div class="flex gap-4">
             <div class="w-1/4">
                 <Heading1>Edit Template</Heading1>
-                <BlocksForm :blocks="themeStore.blocksArray" @submit="handleSubmit" />
+                <BlocksForm :blocks="blocks" @submit="handleSubmit" />
             </div>
             <div class="w-3/4">
                 <DisplayBlocks :blocks="blocks" />

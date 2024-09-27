@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import FormWrap from '@/components/shared/atoms/forms/FormWrap.vue'
 import FormFieldsCreator from './FormFieldsCreator.vue'
 
 const props = defineProps({
@@ -11,7 +10,7 @@ const props = defineProps({
 </script>
 
 <template>
-      <FormWrap formId="register-form" @submit="submit">
+      <SharedAtomicDesignAtomsFormsFormWrap formId="register-form">
         <FormFieldsCreator :form-config="formConfig" />
-    </FormWrap>
+    </SharedAtomicDesignAtomsFormsFormWrap>
 </template>

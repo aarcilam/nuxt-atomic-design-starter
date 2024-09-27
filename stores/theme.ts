@@ -1,4 +1,7 @@
 import { defineStore } from 'pinia'
+import type { JumbotronInterface } from '~/components/blocks/jumbotron/Jumbotron.interface'
+import type { MediaSectionInterface } from '~/components/blocks/mediaSection/MediaSection.interface'
+import type { Block } from '~/interfaces/Block.interface'
 
 export const useMyThemeStore = defineStore('theme', () => {
   const blocks = ref({})
@@ -6,9 +9,8 @@ export const useMyThemeStore = defineStore('theme', () => {
     console.log(blocks)
     blocks.value = updatedTheme
   }
-
   const blocksArray = computed(() => {
-    const themeArray = Object.entries(blocks.value).map(([key, value]) => ({ key, value }));
+    const themeArray:Block[] = Object.entries(blocks.value).map(([key, value]) => ({ key, value: value as JumbotronInterface | MediaSectionInterface }));
     return themeArray;
   })
 

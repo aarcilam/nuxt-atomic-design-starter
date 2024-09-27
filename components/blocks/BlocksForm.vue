@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useMyThemeStore } from '~/stores/theme';
+import type { Block } from '~/interfaces/Block.interface';
 
 const emit = defineEmits(['submit'])
 const props = defineProps<{
-    blocks: Array<Object>
+    blocks: Block[]
 }>()
 const submit = (formData: any) => {
     emit('submit', formData)
@@ -13,17 +13,16 @@ const items = reactive(props.blocks)
 
 const itemsObject = reactive(
     items.reduce((acc, item) => {
-        // Usamos `item.key` como la clave y `item.value` como el valor
         acc[item.key] = item.value;
         return acc;
-    }, {} as Record<string, any>)  // `Record<string, any>` define que acc es un objeto con claves de tipo string y valores de cualquier tipo
+    }, {} as Record<string, any>) 
 );
 emit('submit', itemsObject)
 console.log(items);
 
 const addItem = (index: number, type: string) => {
     console.log(index, type)
-    items.push({key: type+'-'+index})
+    items.push({key: type+'-'+index, value: { title: '', description: '' }})
     console.log(items)
 }
 </script>

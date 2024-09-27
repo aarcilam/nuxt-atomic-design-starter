@@ -7,6 +7,7 @@ import BodyText from '@/components/shared/atomic-design/atoms/BodyText.vue';
 import TextArea from '@/components/shared/atomic-design/atoms/forms/fields/TextArea.vue';
 import SelectInput from '@/components/shared/atomic-design/atoms/forms/fields/SelectInput.vue';
 import PhoneInput from '@/components/shared/atomic-design/atoms/forms/fields/PhoneInput.vue';
+import FileInput from '../../atoms/forms/fields/FileInput.vue';
 
 const props = defineProps({
   formConfig: {
@@ -52,6 +53,14 @@ const renderFormField = (field: any) => {
       break;
     case 'phone':
       return h(PhoneInput, {
+        name: field.name,
+        id: field.id,
+        validation: field.validation,
+        label: field.label
+      });
+      break;
+    case 'file':
+      return h(FileInput, {
         name: field.name,
         id: field.id,
         validation: field.validation,

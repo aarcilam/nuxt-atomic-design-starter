@@ -17,7 +17,7 @@ defineProps({
 
 <template>
     <div class="text-white p-4 rounded-lg">
-        <h1 class="text-2xl font-bold">{{ title }}</h1>
-        <p class="text-sm">{{ description }}</p>
+        <SharedAtomicDesignAtomsHeading1> {{ title }} </SharedAtomicDesignAtomsHeading1>
+        <SharedAtomicDesignAtomsBodyText class="text-sm">{{ description }}</SharedAtomicDesignAtomsBodyText>
     </div>
 </template>
