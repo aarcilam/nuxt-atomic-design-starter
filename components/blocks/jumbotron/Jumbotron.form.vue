@@ -37,6 +37,5 @@ const submit = (formData: any) => {
 </script>
 
 <template>
-    <SharedAtomicDesignAtomsHeading2>Jumbotron</SharedAtomicDesignAtomsHeading2>
     <FormFieldsCreator :form-config="formConfig" />
 </template>

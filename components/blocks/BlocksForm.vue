@@ -29,10 +29,10 @@ const addItem = (index: number, type: string) => {
 
 <template>
     <SharedAtomicDesignAtomsFormsFormWrap v-if="items.length>0 || props.blocks.length>0" :value="itemsObject" formId="blocks-form" @submit="submit" submitLabel="Save">
-        <SharedAtomicDesignAtomsCardContainer v-for="(item, index) in items">
+        <SharedAtomicDesignAtomsCollapsableCard :title="item.key" v-for="(item, index) in items">
             <BlocksJumbotronForm v-if="item.key.includes('jumbotron')" :index="index" />
             <BlocksMediaSectionForm v-if="item.key.includes('mediaSection')" :index="index" />
-        </SharedAtomicDesignAtomsCardContainer>
+        </SharedAtomicDesignAtomsCollapsableCard>
     </SharedAtomicDesignAtomsFormsFormWrap>
     <Button @click="addItem(items.length, 'jumbotron')">add jumbotron</Button>
     <br>
