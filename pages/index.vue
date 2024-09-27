@@ -2,7 +2,6 @@
 import { useMyThemeStore } from '~/stores/theme';
 import homeBlocks from '~/utils/homeBlocks';
 
-
 const cardItems = [
   {
     id: 1,
@@ -25,18 +24,18 @@ const cardItems = [
 ]
 
 const themeStore = useMyThemeStore()
-const blocks = themeStore.blocksArray
+const blocks = themeStore.blocksArray.length > 0 ? themeStore.blocksArray : homeBlocks()
 
 console.log("themeStore",themeStore.blocks,blocks)
 </script>
 
 <template>
   <NuxtLayout name="basic">
-    <div class="p-5">
+    <!-- <div class="p-5">
       <BlocksSlider />
       <BlocksJumbotronComponent title="test" description="test" />
       <BlocksGridCardSection :items="cardItems" />
-    </div>
+    </div> -->
     <BlocksDisplayBlocks :blocks="blocks"></BlocksDisplayBlocks>
   </NuxtLayout>
 </template>
