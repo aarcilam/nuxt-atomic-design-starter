@@ -6,8 +6,12 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@formkit/nuxt',
     '@nuxtjs/supabase',
-    '@nuxt/image'
+    '@nuxt/image',
+    '@pinia/nuxt'
   ],
+  pinia: {
+    storesDirs: ['./stores/**'],
+  },
   formkit: {
     autoImport: true
   },

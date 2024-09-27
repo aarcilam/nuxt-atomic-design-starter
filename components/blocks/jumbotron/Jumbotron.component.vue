@@ -21,7 +21,7 @@ defineProps({
                 <p class="py-6">
                     {{ description }}
                 </p>
-                <button class="btn btn-primary">Get Started</button>
+                <SharedAtomicDesignAtomsButton class="btn btn-primary">Get Started</SharedAtomicDesignAtomsButton>
             </div>
         </div>
     </div>
