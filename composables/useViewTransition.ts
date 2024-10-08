@@ -15,9 +15,11 @@ export function useViewTransition() {
     }
 
     const startViewTransition = (ruta: string, callback?: () => void | Promise<void>) => {
+        const localePath = useLocalePath()
+
         if ('startViewTransition' in document) {
             (document as any).startViewTransition(() => {
-                router.push(ruta)
+                router.push(localePath(ruta))
                 if(callback)callback()
                 // applyTransitionStyles()
             })

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useViewTransition } from '~/composables/useViewTransition'
-import { useI18n } from 'vue-i18n' 
 const user = useSupabaseUser()
 const { startViewTransition } = useViewTransition()
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import FormWrap from '@/components/shared/atomic-design/atoms/forms/FormWrap.vue'
 import FormFieldsCreator from '@/components/shared/atomic-design/molecules/forms/FormFieldsCreator.vue'
-import { FormGroup, FormField } from "@/interfaces/FormConfig"
+import type { FormGroup, FormField } from "@/interfaces/FormConfig";
 const formConfig: (FormGroup | FormField)[] = [
     {
         type: 'text',

@@ -3,7 +3,7 @@ import FormWrap from '@/components/shared/atomic-design/atoms/forms/FormWrap.vue
 import FormFieldsCreator from '@/components/shared/atomic-design/molecules/forms/FormFieldsCreator.vue'
 import Heading1 from '@/components/shared/atomic-design/atoms/Heading1.vue'
 import BodyText from '@/components/shared/atomic-design/atoms/BodyText.vue'
-import { FormGroup, FormField } from "@/interfaces/FormConfig"
+import  type { FormGroup, FormField } from "@/interfaces/FormConfig"
 
 const emit = defineEmits(['submit']);
 
