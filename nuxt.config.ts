@@ -7,10 +7,26 @@ export default defineNuxtConfig({
     '@formkit/nuxt',
     '@nuxtjs/supabase',
     '@nuxt/image',
-    '@pinia/nuxt'
+    '@pinia/nuxt',
+    '@nuxtjs/i18n'
   ],
   pinia: {
     storesDirs: ['./stores/**'],
+  },
+  i18n: {
+    langDir: 'locales',
+    locales: [
+      {
+        code: 'en',
+        file: 'en.json'
+      },
+      {
+        code: 'es',
+        file: 'es.json'
+      }
+    ],
+    defaultLocale: 'es',
+    strategy: 'prefix_except_default',
   },
   formkit: {
     autoImport: true

@@ -1,8 +1,15 @@
 <script setup lang="ts">
 import { useViewTransition } from '~/composables/useViewTransition'
-
+import { useI18n } from 'vue-i18n' 
 const user = useSupabaseUser()
 const { startViewTransition } = useViewTransition()
+
+const {setLocale} = useI18n()
+const changeLocale = (locale) => {
+    setLocale(locale)
+    console.log(`Idioma cambiado a: ${locale}`);
+};
+
 
 </script>
 
@@ -16,6 +23,7 @@ const { startViewTransition } = useViewTransition()
                 <li><a @click="startViewTransition('/')">Home</a></li>
                 <li v-if="!user"><a @click="startViewTransition('/login')">Login</a></li>
                 <li><a @click="startViewTransition('/edit-blocks')">Edit Blocks</a></li>
+                <li><a @click="startViewTransition('/edit-blocks/show')">Blocks</a></li>
                 <li><a @click="startViewTransition('/test')">View transition</a></li>
             </ul>
             <div class="dropdown dropdown-end">
@@ -35,6 +43,22 @@ const { startViewTransition } = useViewTransition()
                         <span class="text-info">Subtotal: $999</span>
                         <div class="card-actions">
                             <button class="btn btn-primary btn-block">View cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                    <div class="indicator">
+                        lang
+                    </div>
+                </div>
+                <div tabindex="0" class="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow">
+                    <div class="card-body">
+                        <span class="text-lg font-bold">Cambiar idioma</span>
+                        <div class="card-actions">
+                            <button class="btn btn-primary btn-block" @click="changeLocale('en')">English</button>
+                            <button class="btn btn-primary btn-block" @click="changeLocale('es')">Español</button>
                         </div>
                     </div>
                 </div>
