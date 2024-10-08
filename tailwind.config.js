@@ -6,7 +6,7 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        myTheme: {
+        custom: {
           "primary": "#3BFF6D", // Verde más oscuro para primario
           "secondary": "#4ADE80", // Verde medio para secundario
           "accent": "#A3E9B5", // Verde más claro para acento
@@ -27,7 +27,9 @@ module.exports = {
           "--tab-border": "1px", // border width of tabs
           "--tab-radius": "0.5rem", // border radius of tabs
         },
-      }
+      },
+      "dark",
+      "cupcake",
     ],
   },
 }

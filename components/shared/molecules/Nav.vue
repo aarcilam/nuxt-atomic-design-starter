@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import { useViewTransition } from '~/composables/useViewTransition'
+import { useMyColorStore } from '~/stores/colors';
 const user = useSupabaseUser()
 const { startViewTransition } = useViewTransition()
 
 const {setLocale} = useI18n()
+const {update} = useMyColorStore()
 const changeLocale = (locale) => {
     setLocale(locale)
-    console.log(`Idioma cambiado a: ${locale}`);
-};
-
-
+}
+const changeTheme= (theme) => {
+    update(theme)
+}
 </script>
 
 <template>
@@ -42,7 +44,7 @@ const changeLocale = (locale) => {
                         <span class="text-lg font-bold">8 Items</span>
                         <span class="text-info">Subtotal: $999</span>
                         <div class="card-actions">
-                            <button class="btn btn-primary btn-block">View cart</button>
+                            <SharedAtomsButton>View cart</SharedAtomsButton>
                         </div>
                     </div>
                 </div>
@@ -57,8 +59,25 @@ const changeLocale = (locale) => {
                     <div class="card-body">
                         <span class="text-lg font-bold">{{$t('changeLang')}}</span>
                         <div class="card-actions">
-                            <button class="btn btn-primary btn-block" @click="changeLocale('en')">English</button>
-                            <button class="btn btn-primary btn-block" @click="changeLocale('es')">Español</button>
+                            <SharedAtomsButton @click="changeLocale('en')">English</SharedAtomsButton>
+                            <SharedAtomsButton @click="changeLocale('es')">Español</SharedAtomsButton>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                    <div class="indicator">
+                        theme
+                    </div>
+                </div>
+                <div tabindex="0" class="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow">
+                    <div class="card-body">
+                        <span class="text-lg font-bold">{{$t('changeLang')}}</span>
+                        <div class="card-actions">
+                            <SharedAtomsButton @click="changeTheme('custom')">custom</SharedAtomsButton>
+                            <SharedAtomsButton @click="changeTheme('dark')">dark</SharedAtomsButton>
+                            <SharedAtomsButton @click="changeTheme('cupcake')">cupcake</SharedAtomsButton>
                         </div>
                     </div>
                 </div>
