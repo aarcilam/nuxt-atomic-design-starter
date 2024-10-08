@@ -6,7 +6,6 @@ import type { Block } from '~/interfaces/Block.interface'
 export const useMyThemeStore = defineStore('theme', () => {
   const blocks = ref({})
   function update(updatedTheme) {
-    console.log(blocks)
     blocks.value = updatedTheme
   }
   const blocksArray = computed(() => {
