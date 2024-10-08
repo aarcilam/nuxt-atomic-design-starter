@@ -15,7 +15,7 @@ const changeLocale = (locale) => {
 <template>
     <div class="navbar bg-base-100 fixed w-full z-50">    
         <div class="flex-1">
-            <a class="btn btn-ghost text-xl">daisyUI</a>
+            <a class="btn btn-ghost text-xl">NuxtSolidStart</a>
         </div>
         <div class="flex-none">
             <ul class="menu menu-horizontal px-1">

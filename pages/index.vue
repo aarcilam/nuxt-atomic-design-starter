@@ -4,6 +4,6 @@
 
 <template>
   <NuxtLayout name="basic">
-    <h1>{{ $t('welcome') }}</h1>
+    <BlocksDisplayBlocks :blocks="homeBlocks()"</BlocksDisplayBlocks>
   </NuxtLayout>
 </template>

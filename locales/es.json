@@ -1,4 +1,10 @@
 {
      "welcome": "hola",
-     "changeLang": "Cambia el idioma"
+     "changeLang": "Cambia el idioma",
+     "home": {
+          "jumbotron": {
+               "title": "Hola este es un comienzo solido con nuxt",
+               "description": "Conoce los bloques"
+          }
+     }
 }
