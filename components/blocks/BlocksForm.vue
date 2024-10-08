@@ -78,9 +78,9 @@ function remove(index) {
 </script>
 
 <template>
-    <SharedAtomicDesignAtomsFormsFormWrap v-if="(items.length > 0 || props.blocks.length > 0) && !reDraw" :value="itemsObject"
+    <SharedAtomsFormsFormWrap v-if="(items.length > 0 || props.blocks.length > 0) && !reDraw" :value="itemsObject"
         formId="blocks-form" @submit="submit" submitLabel="Save">
-        <SharedAtomicDesignAtomsCollapsableCard :title="item.key" v-for="(item, index) in items" :key="index">
+        <SharedAtomsCollapsableCard :title="item.key" v-for="(item, index) in items" :key="index">
             <div class="flex">
                 <BlocksJumbotronForm v-if="item.key.includes('jumbotron')" :index="index" :key="index" />
                 <BlocksMediaSectionForm v-if="item.key.includes('mediaSection')" :index="index" :key="index" />
@@ -91,8 +91,8 @@ function remove(index) {
                 </div>
             </div>
 
-        </SharedAtomicDesignAtomsCollapsableCard>
-    </SharedAtomicDesignAtomsFormsFormWrap>
+        </SharedAtomsCollapsableCard>
+    </SharedAtomsFormsFormWrap>
     <Button @click="addItem(items.length, 'jumbotron')">add jumbotron</Button>
     <br>
     <Button @click="addItem(items.length, 'mediaSection')">add media section</Button>

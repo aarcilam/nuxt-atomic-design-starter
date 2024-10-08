@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import BlocksForm from '@/components/blocks/BlocksForm.vue'
 import DisplayBlocks from '@/components/blocks/DisplayBlocks.vue'
-import Heading1 from '@/components/shared/atomic-design/atoms/Heading1.vue'
+import Heading1 from '@/components/shared/atoms/Heading1.vue'
 import { useMyThemeStore } from '~/stores/theme';
 
 const themeStore = useMyThemeStore()

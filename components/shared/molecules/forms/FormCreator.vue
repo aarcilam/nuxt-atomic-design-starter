@@ -10,7 +10,7 @@ const props = defineProps({
 </script>
 
 <template>
-      <SharedAtomicDesignAtomsFormsFormWrap formId="register-form">
+      <SharedAtomsFormsFormWrap formId="register-form">
         <FormFieldsCreator :form-config="formConfig" />
-    </SharedAtomicDesignAtomsFormsFormWrap>
+    </SharedAtomsFormsFormWrap>
 </template>

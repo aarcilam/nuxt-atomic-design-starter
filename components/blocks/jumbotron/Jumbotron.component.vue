@@ -15,11 +15,11 @@ defineProps({
     <div class="hero bg-base-200 min-h-screen">
         <div class="hero-content text-center">
             <div class="max-w-md">
-                <SharedAtomicDesignAtomsHeading1> {{ title }} </SharedAtomicDesignAtomsHeading1>
+                <SharedAtomsHeading1> {{ title }} </SharedAtomsHeading1>
                 <p class="py-6">
                     {{ description }}
                 </p>
-                <SharedAtomicDesignAtomsButton class="btn btn-primary">Get Started</SharedAtomicDesignAtomsButton>
+                <SharedAtomsButton class="btn btn-primary">Get Started</SharedAtomsButton>
             </div>
         </div>
     </div>

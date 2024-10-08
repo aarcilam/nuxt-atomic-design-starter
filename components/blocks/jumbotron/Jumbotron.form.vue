@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FormFieldsCreator from '@/components/shared/atomic-design/molecules/forms/FormFieldsCreator.vue'
+import FormFieldsCreator from '@/components/shared/molecules/forms/FormFieldsCreator.vue'
 import type { FormGroup, FormField } from "@/interfaces/FormConfig"
 
 const props = defineProps<{

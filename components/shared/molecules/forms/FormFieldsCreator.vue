@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import FormGroup from '@/components/shared/atomic-design/atoms/forms/FormGroup.vue';
-import TextInput from '@/components/shared/atomic-design/atoms/forms/fields/TextInput.vue';
-import Heading1 from '@/components/shared/atomic-design/atoms/Heading1.vue';
-import PassInput from '@/components/shared/atomic-design/atoms/forms/fields/PassInput.vue';
-import BodyText from '@/components/shared/atomic-design/atoms/BodyText.vue';
-import TextArea from '@/components/shared/atomic-design/atoms/forms/fields/TextArea.vue';
-import SelectInput from '@/components/shared/atomic-design/atoms/forms/fields/SelectInput.vue';
-import PhoneInput from '@/components/shared/atomic-design/atoms/forms/fields/PhoneInput.vue';
+import FormGroup from '@/components/shared/atoms/forms/FormGroup.vue';
+import TextInput from '@/components/shared/atoms/forms/fields/TextInput.vue';
+import Heading1 from '@/components/shared/atoms/Heading1.vue';
+import PassInput from '@/components/shared/atoms/forms/fields/PassInput.vue';
+import BodyText from '@/components/shared/atoms/BodyText.vue';
+import TextArea from '@/components/shared/atoms/forms/fields/TextArea.vue';
+import SelectInput from '@/components/shared/atoms/forms/fields/SelectInput.vue';
+import PhoneInput from '@/components/shared/atoms/forms/fields/PhoneInput.vue';
 import FileInput from '../../atoms/forms/fields/FileInput.vue';
 
 const props = defineProps({
