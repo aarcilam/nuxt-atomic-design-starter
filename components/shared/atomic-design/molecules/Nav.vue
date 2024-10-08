@@ -54,7 +54,7 @@ const changeLocale = (locale) => {
                 </div>
                 <div tabindex="0" class="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow">
                     <div class="card-body">
-                        <span class="text-lg font-bold">Cambiar idioma</span>
+                        <span class="text-lg font-bold">{{$t('changeLang')}}</span>
                         <div class="card-actions">
                             <button class="btn btn-primary btn-block" @click="changeLocale('en')">English</button>
                             <button class="btn btn-primary btn-block" @click="changeLocale('es')">Español</button>
