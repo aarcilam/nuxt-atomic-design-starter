@@ -5,6 +5,7 @@ module.exports = {
   ],
   daisyui: {
     themes: [
+      "lemonade",
       {
         custom: {
           "primary": "#3BFF6D", // Verde más oscuro para primario
@@ -23,7 +24,7 @@ module.exports = {
           "--animation-btn": "0.25s", // duration of animation when you click on button
           "--animation-input": "0.2s", // duration of animation for inputs like checkbox, toggle, radio, etc
           "--btn-focus-scale": "0.95", // scale transform of button when you focus on it
-          "--border-btn": "1px", // border width of buttons
+          "--border-btn": "5px", // border width of buttons
           "--tab-border": "1px", // border width of tabs
           "--tab-radius": "0.5rem", // border radius of tabs
         },

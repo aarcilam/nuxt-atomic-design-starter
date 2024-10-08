@@ -4,7 +4,7 @@ import { useMyColorStore } from '~/stores/colors';
 const user = useSupabaseUser()
 const { startViewTransition } = useViewTransition()
 
-const {setLocale} = useI18n()
+const {setLocale, locale} = useI18n()
 const {update} = useMyColorStore()
 const changeLocale = (locale) => {
     setLocale(locale)
@@ -27,6 +27,7 @@ const changeTheme= (theme) => {
                 <li><a @click="startViewTransition('/edit-blocks')">Edit Blocks</a></li>
                 <li><a @click="startViewTransition('/edit-blocks/show')">Blocks</a></li>
                 <li><a @click="startViewTransition('/test')">View transition</a></li>
+                <li><a @click="startViewTransition('/formCreator')">From Creator</a></li>
             </ul>
             <div class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
@@ -52,7 +53,7 @@ const changeTheme= (theme) => {
             <div class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
                     <div class="indicator">
-                        lang
+                        {{locale}}
                     </div>
                 </div>
                 <div tabindex="0" class="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow">
@@ -75,6 +76,7 @@ const changeTheme= (theme) => {
                     <div class="card-body">
                         <span class="text-lg font-bold">{{$t('changeLang')}}</span>
                         <div class="card-actions">
+                            <SharedAtomsButton @click="changeTheme('lemonade')">lemonade</SharedAtomsButton>
                             <SharedAtomsButton @click="changeTheme('custom')">custom</SharedAtomsButton>
                             <SharedAtomsButton @click="changeTheme('dark')">dark</SharedAtomsButton>
                             <SharedAtomsButton @click="changeTheme('cupcake')">cupcake</SharedAtomsButton>
