@@ -24,7 +24,7 @@ const cardItems = [
 ]
 
 const themeStore = useMyThemeStore()
-const blocks = themeStore.blocksArray.length > 0 ? themeStore.blocksArray : homeBlocks()
+const blocks = themeStore.blocksArray.length > 0 ? themeStore.blocksArray : showdownBlocks()
 
 console.log("themeStore",themeStore.blocks,blocks)
 </script>

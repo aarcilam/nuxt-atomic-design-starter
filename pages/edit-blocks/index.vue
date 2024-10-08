@@ -5,7 +5,7 @@ import Heading1 from '@/components/shared/atoms/Heading1.vue'
 import { useMyThemeStore } from '~/stores/theme';
 
 const themeStore = useMyThemeStore()
-const blocks = ref(themeStore.blocksArray.length > 0 ? themeStore.blocksArray : homeBlocks())
+const blocks = ref(themeStore.blocksArray.length > 0 ? themeStore.blocksArray : showdownBlocks())
 
 
 console.log(themeStore);
