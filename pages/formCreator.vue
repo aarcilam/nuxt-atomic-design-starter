@@ -4,6 +4,8 @@
       <div class="w-1/2">
         <SharedAtomsHeading2>The form on the right is created with this JSON bellow</SharedAtomsHeading2>
         <SharedAtomsBodyText>Edit the json and see how changes</SharedAtomsBodyText>
+        <SharedAtomsButton @click="mountBasicForm()">Basic form</SharedAtomsButton>
+        <SharedAtomsButton @click="mountComplicatedForm()">More complicated</SharedAtomsButton>
         <SharedMoleculesFormsFormCreator :form-config="formConfig" @change="formChange" :value="testForm">
         </SharedMoleculesFormsFormCreator>
       </div>
@@ -32,6 +34,16 @@ const newForm = ref(JSON.parse(simpleForm))
 const testForm = ref({
   json: simpleForm
 })
+
+const mountComplicatedForm = () => {
+  newForm.value = JSON.parse(complicatedForm);
+  testForm.value =  {json:complicatedForm};
+}
+
+const mountBasicForm = () => {
+  newForm.value = JSON.parse(simpleForm);
+  testForm.value = {json:simpleForm};
+}
 
 const formChange = (event: any) => {
   console.log(event.target.value);
