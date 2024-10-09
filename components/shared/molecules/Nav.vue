@@ -23,10 +23,9 @@ const changeTheme= (theme) => {
             <ul class="menu menu-horizontal px-1">
                 <li><a @click="startViewTransition('/')">Home</a></li>
                 <li v-if="!user"><a @click="startViewTransition('/login')">Login</a></li>
-                <li><a @click="startViewTransition('/components')">Components</a></li>
-                <li><a @click="startViewTransition('/edit-blocks')">Edit Blocks</a></li>
-                <li><a @click="startViewTransition('/edit-blocks/show')">Blocks</a></li>
-                <li><a @click="startViewTransition('/test')">View transition</a></li>
+                <!-- <li><a @click="startViewTransition('/edit-blocks')">Edit Blocks</a></li> -->
+                <!-- <li><a @click="startViewTransition('/edit-blocks/show')">Blocks</a></li> -->
+                <!-- <li><a @click="startViewTransition('/test')">View transition</a></li> -->
                 <li><a @click="startViewTransition('/formCreator')">From Creator</a></li>
             </ul>
             <div class="dropdown dropdown-end">
