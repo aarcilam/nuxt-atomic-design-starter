@@ -10,10 +10,12 @@
         'outer': 'p-2',
         'input': 'input input-bordered w-full',
       }"
+      @input="emit('input', $event)"
     />
 </template>
 
 <script setup>
+const emit = defineEmits(['input'])
 defineProps({
   name: {
     type: String,

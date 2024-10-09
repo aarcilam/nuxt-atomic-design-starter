@@ -11,10 +11,12 @@
         'input': 'select select-bordered w-full',
       }"
       :options="options"
+      @input="emit('input', $event)"
     />
 </template>
 
 <script setup>
+const emit = defineEmits(['input'])
 defineProps({
   name: {
     type: String,

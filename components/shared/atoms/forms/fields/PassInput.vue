@@ -1,11 +1,13 @@
 <template>
-    <FormKit type="password" :name="name" :id="id" :validation="validation" :validation-messages="validationMessages" :label="label" :classes="{
-        'outer': 'p-2',
-        'input': 'input input-bordered w-full',
-    }" />
+    <FormKit type="password" :name="name" :id="id" :validation="validation" :validation-messages="validationMessages"
+        :label="label" :classes="{
+            'outer': 'p-2',
+            'input': 'input input-bordered w-full',
+        }" @input="emit('input', $event)" />
 </template>
 
-<script setup lang="ts">
+<script setup>
+const emit = defineEmits(['input'])
 
 const props = defineProps({
     name: {
