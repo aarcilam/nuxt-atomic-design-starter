@@ -1,9 +1,9 @@
 
 <script setup lang="ts">
 import { watch } from 'vue';
-import { useMyColorStore } from '~/stores/colors';
+import { useThemeStore } from '~/stores/theme';
 
-const colorStore = useMyColorStore();
+const colorStore = useThemeStore();
 const themeKey = ref(0);
 
 watch(() => colorStore.colorTheme, (newTheme) => {

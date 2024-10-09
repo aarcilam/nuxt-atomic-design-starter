@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { useViewTransition } from '~/composables/useViewTransition'
-import { useMyColorStore } from '~/stores/colors';
+import { useThemeStore } from '~/stores/theme';
 const user = useSupabaseUser()
 const { startViewTransition } = useViewTransition()
 
 const {setLocale, locale} = useI18n()
-const {update} = useMyColorStore()
+const {update} = useThemeStore()
 const changeLocale = (locale) => {
     setLocale(locale)
 }

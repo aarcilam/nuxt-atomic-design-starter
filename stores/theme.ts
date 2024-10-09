@@ -1,17 +1,30 @@
-import { defineStore } from 'pinia'
-import type { JumbotronInterface } from '~/components/blocks/jumbotron/Jumbotron.interface'
-import type { MediaSectionInterface } from '~/components/blocks/mediaSection/MediaSection.interface'
-import type { Block } from '~/interfaces/Block.interface'
+import { defineStore } from 'pinia';
+import { ref, watch, onMounted } from 'vue';
 
-export const useMyThemeStore = defineStore('theme', () => {
-  const blocks = ref({})
+export const useThemeStore = defineStore('theme', () => {
+  const colorTheme = ref(null);
+
+  // Cargar el tema desde localStorage solo en el cliente
+  onMounted(() => {
+    if (typeof localStorage !== 'undefined') {
+      const storedTheme = localStorage.getItem('colorTheme');
+      colorTheme.value = storedTheme ? storedTheme : 'custom';
+    }
+  });
+
   function update(updatedTheme) {
-    blocks.value = updatedTheme
+    colorTheme.value = updatedTheme;
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('colorTheme', updatedTheme);
+    }
   }
-  const blocksArray = computed(() => {
-    const themeArray:Block[] = Object.entries(blocks.value).map(([key, value]) => ({ key, value: value as JumbotronInterface | MediaSectionInterface }));
-    return themeArray;
-  })
 
-  return { blocks, blocksArray, update }
-})
+  // Guardar cambios en localStorage solo en el cliente
+  watch(colorTheme, (newTheme) => {
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('colorTheme', newTheme);
+    }
+  });
+
+  return { colorTheme, update };
+});

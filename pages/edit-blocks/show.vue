@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useMyThemeStore } from '~/stores/theme';
+import { useCustomBlockStore } from '~/stores/custom-blocks';
 import homeBlocks from '~/utils/homeBlocks';
 
 const cardItems = [
@@ -23,7 +23,7 @@ const cardItems = [
   }
 ]
 
-const themeStore = useMyThemeStore()
+const themeStore = useCustomBlockStore()
 const blocks = themeStore.blocksArray.length > 0 ? themeStore.blocksArray : showdownBlocks()
 
 console.log("themeStore",themeStore.blocks,blocks)
