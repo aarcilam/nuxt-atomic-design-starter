@@ -1,32 +1,39 @@
 <script setup lang="ts">
-const pugData = [
+import type { CardItem } from '~/components/shared/molecules/Card.vue';
+
+const pugData: CardItem[] = [
   {
     title: "Happy Pug",
     description: "A happy pug sitting on a couch.",
+    price: '$20',
     image: "https://www.infobae.com/resizer/v2/I5RSZR65RVEZRGA3ZFR6JLUWVI.jpg?auth=9631db2770289843949bb4011c574f1aaca63e51b9b0851a3a40bc233b98bcb5&smart=true&width=992&height=558&quality=85",
     id: 1
   },
   {
     title: "Sleepy Pug",
     description: "A sleepy pug lying on a soft bed.",
+    price: '$20',
     image: "https://www.infobae.com/resizer/v2/I5RSZR65RVEZRGA3ZFR6JLUWVI.jpg?auth=9631db2770289843949bb4011c574f1aaca63e51b9b0851a3a40bc233b98bcb5&smart=true&width=992&height=558&quality=85",
     id: 2
   },
   {
     title: "Playful Pug",
     description: "A playful pug enjoying some time outdoors.",
+    price: '$20',
     image: "https://www.infobae.com/resizer/v2/I5RSZR65RVEZRGA3ZFR6JLUWVI.jpg?auth=9631db2770289843949bb4011c574f1aaca63e51b9b0851a3a40bc233b98bcb5&smart=true&width=992&height=558&quality=85",
     id: 3
   },
   {
     title: "Curious Pug",
     description: "A curious pug looking up with a tilted head.",
+    price: '$20',
     image: "https://www.infobae.com/resizer/v2/I5RSZR65RVEZRGA3ZFR6JLUWVI.jpg?auth=9631db2770289843949bb4011c574f1aaca63e51b9b0851a3a40bc233b98bcb5&smart=true&width=992&height=558&quality=85",
     id: 4
   },
   {
     title: "Pug with a Hat",
     description: "A cute pug wearing a small hat.",
+    price: '$20',
     image: "https://www.infobae.com/resizer/v2/I5RSZR65RVEZRGA3ZFR6JLUWVI.jpg?auth=9631db2770289843949bb4011c574f1aaca63e51b9b0851a3a40bc233b98bcb5&smart=true&width=992&height=558&quality=85",
     id: 5
   }
@@ -90,17 +97,29 @@ const pugData = [
       <hr>
       <div class="mt-5">
         <SharedAtomsHeading2>Moleculas</SharedAtomsHeading2>
-        <SharedMoleculesCard class="w-[400px]" title="Test Card" description="this is a card"
-          image="https://www.infobae.com/resizer/v2/I5RSZR65RVEZRGA3ZFR6JLUWVI.jpg?auth=9631db2770289843949bb4011c574f1aaca63e51b9b0851a3a40bc233b98bcb5&smart=true&width=992&height=558&quality=85"
-          :id="1"></SharedMoleculesCard>
+        <SharedMoleculesCard class="w-[400px]" :title="pugData[0].title" :description="pugData[0].description"
+          :image="pugData[0].image" :id="pugData[0].id"></SharedMoleculesCard>
+        <SharedMoleculesCard class="w-[400px]" :glass="true" :title="pugData[0].title"
+          :description="pugData[0].description" :image="pugData[0].image" :id="pugData[0].id"></SharedMoleculesCard>
+        <SharedMoleculesCard class="w-[400px]" :side="true" :title="pugData[0].title"
+          :description="pugData[0].description" :image="pugData[0].image" :id="pugData[0].id"></SharedMoleculesCard>
+        <SharedMoleculesCard class="w-[400px]" :full-img="true" :title="pugData[0].title"
+          :description="pugData[0].description" :image="pugData[0].image" :id="pugData[0].id"></SharedMoleculesCard>
+        <SharedMoleculesCard class="w-[400px]" color="primary" :title="pugData[0].title"
+          :description="pugData[0].description" :image="pugData[0].image" :id="pugData[0].id"></SharedMoleculesCard>
+        <SharedMoleculesCard class="w-[400px]" :side="true" :glass="true" color="accent" :title="pugData[0].title"
+          :description="pugData[0].description" :image="pugData[0].image" :id="pugData[0].id"></SharedMoleculesCard>
       </div>
       <div class="mt-5">
         <SharedAtomsHeading2>Organismos (BLOCKS)</SharedAtomsHeading2>
         <SharedAtomsHeading2>Card grid</SharedAtomsHeading2>
-        <BlocksGridCardSection :items="pugData"></BlocksGridCardSection>
+        <BlocksGridCardSection :items="pugData" type="basic" :full-img="true"></BlocksGridCardSection>
+        <BlocksGridCardSection :items="pugData" type="product"></BlocksGridCardSection>
         <SharedAtomsHeading2>Slider</SharedAtomsHeading2>
         <BlocksSlider></BlocksSlider>
-        <BlocksCardsCarrousel  :items="pugData"></BlocksCardsCarrousel>
+        <BlocksCardsCarrousel :items="pugData" type="basic"></BlocksCardsCarrousel>
+        <BlocksCardsCarrousel :items="pugData" type="product" :full-img="true"></BlocksCardsCarrousel>
+
       </div>
     </div>
   </NuxtLayout>

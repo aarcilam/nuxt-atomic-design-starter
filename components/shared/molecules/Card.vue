@@ -1,12 +1,16 @@
 <template>
-  <div class="card glass max-w-[400px]">
+  <div class="card max-w-[400px]" :class="customClasses">
     <figure>
       <img :v-transition="'pug-'+id" :src="image" alt="car!" />
     </figure>
     <div class="card-body">
-      <h2 class="card-title">{{ title }}</h2>
-      <SharedAtomsBodyText>{{ description }}</SharedAtomsBodyText>
-      <SharedAtomsBodyText v-if="price">{{ price }} {{ discountPrice }}</SharedAtomsBodyText>
+      <h2 class="card-title">
+        {{ title }}
+        <SharedAtomsBodyText v-if="price">{{ price }} {{ discountPrice }}</SharedAtomsBodyText>
+        <div class="badge badge-secondary">NEW</div>
+      </h2>
+      <SharedAtomsBodyText v-if="description">{{ description }}</SharedAtomsBodyText>
+      
       <div class="card-actions justify-end">
         <button v-if="button" class="btn btn-primary">Learn now!</button>
       </div>
@@ -18,7 +22,9 @@
 export interface CardItem {
     id: number;
     title: string;
-    description: string;
+    description?: string;
+    price?: string;
+    discountPrice?: string;
     image: string;
 }
 const props = defineProps({
@@ -37,7 +43,7 @@ const props = defineProps({
   },
   description: {
     type: String,
-    required: true
+    required: false
   },
   button: {
     type: String,
@@ -57,8 +63,39 @@ const props = defineProps({
   image: {
     type: String,
     required: true
+  },
+  glass: {
+    type: Boolean,
+    required: false,
+    default: false
+  },
+  side: {
+    type: Boolean,
+    required: false,
+    default: false
+  },
+  fullImg: {
+    type: Boolean,
+    required: false,
+    default: false
+  },
+  color: {
+    type: String,
+    required: false,
+    default: null
   }
 })
+
+let customClasses = ''
+if(props.glass) customClasses += " glass"
+if(props.side) customClasses += " card-side"
+if(props.fullImg) customClasses += " image-full"
+if(props.color == "primary") customClasses += " bg-primary"
+if(props.color == "secondary") customClasses += " bg-secondary"
+if(props.color == "neutral") customClasses += " bg-neutral"
+if(props.color == "accent") customClasses += " bg-accent"
+
+
 </script>
 
 <style></style>

@@ -5,7 +5,7 @@
 <template>
   <div>
     <SharedMoleculesNav />
-    <main style="padding-top: 70px;" >
+    <main class="pt-[70px] container mx-auto"   >
       <slot />
     </main>
   </div>
