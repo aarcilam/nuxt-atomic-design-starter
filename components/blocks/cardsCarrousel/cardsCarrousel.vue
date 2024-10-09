@@ -1,7 +1,9 @@
 <template>
-  <div class="grid grid-cols-3 gap-4">
-    <SharedMoleculesCard @click="startViewTransition('/test')"  v-for="item in items" :title="item.title" :description="item.description" :image="item.image" :id="item.id" /> 
+<div class="carousel carousel-center rounded-box space-x-4 p-4">
+  <div class="carousel-item" v-for="item in items" :key="item.title">
+      <SharedMoleculesCard @click="startViewTransition('/test')"  :title="item.title" :description="item.description" :image="item.image" :id="item.id" /> 
   </div>
+</div>
 </template>
 
 <script lang="ts" setup>

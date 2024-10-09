@@ -100,6 +100,7 @@ const pugData = [
         <BlocksGridCardSection :items="pugData"></BlocksGridCardSection>
         <SharedAtomsHeading2>Slider</SharedAtomsHeading2>
         <BlocksSlider></BlocksSlider>
+        <BlocksCardsCarrousel  :items="pugData"></BlocksCardsCarrousel>
       </div>
     </div>
   </NuxtLayout>
