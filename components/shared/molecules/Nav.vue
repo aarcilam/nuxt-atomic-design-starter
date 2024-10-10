@@ -77,6 +77,7 @@ const changeTheme= (theme) => {
                         <div class="card-actions">
                             <SharedAtomsButton @click="changeTheme('lemonade')">lemonade</SharedAtomsButton>
                             <SharedAtomsButton @click="changeTheme('custom')">custom</SharedAtomsButton>
+                            <SharedAtomsButton @click="changeTheme('custom2')">custom2</SharedAtomsButton>
                             <SharedAtomsButton @click="changeTheme('dark')">dark</SharedAtomsButton>
                             <SharedAtomsButton @click="changeTheme('cupcake')">cupcake</SharedAtomsButton>
                         </div>
