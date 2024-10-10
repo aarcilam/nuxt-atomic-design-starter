@@ -1,30 +1,33 @@
 import { defineStore } from 'pinia';
 import { ref, watch, onMounted } from 'vue';
+import { useCookie } from '#app';
 
 export const useThemeStore = defineStore('theme', () => {
-  const colorTheme = ref(null);
+  const colorTheme = ref('custom'); // Valor inicial predeterminado
 
-  // Cargar el tema desde localStorage solo en el cliente
-  onMounted(() => {
-    if (typeof localStorage !== 'undefined') {
-      const storedTheme = localStorage.getItem('colorTheme');
-      colorTheme.value = storedTheme ? storedTheme : 'custom';
-    }
-  });
+  function setInitialTheme(theme) {
+    colorTheme.value = theme;
 
-  function update(updatedTheme) {
-    colorTheme.value = updatedTheme;
-    if (typeof localStorage !== 'undefined') {
-      localStorage.setItem('colorTheme', updatedTheme);
+    if (typeof window !== 'undefined' && document?.documentElement) {
+      document.documentElement.setAttribute('data-theme', theme);
     }
   }
 
-  // Guardar cambios en localStorage solo en el cliente
+  function update(updatedTheme) {
+    colorTheme.value = updatedTheme;
+
+    if (typeof window !== 'undefined' && document?.documentElement) {
+      document.documentElement.setAttribute('data-theme', updatedTheme);
+    }
+
+    useCookie('colorTheme').value = updatedTheme; // Guardar en la cookie
+  }
+
   watch(colorTheme, (newTheme) => {
-    if (typeof localStorage !== 'undefined') {
-      localStorage.setItem('colorTheme', newTheme);
+    if (typeof window !== 'undefined' && document?.documentElement) {
+      document.documentElement.setAttribute('data-theme', newTheme);
     }
   });
 
-  return { colorTheme, update };
+  return { colorTheme, setInitialTheme, update };
 });
