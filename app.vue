@@ -5,7 +5,7 @@ const colorStore = useThemeStore();
 </script>
 
 <template>
-  <div :key="colorStore.colorTheme" :data-theme="colorStore.colorTheme">
+  <div :data-theme="colorStore.colorTheme">
     <NuxtPage />
   </div>
 </template>
