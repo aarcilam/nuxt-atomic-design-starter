@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { CardItem } from '~/components/shared/molecules/Card.vue';
 import type { FormGroup, FormField } from '~/interfaces/FormConfig';
-import { registerFormSchema } from './auth/schemas/register.form';
+import registerForm from './auth/schemas/register.form';
 
 const pugData: CardItem[] = [
   {
@@ -139,15 +139,15 @@ const pugData: CardItem[] = [
         <SharedAtomsCollapsableCard title="Form contructor" class="mb-3 bg-base-100">
           <SharedAtomsHeading2 class="text-base">Uso</SharedAtomsHeading2>
           Use a object like this
-          <SharedMoleculesMockupCode :code='registerFormSchema' />
+          <SharedMoleculesMockupCode :code='registerForm()' />
           Pass to the component like this
           <SharedMoleculesMockupCode code='<SharedMoleculesFormsFormCreator 
-          :form-config="registerFormSchema" 
+          :form-config="registerForm()" 
           submit-label="Registrar" 
           />' />
           <SharedAtomsHeading2 class="text-base">Ejemplos:</SharedAtomsHeading2>
           <hr>
-          <SharedMoleculesFormsFormCreator :form-config="registerFormSchema" submit-label="Registrar"></SharedMoleculesFormsFormCreator>
+          <SharedMoleculesFormsFormCreator :form-config="registerForm()" submit-label="Registrar"></SharedMoleculesFormsFormCreator>
         </SharedAtomsCollapsableCard>
       </div>
     </SharedAtomsCollapsableCard>
