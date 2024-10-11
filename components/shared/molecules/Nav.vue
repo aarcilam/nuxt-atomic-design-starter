@@ -49,7 +49,8 @@ const changeTheme= (theme) => {
         <div class="flex-none">
             <ul class="menu menu-horizontal px-1">
                 <li><a @click="startViewTransition('/')">Home</a></li>
-                <li v-if="!user"><a @click="startViewTransition('/login')">Login</a></li>
+                <li><a @click="startViewTransition('/components')">Components</a></li>
+                <li v-if="!user"><a @click="startViewTransition('/login')">Authentication</a></li>
                 <!-- <li><a @click="startViewTransition('/edit-blocks')">Edit Blocks</a></li> -->
                 <!-- <li><a @click="startViewTransition('/edit-blocks/show')">Blocks</a></li> -->
                 <!-- <li><a @click="startViewTransition('/test')">View transition</a></li> -->

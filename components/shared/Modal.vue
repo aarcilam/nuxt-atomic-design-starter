@@ -1,9 +1,11 @@
 <!-- components/modals/ExampleModal.vue -->
 <template>
-    <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div class="bg-white p-4 rounded shadow">
-        <h2 class="text-xl mb-4">Example Modal</h2>
-        <button @click="close" class="bg-gray-300 p-2 rounded mt-2">Close</button>
+    <div class="modal" open>
+      <div class="modal-box w-10/12 max-w-4xl">
+        <form method="dialog">
+          <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" @click="close">✕</button>
+        </form>
+        <h3 class="text-lg font-bold">Hello!</h3>
       </div>
     </div>
   </template>
