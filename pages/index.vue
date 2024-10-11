@@ -4,6 +4,6 @@
 
 <template>
   <NuxtLayout name="basic">
-    <ShowComponents></ShowComponents>
+    <SharedShowComponents></SharedShowComponents>
   </NuxtLayout>
 </template>

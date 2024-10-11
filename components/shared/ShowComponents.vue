@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import type { CardItem } from '~/components/shared/molecules/Card.vue';
-import registerForm from './auth/schemas/register.form';
-import ExampleModal from '~/components/shared/ExampleModal.vue';
+import Modal from './Modal.vue';
+import registerForm from '../auth/schemas/register.form';
 
 const { showModal } = useModal();
 const openModal = async () => {
-    // const result = await showModal(ExampleModal);
-    // console.log(result);
+    const result = await showModal(Modal);
+    console.log(result);
 }
 const pugData: CardItem[] = [
   {
