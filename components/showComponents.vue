@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import type { CardItem } from '~/components/shared/molecules/Card.vue';
-import type { FormGroup, FormField } from '~/interfaces/FormConfig';
 import registerForm from './auth/schemas/register.form';
-import ExampleModal from './shared/ExampleModal.vue';
+import ExampleModal from '~/components/shared/ExampleModal.vue';
 
 const { showModal } = useModal();
 const openModal = async () => {
