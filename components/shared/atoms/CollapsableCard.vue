@@ -1,7 +1,7 @@
 <template>
   <SharedAtomsCardContainer>
     <div class="collapse collapse-arrow bg-base-200">
-      <input type="checkbox" checked />
+      <input type="checkbox" :checked="open" />
       <div class="collapse-title"><SharedAtomsHeading2>{{ title }}</SharedAtomsHeading2></div>
       <div class="collapse-content">
         <slot />
@@ -12,7 +12,8 @@
 
 <script lang="ts" setup>
 defineProps<{
-  title:string
+  title:string,
+  open?:boolean
 }>()
 </script>
 

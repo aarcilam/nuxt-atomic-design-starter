@@ -1,11 +1,38 @@
 <script setup lang="ts">
-import { useViewTransition } from '~/composables/useViewTransition'
-import { useThemeStore } from '~/stores/theme';
 const user = useSupabaseUser()
 const { startViewTransition } = useViewTransition()
-
 const {setLocale, locale} = useI18n()
 const {update} = useThemeStore()
+
+const props = defineProps({
+    cart: {
+        type: Boolean,
+        default: false
+    },
+    lang: {
+        type: Boolean,
+        default: false
+    },
+    theme: {
+        type: Boolean,
+        default: false
+    },
+    fixed: {
+        type: Boolean,
+        default: false
+    },
+    color: {
+        type: String,
+        default: ''
+    }
+});
+
+let classes = ''
+if(props.fixed) classes += ' fixed'
+if(props.color == 'base-100') classes += ' bg-base-100'
+if(props.color == 'primary') classes += ' bg-primary'
+if(props.color == 'neutral') classes += ' bg-neutral'
+
 const changeLocale = (locale) => {
     setLocale(locale)
 }
@@ -15,7 +42,7 @@ const changeTheme= (theme) => {
 </script>
 
 <template>
-    <div class="navbar bg-base-100 fixed w-full z-50">    
+    <div class="navbar w-full z-50" :class="classes">    
         <div class="flex-1">
             <a class="btn btn-ghost text-xl">NuxtSolidStart</a>
         </div>
@@ -28,7 +55,7 @@ const changeTheme= (theme) => {
                 <!-- <li><a @click="startViewTransition('/test')">View transition</a></li> -->
                 <li><a @click="startViewTransition('/formCreator')">From Creator</a></li>
             </ul>
-            <div class="dropdown dropdown-end">
+            <div v-if="props.cart" class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
                     <div class="indicator">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -49,7 +76,7 @@ const changeTheme= (theme) => {
                     </div>
                 </div>
             </div>
-            <div class="dropdown dropdown-end">
+            <div v-if="props.lang" class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
                     <div class="indicator">
                         {{locale}}
@@ -65,7 +92,7 @@ const changeTheme= (theme) => {
                     </div>
                 </div>
             </div>
-            <div class="dropdown dropdown-end">
+            <div v-if="props.theme" class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
                     <div class="indicator">
                         theme
