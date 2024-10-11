@@ -6,5 +6,15 @@
                "title": "Hola este es un comienzo solido con nuxt",
                "description": "Conoce los bloques"
           }
+     },
+     "auth":{
+          "email": "Correo electronico",
+          "pass": "Contraseña",
+          "login":{
+               "submit":"ingresar"
+          },
+          "register":{
+               "submit":"registrar"
+          }
      }
 }

@@ -6,5 +6,15 @@
             "title": "Hi this is a solid start with nuxt",
             "description": "Meet the block"
         }
+    },
+    "auth": {
+        "email": "Email",
+        "pass": "Password",
+        "login": {
+            "submit": "Send"
+        },
+        "register": {
+            "submit": "send"
+        }
     }
 }

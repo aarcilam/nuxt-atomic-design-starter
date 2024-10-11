@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { registerFormSchema } from './schemas/register.form';
+import registerForm from './schemas/register.form';
 
 const submit = async (formData: any) => {
     console.log(formData)
@@ -9,5 +9,5 @@ const submit = async (formData: any) => {
 </script>
 
 <template>
-    <SharedMoleculesFormsFormCreator id="register-form" :form-config="registerFormSchema" @submit="submit" submit-label="Registrate" />
+    <SharedMoleculesFormsFormCreator id="register-form" :form-config="registerForm()" @submit="submit" :submit-label="$t('auth.register.submit')" />
 </template>
