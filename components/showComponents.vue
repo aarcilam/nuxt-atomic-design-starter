@@ -77,7 +77,11 @@ const pugData: CardItem[] = [
       <SharedAtomsCollapsableCard :open="true" title="Botones" class="mb-3 bg-base-100">
         <div class="space-y-2 ">
           <SharedAtomsHeading2 class="text-base">Uso</SharedAtomsHeading2>
-          <SharedMoleculesMockupCode code='<SharedAtomsButton>I´m a primary button</SharedAtomsButton>' />
+          <SharedMoleculesMockupCode code='
+          <SharedAtomsButton>I´m a primary button</SharedAtomsButton>
+          <SharedAtomsButton color="secondary">I´m a secondary button</SharedAtomsButton>
+          <SharedAtomsButton color="accent">I´m an accent button</SharedAtomsButton>
+          <SharedAtomsButton color="neutral">I´m a neutral button</SharedAtomsButton>' />
           <SharedAtomsHeading2 class="text-base">Ejemplos:</SharedAtomsHeading2>
           <hr>
           <SharedAtomsButton @click="openModal()">I´m a primary button</SharedAtomsButton>
@@ -89,14 +93,19 @@ const pugData: CardItem[] = [
       <SharedAtomsCollapsableCard :open="true" title="Inputs" class="mb-3 bg-base-100">
         <div class="space-y-3">
           <SharedAtomsHeading2 class="text-base">Uso</SharedAtomsHeading2>
-          <SharedMoleculesMockupCode code='<SharedAtomsFormsFieldsTextInput name="textinput" id="textinput" label="Text input" />' />
+          <SharedMoleculesMockupCode code='
+          <SharedAtomsFormsFieldsTextInput name="textinput" id="textinput" label="Text input" />
+          <SharedAtomsFormsFieldsTextArea name="textareainput" id="textareainput" label="Text Area" />
+          <SharedAtomsFormsFieldsPhoneInput name="phoneinput" id="phoneinput" label="Phone Input" />
+          <SharedAtomsFormsFieldsPassInput name="passinput" id="passinput" label="Password Input" />
+          <SharedAtomsFormsFieldsFileInput name="fileinput" id="fileinput" label="File Input" />' />
           <SharedAtomsHeading2 class="text-base">Ejemplos:</SharedAtomsHeading2>
           <hr>
           <SharedAtomsFormsFieldsTextInput name="textinput" id="textinput" label="Text input" />
-          <SharedAtomsFormsFieldsTextArea label="Text Area" />
-          <SharedAtomsFormsFieldsPhoneInput label="Phone Input" />
-          <SharedAtomsFormsFieldsPassInput label="Password Input" />
-          <SharedAtomsFormsFieldsFileInput label="File Input" />
+          <SharedAtomsFormsFieldsTextArea name="textareainput" id="textareainput" label="Text Area" />
+          <SharedAtomsFormsFieldsPhoneInput name="phoneinput" id="phoneinput" label="Phone Input" />
+          <SharedAtomsFormsFieldsPassInput name="passinput" id="passinput" label="Password Input" />
+          <SharedAtomsFormsFieldsFileInput name="fileinput" id="fileinput" label="File Input" />
         </div>
       </SharedAtomsCollapsableCard>
     </SharedAtomsCollapsableCard>
@@ -145,7 +154,7 @@ const pugData: CardItem[] = [
         <SharedAtomsCollapsableCard title="Form contructor" class="mb-3 bg-base-100">
           <SharedAtomsHeading2 class="text-base">Uso</SharedAtomsHeading2>
           Use a object like this
-          <SharedMoleculesMockupCode :code='registerForm()' />
+          <SharedMoleculesMockupCode :code='registerForm()' lang="js" />
           Pass to the component like this
           <SharedMoleculesMockupCode code='<SharedMoleculesFormsFormCreator 
           :form-config="registerForm()" 

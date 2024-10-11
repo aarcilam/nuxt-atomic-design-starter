@@ -1,7 +1,7 @@
 <template>
   <div class="mockup-code relative p-5">
     <pre class="border-r-2">
-      <code class="lang-js">{{ code }}</code>
+      <code :class="`lang-${lang || 'html'}`">{{ code }}</code>
     </pre>
     <SharedAtomsButton @click="copyToClipboard()" class="absolute top-2 right-2">
       Copy All
@@ -25,6 +25,7 @@ interface CodeLine {
 
 const props = defineProps<{
   code: any;
+  lang?: string;
 }>();
 
 const formattedCode = computed<CodeLine[]>(() =>
