@@ -1,10 +1,16 @@
 <script setup lang="ts">
-import FormFieldsCreator from './FormFieldsCreator.vue'
-
 const props = defineProps({
+  id:{
+    type: String,
+  },
   formConfig: {
     type: Object,
     required: true
+  },
+  submitLabel:{
+    type: String,
+    required: true,
+    default: 'Submit'
   },
   value: {
     type: Object
@@ -23,7 +29,7 @@ const change = (formData: any) => {
 </script>
 
 <template>
-    <SharedAtomsFormsFormWrap formId="register-form" @submit="submit" @change="change" :value="value">
-        <FormFieldsCreator :form-config="formConfig" />
+    <SharedAtomsFormsFormWrap :formId="id" @submit="submit" @change="change" :value="value" :submit-label="submitLabel">
+        <SharedMoleculesFormsFormFieldsCreator :form-config="formConfig" />
     </SharedAtomsFormsFormWrap>
 </template>

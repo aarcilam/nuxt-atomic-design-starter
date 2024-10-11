@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { CardItem } from '~/components/shared/molecules/Card.vue';
 import type { FormGroup, FormField } from '~/interfaces/FormConfig';
+import { registerFormSchema } from './auth/schemas/register.form';
 
 const pugData: CardItem[] = [
   {
@@ -39,44 +40,6 @@ const pugData: CardItem[] = [
     id: 5
   }
 ];
-
-const formConfig: (FormGroup | FormField)[] = [
-    {
-        type: 'text',
-        id: 'email-register',
-        name: 'email',
-        label: 'Email',
-        validation: 'required|email'
-    },
-    {
-        type: 'password',
-        id: 'password-register',
-        name: 'password',
-        label: 'Password',
-        validation: 'required'
-    },
-    {
-        type: 'text',
-        id: 'name-register',
-        name: 'name',
-        label: 'Name',
-        validation: 'required'
-    },
-    {
-        type: 'text',
-        id: 'lastname-register',
-        name: 'lastname',
-        label: 'Lastname',
-        validation: 'required'
-    },
-    {
-        type: 'text',
-        id: 'phone-register',
-        name: 'phone',
-        label: 'Phone',
-        validation: 'required'
-    }
-]
 </script>
 <template>
   <div class="p-5">
@@ -176,12 +139,15 @@ const formConfig: (FormGroup | FormField)[] = [
         <SharedAtomsCollapsableCard title="Form contructor" class="mb-3 bg-base-100">
           <SharedAtomsHeading2 class="text-base">Uso</SharedAtomsHeading2>
           Use a object like this
-          <SharedMoleculesMockupCode :code='formConfig' />
+          <SharedMoleculesMockupCode :code='registerFormSchema' />
           Pass to the component like this
-          <SharedMoleculesMockupCode code='<SharedMoleculesFormsFormCreator :form-config="formConfig"></SharedMoleculesFormsFormCreator>' />
+          <SharedMoleculesMockupCode code='<SharedMoleculesFormsFormCreator 
+          :form-config="registerFormSchema" 
+          submit-label="Registrar" 
+          />' />
           <SharedAtomsHeading2 class="text-base">Ejemplos:</SharedAtomsHeading2>
           <hr>
-          <SharedMoleculesFormsFormCreator :form-config="formConfig"></SharedMoleculesFormsFormCreator>
+          <SharedMoleculesFormsFormCreator :form-config="registerFormSchema" submit-label="Registrar"></SharedMoleculesFormsFormCreator>
         </SharedAtomsCollapsableCard>
       </div>
     </SharedAtomsCollapsableCard>
