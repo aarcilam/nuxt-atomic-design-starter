@@ -39,15 +39,14 @@ const pugData: CardItem[] = [
   }
 ];
 </script>
-
 <template>
   <div class="p-5">
     <SharedAtomsHeading1 class="text-xl font-bold mb-3">Componentes</SharedAtomsHeading1>
     <hr class="mb-5">
-    
+
     <!-- Átomos -->
     <SharedAtomsCollapsableCard :open="true" title="Átomos" class="mb-5">
-      <SharedAtomsCollapsableCard :open="true" title="Colores" class="mb-3">
+      <SharedAtomsCollapsableCard :open="true" title="Colores" class="mb-3 bg-base-100">
         <div class="flex gap-4">
           <div class="w-9 h-9 bg-primary rounded"></div>
           <div class="w-9 h-9 bg-secondary rounded"></div>
@@ -55,23 +54,36 @@ const pugData: CardItem[] = [
           <div class="w-9 h-9 bg-accent rounded"></div>
         </div>
       </SharedAtomsCollapsableCard>
-      <SharedAtomsCollapsableCard :open="true" title="Textos" class="mb-3">
+      <SharedAtomsCollapsableCard :open="true" title="Textos" class="mb-3 bg-base-100">
         <div class="space-y-3">
+          <SharedAtomsHeading2 class="text-base">Uso</SharedAtomsHeading2>
+          <SharedMoleculesMockupCode code='<SharedAtomsHeading1 class="text-lg">Heading 1</SharedAtomsHeading1>' />
+          <SharedAtomsHeading2 class="text-base">Ejemplos:</SharedAtomsHeading2>
+          <hr>
           <SharedAtomsHeading1 class="text-lg">Heading 1</SharedAtomsHeading1>
           <SharedAtomsHeading2 class="text-base">Heading 2</SharedAtomsHeading2>
-          <SharedAtomsBodyText class="text-sm text-gray-700">Body Text: Lorem ipsum dolor sit amet consectetur adipisicing elit...</SharedAtomsBodyText>
+          <SharedAtomsBodyText class="text-sm text-gray-700">Body Text: Lorem ipsum dolor sit amet consectetur
+            adipisicing elit...</SharedAtomsBodyText>
         </div>
       </SharedAtomsCollapsableCard>
-      <SharedAtomsCollapsableCard :open="true" title="Botones" class="mb-3">
+      <SharedAtomsCollapsableCard :open="true" title="Botones" class="mb-3 bg-base-100">
         <div class="space-y-2 ">
+          <SharedAtomsHeading2 class="text-base">Uso</SharedAtomsHeading2>
+          <SharedMoleculesMockupCode code='<SharedAtomsButton>I´m a primary button</SharedAtomsButton>' />
+          <SharedAtomsHeading2 class="text-base">Ejemplos:</SharedAtomsHeading2>
+          <hr>
           <SharedAtomsButton>I´m a primary button</SharedAtomsButton>
           <SharedAtomsButton color="secondary">I´m a secondary button</SharedAtomsButton>
-          <SharedAtomsButton color="accent">I´m a accent button</SharedAtomsButton>
+          <SharedAtomsButton color="accent">I´m an accent button</SharedAtomsButton>
           <SharedAtomsButton color="neutral">I´m a neutral button</SharedAtomsButton>
         </div>
       </SharedAtomsCollapsableCard>
-      <SharedAtomsCollapsableCard :open="true" title="Inputs" class="mb-3">
+      <SharedAtomsCollapsableCard :open="true" title="Inputs" class="mb-3 bg-base-100">
         <div class="space-y-3">
+          <SharedAtomsHeading2 class="text-base">Uso</SharedAtomsHeading2>
+          <SharedMoleculesMockupCode code='<SharedAtomsFormsFieldsTextInput name="textinput" id="textinput" label="Text input" />' />
+          <SharedAtomsHeading2 class="text-base">Ejemplos:</SharedAtomsHeading2>
+          <hr>
           <SharedAtomsFormsFieldsTextInput name="textinput" id="textinput" label="Text input" />
           <SharedAtomsFormsFieldsTextArea label="Text Area" />
           <SharedAtomsFormsFieldsPhoneInput label="Phone Input" />
@@ -84,14 +96,42 @@ const pugData: CardItem[] = [
     <!-- Moléculas -->
     <SharedAtomsCollapsableCard :open="true" title="Moléculas" class="mb-5">
       <div class="grid grid-cols-1 gap-4">
-        <SharedAtomsCollapsableCard title="Cards" class="mb-3">
+        <SharedAtomsCollapsableCard title="Nav" class="mb-3 bg-base-100">
+          <SharedAtomsHeading2 class="text-base">Uso</SharedAtomsHeading2>
+          <SharedMoleculesMockupCode code='<SharedMoleculesNav></SharedMoleculesNav>' />
+          <SharedAtomsHeading2 class="text-base">Ejemplos:</SharedAtomsHeading2>
+          <hr>
+          <SharedMoleculesNav></SharedMoleculesNav>
+          <SharedMoleculesNav class="bg-primary"></SharedMoleculesNav>
+          <SharedMoleculesNav class="bg-secondary" :cart="true"></SharedMoleculesNav>
+          <SharedMoleculesNav class="bg-neutral text-white" :lang="true" :cart="true"></SharedMoleculesNav>
+        </SharedAtomsCollapsableCard>
+        <SharedAtomsCollapsableCard title="Cards" class="mb-3 bg-base-100">
+          <SharedAtomsHeading2 class="text-base">Uso</SharedAtomsHeading2>
+          <SharedMoleculesMockupCode code='<SharedMoleculesCard 
+          v-for="(pug, index) in pugData" 
+          :key="index" 
+          class="w-full" 
+          :title="pug.title" 
+          :description="pug.description" 
+          :image="pug.image" 
+          :id="pug.id" />' />
+          <SharedAtomsHeading2 class="text-base">Ejemplos:</SharedAtomsHeading2>
+          <hr>
           <div class="grid gap-3">
-            <SharedMoleculesCard v-for="(pug, index) in pugData" :key="index" class="w-full" :title="pug.title" :description="pug.description" :image="pug.image" :id="pug.id" />
-            <SharedMoleculesCard class="w-full" :glass="true" :title="pugData[0].title" :description="pugData[0].description" :image="pugData[0].image" :id="pugData[0].id" />
-            <SharedMoleculesCard class="w-full" :side="true" :title="pugData[0].title" :description="pugData[0].description" :image="pugData[0].image" :id="pugData[0].id" />
+            <SharedMoleculesCard v-for="(pug, index) in pugData" :key="index" class="w-full" :title="pug.title"
+              :description="pug.description" :image="pug.image" :id="pug.id" />
+            <SharedMoleculesCard class="w-full" :glass="true" :title="pugData[0].title"
+              :description="pugData[0].description" :image="pugData[0].image" :id="pugData[0].id" />
+            <SharedMoleculesCard class="w-full" :side="true" :title="pugData[0].title"
+              :description="pugData[0].description" :image="pugData[0].image" :id="pugData[0].id" />
           </div>
         </SharedAtomsCollapsableCard>
-        <SharedAtomsCollapsableCard title="Iconos" class="mb-3">
+        <SharedAtomsCollapsableCard title="Iconos" class="mb-3 bg-base-100">
+          <SharedAtomsHeading2 class="text-base">Uso</SharedAtomsHeading2>
+          <SharedMoleculesMockupCode code='<SharedAtomsIcon icon="cart"></SharedAtomsIcon>' />
+          <SharedAtomsHeading2 class="text-base">Ejemplos:</SharedAtomsHeading2>
+          <hr>
           <SharedAtomsIcon icon="cart"></SharedAtomsIcon>
         </SharedAtomsCollapsableCard>
       </div>
@@ -100,11 +140,19 @@ const pugData: CardItem[] = [
     <!-- Organismos -->
     <SharedAtomsCollapsableCard :open="true" title="Organismos (BLOCKS)" class="mb-5">
       <div class="space-y-5">
-        <SharedAtomsCollapsableCard title="Card Grid" class="mb-3">
+        <SharedAtomsCollapsableCard title="Card Grid" class="mb-3 bg-base-100">
+          <SharedAtomsHeading2 class="text-base">Uso</SharedAtomsHeading2>
+          <SharedMoleculesMockupCode code='<BlocksGridCardSection :items="pugData" type="basic" :full-img="true" class="mb-5" />' />
+          <SharedAtomsHeading2 class="text-base">Ejemplos:</SharedAtomsHeading2>
+          <hr>
           <BlocksGridCardSection :items="pugData" type="basic" :full-img="true" class="mb-5" />
           <BlocksGridCardSection :items="pugData" type="product" class="mb-5" />
         </SharedAtomsCollapsableCard>
-        <SharedAtomsCollapsableCard title="Slider" class="mb-3">
+        <SharedAtomsCollapsableCard title="Slider" class="mb-3 bg-base-100">
+          <SharedAtomsHeading2 class="text-base">Uso</SharedAtomsHeading2>
+          <SharedMoleculesMockupCode code='<BlocksSlider class="mb-5" />' />
+          <SharedAtomsHeading2 class="text-base">Ejemplos:</SharedAtomsHeading2>
+          <hr>
           <BlocksSlider class="mb-5" />
           <BlocksCardsCarrousel :items="pugData" type="basic" class="mb-5" />
           <BlocksCardsCarrousel :items="pugData" type="product" :full-img="true" class="mb-5" />
@@ -113,3 +161,4 @@ const pugData: CardItem[] = [
     </SharedAtomsCollapsableCard>
   </div>
 </template>
+
