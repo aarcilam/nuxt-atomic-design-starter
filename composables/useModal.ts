@@ -1,27 +1,29 @@
 // composables/useModal.js
-import { ref, h, createVNode, render } from 'vue';
+import { ref, createVNode, render, isRef, unref } from 'vue';
 
 export function useModal() {
   const container = ref(null);
 
   const showModal = (Component, props = {}) => {
     return new Promise((resolve) => {
-      // Creamos un contenedor temporal para el modal.
+      // Verificamos que estamos en el cliente antes de usar document
+      if (typeof window === 'undefined') {
+        console.warn('showModal can only be used on the client-side.');
+        return;
+      }
+
       const containerElement = document.createElement('div');
       container.value = containerElement;
 
-      // Creamos el VNode del componente pasado.
       const vnode = createVNode(Component, {
-        ...props,
+        ...unref(props),
         onClose: (data) => {
-          // Al emitir el evento 'close', desmontamos el componente y resolvemos la promesa.
           render(null, containerElement);
           containerElement.remove();
           resolve(data);
         },
       });
 
-      // Renderizamos el VNode dentro del contenedor.
       render(vnode, containerElement);
       document.body.appendChild(containerElement);
     });
