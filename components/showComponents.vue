@@ -5,10 +5,8 @@ import ExampleModal from '~/components/shared/ExampleModal.vue';
 
 const { showModal } = useModal();
 const openModal = async () => {
-  if (process.client) {
-    const result = await showModal(ExampleModal);
-    console.log(result);
-  }
+    // const result = await showModal(ExampleModal);
+    // console.log(result);
 }
 const pugData: CardItem[] = [
   {
