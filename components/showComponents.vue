@@ -2,7 +2,13 @@
 import type { CardItem } from '~/components/shared/molecules/Card.vue';
 import type { FormGroup, FormField } from '~/interfaces/FormConfig';
 import registerForm from './auth/schemas/register.form';
+import ExampleModal from './shared/ExampleModal.vue';
 
+const { showModal } = useModal();
+const openModal = async () => {
+  const result = await showModal(ExampleModal);
+  console.log(result);
+}
 const pugData: CardItem[] = [
   {
     title: "Happy Pug",
@@ -74,7 +80,7 @@ const pugData: CardItem[] = [
           <SharedMoleculesMockupCode code='<SharedAtomsButton>I´m a primary button</SharedAtomsButton>' />
           <SharedAtomsHeading2 class="text-base">Ejemplos:</SharedAtomsHeading2>
           <hr>
-          <SharedAtomsButton>I´m a primary button</SharedAtomsButton>
+          <SharedAtomsButton @click="openModal()">I´m a primary button</SharedAtomsButton>
           <SharedAtomsButton color="secondary">I´m a secondary button</SharedAtomsButton>
           <SharedAtomsButton color="accent">I´m an accent button</SharedAtomsButton>
           <SharedAtomsButton color="neutral">I´m a neutral button</SharedAtomsButton>
