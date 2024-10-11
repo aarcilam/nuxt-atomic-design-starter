@@ -154,6 +154,12 @@ const pugData: CardItem[] = [
           <SharedAtomsHeading2 class="text-base">Ejemplos:</SharedAtomsHeading2>
           <hr>
           <BlocksSlider class="mb-5" />
+        </SharedAtomsCollapsableCard>
+        <SharedAtomsCollapsableCard title="Carrousel" class="mb-3 bg-base-100">
+          <SharedAtomsHeading2 class="text-base">Uso</SharedAtomsHeading2>
+          <SharedMoleculesMockupCode code='<BlocksCardsCarrousel :items="pugData" type="product" :full-img="true" class="mb-5" />' />
+          <SharedAtomsHeading2 class="text-base">Ejemplos:</SharedAtomsHeading2>
+          <hr>
           <BlocksCardsCarrousel :items="pugData" type="basic" class="mb-5" />
           <BlocksCardsCarrousel :items="pugData" type="product" :full-img="true" class="mb-5" />
         </SharedAtomsCollapsableCard>
