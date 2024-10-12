@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import Nav from '@/components/shared/atomic-design/molecules/Nav.vue'
+
 </script>
+
 <template>
-    <Nav />
-    <main>
-        <slot />
+  <div>
+    <SharedMoleculesNav :lang="true" :theme="true" :fixed="true" color="base-100" />
+    <main class="pt-[70px] container mx-auto"   >
+      <slot />
     </main>
+  </div>
 </template>

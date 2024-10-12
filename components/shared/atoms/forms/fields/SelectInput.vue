@@ -1,6 +1,6 @@
 <template>
     <FormKit
-      type="text"
+      type="select"
       :name="name"
       :id="id"
       :validation="validation"
@@ -8,13 +8,16 @@
       :label="label"
       :classes="{
         'outer': 'p-2',
-        'input': 'input input-bordered w-full',
+        'input': 'select select-bordered w-full',
       }"
+      :options="options"
+      @input="emit('input', $event)"
     />
 </template>
 
 <script setup>
-defineProps({ 
+const emit = defineEmits(['input'])
+defineProps({
   name: {
     type: String,
     required: true
@@ -33,6 +36,10 @@ defineProps({
   },
   label: {
     type: String,
+    required: true
+  },
+  options: {
+    type: Object,
     required: true
   }
 })

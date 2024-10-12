@@ -1,23 +1,16 @@
 <script setup lang="ts">
-import Jumbotron from '@/components/blocks/jumbotron/jumbotron.component.vue'
+import type { Block } from '~/interfaces/Block.interface';
 
 const props = defineProps<{
-    blocks: Object
+  blocks: Block[]
 }>()
-
-const blocksArray = ref([]);
-
-watch(() => props.blocks, (newBlocks) => {
-  blocksArray.value = Object.entries(newBlocks).map(([key, value]) => ({
-    ...value
-  }))[0];
-  console.log(blocksArray.value);
-}, { immediate: true, deep: true });
-
-
-
 </script>
 
 <template>
-    <Jumbotron v-for="(block, index) in blocksArray" :key="index" :title="block.title" :description="block.description" />
+  <template v-for="(block, index) in blocks">
+    <BlocksJumbotronComponent v-if="block.key.split('-')[0] === 'jumbotron'" :key="index" :title="block.value.title"
+      :description="block.value.description" />
+    <BlocksMediaSectionComponent v-if="block.key.split('-')[0] === 'mediaSection'" :key="index"
+      :title="block.value.title" :description="block.value.description" :image="block.value.image" />
+  </template>
 </template>

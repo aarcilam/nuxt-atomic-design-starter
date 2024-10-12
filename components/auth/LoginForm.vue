@@ -1,23 +1,7 @@
 <script setup lang="ts">
-import FormWrap from '@/components/shared/atomic-design/atoms/forms/FormWrap.vue'
-import FormFieeldsCreator from '@/components/shared/atomic-design/molecules/forms/FormFieeldsCreator.vue'
-import { FormGroup, FormField } from "@/interfaces/FormConfig"
-const formConfig: (FormGroup | FormField)[] = [
-    {
-        type: 'text',
-        id: 'email-login',
-        name: 'email',
-        label: 'Email',
-        validation: 'required|email'
-    },
-    {
-        type: 'password',
-        id: 'password-login',
-        name: 'password',
-        label: 'Password',
-        validation: 'required'
-    }
-]
+import FormWrap from '@/components/shared/atoms/forms/FormWrap.vue'
+import FormFieldsCreator from '@/components/shared/molecules/forms/FormFieldsCreator.vue'
+import loginForm from './schemas/login.form';
 
 const submit = async (formData: any) => {
     console.log(formData)
@@ -28,7 +12,7 @@ const submit = async (formData: any) => {
 </script>
 
 <template>
-    <FormWrap formId="login-form" @submit="submit">
-        <FormFieeldsCreator :form-config="formConfig" />
+    <FormWrap formId="login-form" @submit="submit" :submit-label="$t('auth.login.submit')">
+        <FormFieldsCreator :form-config="loginForm()" />
     </FormWrap>
 </template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import LoginForm from '@/components/auth/LoginForm.vue'
 import RegisterForm from '@/components/auth/RegisterForm.vue'
-import Heading1 from '@/components/shared/atomic-design/atoms/Heading1.vue'
+import Heading1 from '@/components/shared/atoms/Heading1.vue'
 
 definePageMeta({
   middleware: 'no-auth'

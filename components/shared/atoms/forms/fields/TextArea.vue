@@ -1,8 +1,7 @@
 <template>
     <FormKit
-      type="tel"
+      type="textarea"
       :name="name"
-      placeholder="xxx-xxx-xxxx"
       :id="id"
       :validation="validation"
       :validation-messages="validationMessages"
@@ -11,10 +10,12 @@
         'outer': 'p-2',
         'input': 'input input-bordered w-full',
       }"
+      @input="emit('input', $event)"
     />
 </template>
 
 <script setup>
+const emit = defineEmits(['input'])
 defineProps({
   name: {
     type: String,
