@@ -6,6 +6,7 @@
         <SharedAtomsBodyText>Edit the json and see how changes</SharedAtomsBodyText>
         <SharedAtomsButton @click="mountBasicForm()">Basic form</SharedAtomsButton>
         <SharedAtomsButton @click="mountComplicatedForm()">More complicated</SharedAtomsButton>
+        <SharedMoleculesMockupCode :code="newForm" :editable="true" lang="js"></SharedMoleculesMockupCode>
         <SharedMoleculesFormsFormCreator :key="formKey" :form-config="formConfig" @change="formChange" :value="testForm">
         </SharedMoleculesFormsFormCreator>
       </div>
