@@ -2,7 +2,7 @@
   <SharedAtomsCollapsableCard :open="true" :title="title" class="mb-3 bg-base-100 w-full">
     <div class="space-y-3">
       <SharedAtomsHeading2 class="text-base">Uso</SharedAtomsHeading2>
-      <SharedMoleculesMockupCode :code='code' />
+      <SharedMoleculesMockupCode :code='code' :editable="true" />
       <SharedAtomsHeading2 class="text-base">Ejemplos:</SharedAtomsHeading2>
       <hr>
       <slot></slot>

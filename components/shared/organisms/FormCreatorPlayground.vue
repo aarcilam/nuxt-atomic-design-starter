@@ -8,7 +8,11 @@
         <SharedAtomsButton @click="mountComplicatedForm()">More complicated</SharedAtomsButton>
         <SharedAtomsButton @click="createNew()">New Form</SharedAtomsButton>
       </div>
-      <SharedMoleculesMockupCode :code="newForm" :editable="true" lang="js" @update:code="formChange">
+      <SharedAtomsHeading2>Form schema</SharedAtomsHeading2>
+      <SharedMoleculesMockupCode :code="JSON.stringify(newForm)" :editable="true" lang="js" @update:code="formChange">
+      </SharedMoleculesMockupCode>
+      <SharedAtomsHeading2>Form component</SharedAtomsHeading2>
+      <SharedMoleculesMockupCode :code="'<SharedMoleculesFormsFormCreator :form-config='+JSON.stringify(newForm)+' />'" lang="js" @update:code="formChange">
       </SharedMoleculesMockupCode>
     </div>
     <div class="w-1/2 p-5">
@@ -18,9 +22,6 @@
       <SharedMoleculesFormsFormCreator v-if="newForm.length > 0" :form-config="newForm">
       </SharedMoleculesFormsFormCreator>
       <br><br><br><br>
-      Use like this
-      <SharedMoleculesMockupCode :code="'<SharedMoleculesFormsFormCreator :form-config='+JSON.stringify(newForm)+' />'" lang="js" @update:code="formChange">
-      </SharedMoleculesMockupCode>
     </div>
   </div>
 </template>
