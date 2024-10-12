@@ -32,7 +32,11 @@
 </template>
 
 <script lang="ts" setup>
-
+const emit = defineEmits(['itemClicked']);
+const emitClickedItem = (item) => {
+  emit('itemClicked', item);
+  console.log(item); 
+}
 </script>
 
 <style></style>

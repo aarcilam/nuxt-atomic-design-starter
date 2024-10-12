@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { CardItem } from '~/components/shared/molecules/Card.vue';
 import Modal from './Modal.vue';
 import registerForm from '../auth/schemas/register.form';
+const { startViewTransition:navigate } = useViewTransition()
 
 const { showModal } = useModal();
 const openModal = async () => {
@@ -13,7 +13,9 @@ const data = await queryContent('/pugs').findOne()
 const pugData:any = data.body
 
 const blogs = await queryContent('/blog').find()
-
+const navigateBlogs = (item)=>{
+  navigate("/blog/"+item.slug)
+}
 </script>
 <template>
   <div class="p-5">
@@ -119,7 +121,7 @@ const blogs = await queryContent('/blog').find()
       <div class="space-y-5">
         <SharedMoleculesComponentDocumentator title="Card Grid"
           code='<BlocksGridCardSection :items="pugData" type="basic" :full-img="true" class="mb-5" />'>
-          <BlocksGridCardSection :items="blogs" type="basic" :full-img="true" class="mb-5" />
+          <BlocksGridCardSection :items="blogs" @item-clicked="navigateBlogs" type="basic" :full-img="true" class="mb-5" />
           <BlocksGridCardSection :items="pugData" type="product" class="mb-5" />
         </SharedMoleculesComponentDocumentator>
 

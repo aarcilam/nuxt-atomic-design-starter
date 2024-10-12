@@ -1,7 +1,7 @@
 <template>
   <div class="card max-w-[400px]" :class="customClasses">
     <figure>
-      <img :v-transition="'pug-'+id" :src="image" alt="car!" />
+      <img :v-transition="slug" :src="image" alt="car!" />
     </figure>
     <div class="card-body">
       <h2 class="card-title">
@@ -24,6 +24,7 @@ export interface CardItem {
     title: string;
     description?: string;
     price?: string;
+    slug?: string;
     discountPrice?: string;
     image: string;
 }
@@ -31,6 +32,11 @@ const props = defineProps({
   id: {
     type: Number,
     required: true
+  },
+  slug: {
+    type: String,
+    required: false,
+    default: null
   },
   type: {
     type: String,
