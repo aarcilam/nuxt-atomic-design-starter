@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/i18n',
     '@vueuse/nuxt',
+    '@nuxt/content',
   ],
   pinia: {
     storesDirs: ['./stores/**'],

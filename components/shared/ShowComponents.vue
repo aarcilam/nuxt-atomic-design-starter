@@ -8,43 +8,12 @@ const openModal = async () => {
   const result = await showModal(Modal);
   console.log(result);
 }
-const pugData: CardItem[] = [
-  {
-    title: "Happy Pug",
-    description: "A happy pug sitting on a couch.",
-    price: '$20',
-    image: "https://www.infobae.com/resizer/v2/I5RSZR65RVEZRGA3ZFR6JLUWVI.jpg?auth=9631db2770289843949bb4011c574f1aaca63e51b9b0851a3a40bc233b98bcb5&smart=true&width=992&height=558&quality=85",
-    id: 1
-  },
-  {
-    title: "Sleepy Pug",
-    description: "A sleepy pug lying on a soft bed.",
-    price: '$20',
-    image: "https://www.infobae.com/resizer/v2/I5RSZR65RVEZRGA3ZFR6JLUWVI.jpg?auth=9631db2770289843949bb4011c574f1aaca63e51b9b0851a3a40bc233b98bcb5&smart=true&width=992&height=558&quality=85",
-    id: 2
-  },
-  {
-    title: "Playful Pug",
-    description: "A playful pug enjoying some time outdoors.",
-    price: '$20',
-    image: "https://www.infobae.com/resizer/v2/I5RSZR65RVEZRGA3ZFR6JLUWVI.jpg?auth=9631db2770289843949bb4011c574f1aaca63e51b9b0851a3a40bc233b98bcb5&smart=true&width=992&height=558&quality=85",
-    id: 3
-  },
-  {
-    title: "Curious Pug",
-    description: "A curious pug looking up with a tilted head.",
-    price: '$20',
-    image: "https://www.infobae.com/resizer/v2/I5RSZR65RVEZRGA3ZFR6JLUWVI.jpg?auth=9631db2770289843949bb4011c574f1aaca63e51b9b0851a3a40bc233b98bcb5&smart=true&width=992&height=558&quality=85",
-    id: 4
-  },
-  {
-    title: "Pug with a Hat",
-    description: "A cute pug wearing a small hat.",
-    price: '$20',
-    image: "https://www.infobae.com/resizer/v2/I5RSZR65RVEZRGA3ZFR6JLUWVI.jpg?auth=9631db2770289843949bb4011c574f1aaca63e51b9b0851a3a40bc233b98bcb5&smart=true&width=992&height=558&quality=85",
-    id: 5
-  }
-];
+
+const data = await queryContent('/pugs').findOne()
+const pugData:any = data.body
+
+const blogs = await queryContent('/blog').find()
+
 </script>
 <template>
   <div class="p-5">
@@ -142,29 +111,6 @@ const pugData: CardItem[] = [
           <SharedMoleculesFormsFormCreator :form-config="registerForm()" submit-label="Registrar">
           </SharedMoleculesFormsFormCreator>
         </SharedMoleculesComponentDocumentator>
-
-        <SharedMoleculesComponentDocumentator title="Modal" code='
-              const { showModal } = useModal();
-              const openModal = async () => {
-                const result = await showModal(Modal);
-                console.log(result);
-              }
-              <SharedAtomsButton @click="openModal()">Open modal</SharedAtomsButton>
-            '>
-            <SharedAtomsButton @click="openModal()">Open modal</SharedAtomsButton>
-        </SharedMoleculesComponentDocumentator>
-
-        <SharedMoleculesComponentDocumentator title="Mockup code" code='
-            <SharedMoleculesMockupCode lang="js" code="
-              const msg = "vue i fun"
-              console.log(msg)
-              "></SharedMoleculesMockupCode>
-            '>
-            <SharedMoleculesMockupCode lang="js" code="
-            const msg = 'vue i fun'
-            console.log(msg)
-            "></SharedMoleculesMockupCode>
-        </SharedMoleculesComponentDocumentator>
       </div>
     </SharedAtomsCollapsableCard>
 
@@ -173,7 +119,7 @@ const pugData: CardItem[] = [
       <div class="space-y-5">
         <SharedMoleculesComponentDocumentator title="Card Grid"
           code='<BlocksGridCardSection :items="pugData" type="basic" :full-img="true" class="mb-5" />'>
-          <BlocksGridCardSection :items="pugData" type="basic" :full-img="true" class="mb-5" />
+          <BlocksGridCardSection :items="blogs" type="basic" :full-img="true" class="mb-5" />
           <BlocksGridCardSection :items="pugData" type="product" class="mb-5" />
         </SharedMoleculesComponentDocumentator>
 

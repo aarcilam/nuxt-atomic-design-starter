@@ -1,0 +1,37 @@
+[
+    {
+      "title": "Happy Pug 222",
+      "description": "A happy pug sitting on a couch.",
+      "price": "$20",
+      "image": "https://www.infobae.com/resizer/v2/I5RSZR65RVEZRGA3ZFR6JLUWVI.jpg?auth=9631db2770289843949bb4011c574f1aaca63e51b9b0851a3a40bc233b98bcb5&smart=true&width=992&height=558&quality=85",
+      "id": 1
+    },
+    {
+      "title": "Sleepy Pug",
+      "description": "A sleepy pug lying on a soft bed.",
+      "price": "$20",
+      "image": "https://www.infobae.com/resizer/v2/I5RSZR65RVEZRGA3ZFR6JLUWVI.jpg?auth=9631db2770289843949bb4011c574f1aaca63e51b9b0851a3a40bc233b98bcb5&smart=true&width=992&height=558&quality=85",
+      "id": 2
+    },
+    {
+      "title": "Playful Pug",
+      "description": "A playful pug enjoying some time outdoors.",
+      "price": "$20",
+      "image": "https://www.infobae.com/resizer/v2/I5RSZR65RVEZRGA3ZFR6JLUWVI.jpg?auth=9631db2770289843949bb4011c574f1aaca63e51b9b0851a3a40bc233b98bcb5&smart=true&width=992&height=558&quality=85",
+      "id": 3
+    },
+    {
+      "title": "Curious Pug",
+      "description": "A curious pug looking up with a tilted head.",
+      "price": "$20",
+      "image": "https://www.infobae.com/resizer/v2/I5RSZR65RVEZRGA3ZFR6JLUWVI.jpg?auth=9631db2770289843949bb4011c574f1aaca63e51b9b0851a3a40bc233b98bcb5&smart=true&width=992&height=558&quality=85",
+      "id": 4
+    },
+    {
+      "title": "Pug with a Hat",
+      "description": "A cute pug wearing a small hat.",
+      "price": "$20",
+      "image": "https://www.infobae.com/resizer/v2/I5RSZR65RVEZRGA3ZFR6JLUWVI.jpg?auth=9631db2770289843949bb4011c574f1aaca63e51b9b0851a3a40bc233b98bcb5&smart=true&width=992&height=558&quality=85",
+      "id": 5
+    }
+]
