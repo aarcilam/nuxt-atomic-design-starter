@@ -42,3 +42,44 @@ Este es un proyecto open source construido con **Nuxt 3**. El objetivo de este p
 - **`generate`**: Genera una versión estática de la aplicación, útil para el despliegue en servidores estáticos.
 - **`preview`**: Previsualiza la aplicación compilada antes de desplegarla.
 - **`postinstall`**: Comando que se ejecuta después de instalar las dependencias para preparar el entorno de Nuxt.
+
+## Componentes Propios
+
+Aquí puedes describir algunos de los componentes propios que has creado para tu aplicación. Asegúrate de incluir detalles como:
+
+- **Nombre del componente**: Descripción breve de su función.
+- **Props**: Enumera las propiedades que recibe el componente y su tipo.
+- **Ejemplo de uso**: Proporciona un fragmento de código que muestre cómo se utiliza el componente.
+
+### Ejemplo:
+
+#### `MyButton.vue`
+
+- **Descripción**: Un botón reutilizable que puede recibir diferentes estilos y manejar eventos de clic.
+  
+- **Props**:
+  - `label` (String): Texto que se muestra en el botón.
+  - `type` (String): Tipo de botón (e.g., "primary", "secondary").
+  
+- **Ejemplo de uso**:
+  ```vue
+  <template>
+    <MyButton label="Haz clic en mí" type="primary" @click="manejarClic" />
+  </template>
+  
+  <script>
+  export default {
+    methods: {
+      manejarClic() {
+        console.log('¡Botón clicado!');
+      }
+    }
+  }
+  </script>
+  ```
+
+## Compilación en Docker
+Este proyecto puede compilarse en Docker. Utiliza el siguiente comando para construir la imagen de Docker:
+```
+    docker build -t starter-app-with-nuxt .
+```
