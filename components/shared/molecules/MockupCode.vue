@@ -1,11 +1,14 @@
 <template>
-  <div class="mockup-code relative p-5 mx-auto w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-full overflow-x-auto">
+  <div class="mockup-code relative p-5 pt-[35px] mx-auto w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-full overflow-x-auto">
     <pre class="overflow-x-auto whitespace-pre-wrap break-words">
       <code :class="`lang-${lang || 'html'}`">{{ code }}</code>
     </pre>
-    <SharedAtomsButton @click="copyToClipboard()" class="absolute top-2 right-2">
-      Copy All
-    </SharedAtomsButton>
+    <div class="absolute top-2 right-5 flex">
+      <SharedAtomsButton color="secondary" @click="copyToClipboard()" >
+        Copy
+      </SharedAtomsButton>
+      <slot></slot>
+    </div>
   </div>
 </template>
 
