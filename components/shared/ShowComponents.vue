@@ -142,6 +142,29 @@ const pugData: CardItem[] = [
           <SharedMoleculesFormsFormCreator :form-config="registerForm()" submit-label="Registrar">
           </SharedMoleculesFormsFormCreator>
         </SharedMoleculesComponentDocumentator>
+
+        <SharedMoleculesComponentDocumentator title="Modal" code='
+              const { showModal } = useModal();
+              const openModal = async () => {
+                const result = await showModal(Modal);
+                console.log(result);
+              }
+              <SharedAtomsButton @click="openModal()">Open modal</SharedAtomsButton>
+            '>
+            <SharedAtomsButton @click="openModal()">Open modal</SharedAtomsButton>
+        </SharedMoleculesComponentDocumentator>
+
+        <SharedMoleculesComponentDocumentator title="Mockup code" code='
+            <SharedMoleculesMockupCode lang="js" code="
+              const msg = "vue i fun"
+              console.log(msg)
+              "></SharedMoleculesMockupCode>
+            '>
+            <SharedMoleculesMockupCode lang="js" code="
+            const msg = 'vue i fun'
+            console.log(msg)
+            "></SharedMoleculesMockupCode>
+        </SharedMoleculesComponentDocumentator>
       </div>
     </SharedAtomsCollapsableCard>
 
