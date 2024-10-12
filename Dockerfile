@@ -1,30 +1,28 @@
-# Usa la imagen oficial de Node.js como base
-FROM node:18-alpine
+# Start Generation Here
+FROM node:20
 
-# Instala Bun
-RUN curl -fsSL https://bun.sh/install | bash
+# Establecer el directorio de trabajo
+WORKDIR /usr/src/app
 
-# Agrega Bun al PATH
-ENV PATH="/root/.bun/bin:${PATH}"
+# Copiar los archivos de configuración
+COPY package*.json ./
 
-# Establece el directorio de trabajo en el contenedor
-WORKDIR /app
+# Instalar bun
+RUN npm install -g bun
 
-# Copia el archivo bun.lockb y package.json al contenedor
-COPY bun.lockb ./
-COPY package.json ./
-
-# Instala las dependencias
+# Instalar las dependencias con bun
 RUN bun install
 
-# Copia todo el resto del código de la aplicación al contenedor
+# Copiar el resto de la aplicación
 COPY . .
 
-# Construye la aplicación
-RUN bun build
+# Construir la aplicación
+RUN bun run build
 
-# Expone el puerto que usará la aplicación
+# Exponer el puerto en el que la aplicación se ejecutará
 EXPOSE 3000
 
-# Comando por defecto para ejecutar la aplicación
-CMD ["bun", "start"]
+# Comando para iniciar la aplicación
+CMD ["bun", "run", "preview"]
+# End Generation Here
+
