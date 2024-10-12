@@ -3,16 +3,24 @@
     <div class="w-1/2">
       <SharedAtomsHeading2>The form on the right is created with this JSON bellow</SharedAtomsHeading2>
       <SharedAtomsBodyText>Edit the json and see how changes</SharedAtomsBodyText>
-      <SharedAtomsButton @click="mountBasicForm()" v-if="createdForm==null">Basic form</SharedAtomsButton>
-      <SharedAtomsButton @click="mountComplicatedForm()" v-if="createdForm==null">More complicated</SharedAtomsButton>
+      <div class="flex gap-1">
+        <SharedAtomsButton @click="mountBasicForm()">Basic form</SharedAtomsButton>
+        <SharedAtomsButton @click="mountComplicatedForm()">More complicated</SharedAtomsButton>
+        <SharedAtomsButton @click="createNew()">New Form</SharedAtomsButton>
+      </div>
       <SharedMoleculesMockupCode :code="newForm" :editable="true" lang="js" @update:code="formChange">
-        <SharedAtomsButton @click="createNew()" v-if="createdForm==null">New Form</SharedAtomsButton>
-        <SharedAtomsButton @click="addInputToNewForm()" v-if="createdForm!=null">Add input</SharedAtomsButton>
       </SharedMoleculesMockupCode>
     </div>
-    <div class="w-1/2">
+    <div class="w-1/2 p-5">
+      <div class="flex justify-end">
+        <SharedAtomsButton @click="addInputToNewForm()">Add input</SharedAtomsButton>
+      </div>
       <SharedMoleculesFormsFormCreator v-if="newForm.length > 0" :form-config="newForm">
       </SharedMoleculesFormsFormCreator>
+      <br><br><br><br>
+      Use like this
+      <SharedMoleculesMockupCode :code="'<SharedMoleculesFormsFormCreator :form-config='+JSON.stringify(newForm)+' />'" lang="js" @update:code="formChange">
+      </SharedMoleculesMockupCode>
     </div>
   </div>
 </template>
@@ -25,8 +33,6 @@ const newForm = ref(JSON.parse(simpleForm))
 const testForm = ref({
   json: simpleForm
 })
-
-const createdForm = ref(null)
 
 const mountComplicatedForm = () => {
   newForm.value = JSON.parse(complicatedForm)
@@ -41,9 +47,8 @@ const mountBasicForm = () => {
 }
 
 const createNew = () => {
-  createdForm.value = []
-  newForm.value = createdForm.value
-  testForm.value = { json: createdForm.value.toString() }
+  newForm.value = []
+  testForm.value = { json: [].toString() }
   formKey.value += 1
 }
 
@@ -55,8 +60,8 @@ const addInputToNewForm = () => {
     "validation": "required | minLength:3",
     "label": "Nombre"
   }
-  createdForm.value.push(input);
-  testForm.value = { json: createdForm.value.toString() };
+  newForm.value.push(input);
+  testForm.value = { json: newForm.value.toString() };
   formKey.value += 1
 }
 
