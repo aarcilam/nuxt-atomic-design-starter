@@ -1,6 +1,6 @@
 <template>
-  <div class="mockup-code relative p-5">
-    <pre class="border-r-2">
+  <div class="mockup-code relative p-5 mx-auto w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-full overflow-x-auto">
+    <pre class="overflow-x-auto whitespace-pre-wrap break-words">
       <code :class="`lang-${lang || 'html'}`">{{ code }}</code>
     </pre>
     <SharedAtomsButton @click="copyToClipboard()" class="absolute top-2 right-2">
@@ -8,6 +8,7 @@
     </SharedAtomsButton>
   </div>
 </template>
+
 
 <script setup lang="ts">
 import Prism from "prismjs";
@@ -43,3 +44,11 @@ const copyToClipboard = () => {
   });
 };
 </script>
+
+<style>
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: justify;
+}
+</style>
