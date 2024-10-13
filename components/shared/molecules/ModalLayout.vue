@@ -1,8 +1,13 @@
 <!-- components/modals/ExampleModal.vue -->
 <template>
-
-  <h3 class="text-lg font-bold">Hello modal!</h3>
-
+  <div class="modal" open>
+    <div class="modal-box w-10/12 max-w-4xl">
+      <form method="dialog">
+        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" @click="close">✕</button>
+      </form>
+      <slot></slot>
+    </div>
+  </div>
 </template>
 
 <script setup>

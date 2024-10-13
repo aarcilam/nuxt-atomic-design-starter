@@ -1,4 +1,3 @@
-// composables/useModal.js
 import { ref, h, createVNode, render } from 'vue';
 
 export function useModal() {

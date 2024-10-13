@@ -1,8 +1,8 @@
 <template>
 <div class="carousel carousel-center rounded-box space-x-4 p-4">
   <div class="carousel-item" v-for="item in items" :key="item.title">
-      <SharedMoleculesCard v-if="type=='basic'" @click="startViewTransition('/test')" :title="item.title" :description="item.description" :image="item.image" :id="item.id" :glass="glass" :side="side" :full-img="fullImg" :color="color" /> 
-      <SharedMoleculesCard v-if="type=='product'" @click="startViewTransition('/test')" :title="item.title" :price="item.price" :discount-price="item.discountPrice" :image="item.image" :id="item.id" :glass="glass" :side="side" :full-img="fullImg" :color="color" /> 
+      <SharedMoleculesCard v-if="type=='basic'" @click="emitClickedItem(item)" :title="item.title" :description="item.description" :image="item.image" :id="item.id" :glass="glass" :side="side" :full-img="fullImg" :color="color" /> 
+      <SharedMoleculesCard v-if="type=='product'" @click="emitClickedItem(item)" :title="item.title" :price="item.price" :discount-price="item.discountPrice" :image="item.image" :id="item.id" :glass="glass" :side="side" :full-img="fullImg" :color="color" /> 
   </div>
 </div>
 </template>
@@ -19,7 +19,12 @@ const props = defineProps<{
     fullImg?: boolean;
     color?: string;
 }>();
-const { startViewTransition } = useViewTransition()
+
+const emit = defineEmits(['itemClicked']);
+const emitClickedItem = (item: CardItem) => {
+  emit('itemClicked', item);
+  console.log(item); 
+}
 </script>
 
 <style>

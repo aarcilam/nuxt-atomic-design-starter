@@ -1,19 +1,25 @@
 <script setup lang="ts">
-import type { CardItem } from '~/components/shared/molecules/Card.vue';
 import Modal from './Modal.vue';
 import registerForm from '../auth/schemas/register.form';
+const { startViewTransition:navigate } = useViewTransition()
 
-const { showModal } = useModal();
+const { showModal, showDrawer } = useStack()
 const openModal = async () => {
   const result = await showModal(Modal);
   console.log(result);
 }
 
+const openDrawer = async () => {
+  const result = await showDrawer(Modal);
+  console.log(result);
+}
 const data = await queryContent('/pugs').findOne()
 const pugData:any = data.body
 
 const blogs = await queryContent('/blog').find()
-
+const navigateBlogs = (item)=>{
+  navigate("/blog/"+item.slug)
+}
 </script>
 <template>
   <div class="p-5">
@@ -56,7 +62,7 @@ const blogs = await queryContent('/blog').find()
             <SharedAtomsButton color="neutral">I´m a neutral button</SharedAtomsButton>
           '>
         <SharedAtomsButton @click="openModal()">I´m a primary button</SharedAtomsButton>
-        <SharedAtomsButton color="secondary">I´m a secondary button</SharedAtomsButton>
+        <SharedAtomsButton @click="openDrawer()" color="secondary">I´m a secondary button</SharedAtomsButton>
         <SharedAtomsButton color="accent">I´m an accent button</SharedAtomsButton>
         <SharedAtomsButton color="neutral">I´m a neutral button</SharedAtomsButton>
       </SharedMoleculesComponentDocumentator>
@@ -119,7 +125,7 @@ const blogs = await queryContent('/blog').find()
       <div class="space-y-5">
         <SharedMoleculesComponentDocumentator title="Card Grid"
           code='<BlocksGridCardSection :items="pugData" type="basic" :full-img="true" class="mb-5" />'>
-          <BlocksGridCardSection :items="blogs" type="basic" :full-img="true" class="mb-5" />
+          <BlocksGridCardSection :items="blogs" @item-clicked="navigateBlogs" type="basic" :full-img="true" class="mb-5" />
           <BlocksGridCardSection :items="pugData" type="product" class="mb-5" />
         </SharedMoleculesComponentDocumentator>
 
