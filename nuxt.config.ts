@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@vueuse/nuxt',
     '@nuxt/content',
+    '@formkit/auto-animate/nuxt'
   ],
   pinia: {
     storesDirs: ['./stores/**'],
@@ -44,4 +45,5 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true
   },
+  css: ['animate.css/animate.min.css'] 
 })

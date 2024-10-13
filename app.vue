@@ -6,4 +6,5 @@ const colorStore = useThemeStore();
   <div :data-theme="colorStore.colorTheme">
     <NuxtPage />
   </div>
+  <div id="stack-cont" v-auto-animate></div>
 </template>

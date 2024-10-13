@@ -1,6 +1,6 @@
 <template>
-  <div class="fixed top-2 left-0 w-screen h-screen z-10" @click.stop="close">
-    <div class="p-5 bg-neutral" :class="classes" @click.stop>
+  <div class="fixed top-2 left-0 w-screen h-screen z-10" @click.stop="close" v-auto-animate>
+    <div class="p-5 bg-neutral animate__animated" :class="classes" @click.stop>
       <slot></slot>
     </div>
   </div>
@@ -19,7 +19,7 @@ const props = defineProps({
 })
 
 let classes = "w-96 h-screen pt-[100px]"
-if(props.position == 'bottom') classes = "w-screen h-2/3 pt-[50px] fixed bottom-0"
+if(props.position == 'bottom') classes = "w-screen h-2/3 pt-[50px] fixed bottom-0 animate__fadeInUp"
 if(props.position == 'right') classes = "w-96 h-screen pt-[100px] float-right"
 
 const close = () => {
