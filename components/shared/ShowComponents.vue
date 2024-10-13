@@ -10,7 +10,7 @@ const openModal = async () => {
 }
 
 const openDrawer = async () => {
-  const result = await showDrawer(Modal);
+  const result = await showDrawer(Modal, {position: 'bottom'});
   console.log(result);
 }
 const data = await queryContent('/pugs').findOne()
