@@ -3,7 +3,7 @@ import Modal from './Modal.vue';
 import registerForm from '../auth/schemas/register.form';
 const { startViewTransition:navigate } = useViewTransition()
 
-const { showModal } = useModal();
+const { showModal } = useStack()
 const openModal = async () => {
   const result = await showModal(Modal);
   console.log(result);
