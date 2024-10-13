@@ -18,9 +18,9 @@ const props = defineProps({
   }
 })
 
-let classes = "w-96 h-screen pt-[100px]"
+let classes = "w-96 h-screen pt-[100px] animate__fadeInLeft"
 if(props.position == 'bottom') classes = "w-screen h-2/3 pt-[50px] fixed bottom-0 animate__fadeInUp"
-if(props.position == 'right') classes = "w-96 h-screen pt-[100px] float-right"
+if(props.position == 'right') classes = "w-96 h-screen pt-[100px] float-right animate__fadeInRight"
 
 const close = () => {
   emitClose(null);

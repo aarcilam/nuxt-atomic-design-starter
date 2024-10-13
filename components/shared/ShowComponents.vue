@@ -9,8 +9,8 @@ const openModal = async () => {
   console.log(result);
 }
 
-const openDrawer = async () => {
-  const result = await showDrawer(Modal, {position: 'bottom'});
+const openDrawer = async (side) => {
+  const result = await showDrawer(Modal, {position: side});
   console.log(result);
 }
 const data = await queryContent('/pugs').findOne()
@@ -62,7 +62,7 @@ const navigateBlogs = (item)=>{
             <SharedAtomsButton color="neutral">I´m a neutral button</SharedAtomsButton>
           '>
         <SharedAtomsButton @click="openModal()">I´m a primary button</SharedAtomsButton>
-        <SharedAtomsButton @click="openDrawer()" color="secondary">I´m a secondary button</SharedAtomsButton>
+        <SharedAtomsButton @click="openDrawer('left')" color="secondary">I´m a secondary button</SharedAtomsButton>
         <SharedAtomsButton color="accent">I´m an accent button</SharedAtomsButton>
         <SharedAtomsButton color="neutral">I´m a neutral button</SharedAtomsButton>
       </SharedMoleculesComponentDocumentator>
@@ -116,6 +116,20 @@ const navigateBlogs = (item)=>{
             '>
           <SharedMoleculesFormsFormCreator :form-config="registerForm()" submit-label="Registrar">
           </SharedMoleculesFormsFormCreator>
+        </SharedMoleculesComponentDocumentator>
+
+        <SharedMoleculesComponentDocumentator title="Modal" code='
+          <SharedAtomsButton @click="openModal()">Open modal</SharedAtomsButton>
+            '>
+          <SharedAtomsButton @click="openModal()">Open modal</SharedAtomsButton>
+        </SharedMoleculesComponentDocumentator>
+
+        <SharedMoleculesComponentDocumentator title="Drawer" code='
+          <SharedAtomsButton @click="openDrawer()">Open Drawer</SharedAtomsButton>
+            '>
+          <SharedAtomsButton @click="openDrawer('left')">Open Drawer left</SharedAtomsButton>
+          <SharedAtomsButton @click="openDrawer('right')" color="secondary">Open Drawer right</SharedAtomsButton>
+          <SharedAtomsButton @click="openDrawer('bottom')" color="accent">Open Drawer bottom</SharedAtomsButton>
         </SharedMoleculesComponentDocumentator>
       </div>
     </SharedAtomsCollapsableCard>
