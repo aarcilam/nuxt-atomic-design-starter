@@ -1,6 +1,6 @@
 <template>
-  <div>
-    
+  <div class="fixed w-96 h-screen bg-neutral top-0 left-0 pt-[100px] p-5">
+    <slot></slot>
   </div>
 </template>
 
