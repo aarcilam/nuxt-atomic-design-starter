@@ -25,7 +25,6 @@ const navigateBlogs = (item)=>{
   <div class="p-5">
     <SharedAtomsHeading1 class="text-xl font-bold mb-3">Componentes</SharedAtomsHeading1>
     <hr class="mb-5">
-
     <!-- Átomos -->
     <SharedAtomsCollapsableCard :open="true" title="Átomos" class="mb-5">
       <SharedMoleculesComponentDocumentator title="Colores" code='
@@ -78,7 +77,7 @@ const navigateBlogs = (item)=>{
         <SharedAtomsFormsFieldsTextArea name="textareainput" id="textareainput" label="Text Area" />
         <SharedAtomsFormsFieldsPhoneInput name="phoneinput" id="phoneinput" label="Phone Input" />
         <SharedAtomsFormsFieldsPassInput name="passinput" id="passinput" label="Password Input" />
-        <SharedAtomsFormsFieldsFileInput name="fileinput" id="fileinput" label="File Input" />
+        <SharedAtomsFormsFieldsFileInput accep=".png,.jpg" name="fileinput" id="fileinput" label="File Input" />
       </SharedMoleculesComponentDocumentator>
     </SharedAtomsCollapsableCard>
 
