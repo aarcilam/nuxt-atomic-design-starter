@@ -41,9 +41,9 @@ const changeTheme= (theme) => {
 </script>
 
 <template>
-    <div class="navbar w-full z-50" :class="classes">    
+    <div class="navbar w-full z-50 px-5" :class="classes">    
         <div class="flex-1">
-            <a class="btn btn-ghost text-xl">NuxtSolidStart</a>
+            <SharedAtomsLogo></SharedAtomsLogo>
         </div>
         <div class="flex-none">
             <ul class="menu menu-horizontal px-1">
