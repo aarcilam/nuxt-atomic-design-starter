@@ -16,8 +16,10 @@ const data = await queryContent('/pugs').findOne()
 const pugData:any = data.body
 
 const blogs = await queryContent('/blog').find()
+const router = useRouter();
+
 const navigateBlogs = (item)=>{
-  navigateTo("/blog/"+item.slug)
+    router.push(`/blog/${item.slug}`);
 }
 </script>
 <template>

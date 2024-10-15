@@ -1,7 +1,7 @@
 <template>
   <div class="card max-w-[400px]" :class="customClasses">
     <figure>
-      <img :style="'view-transition-name: transition-'+ slug +';'" :src="image" alt="car!" />
+      <NuxtImg  :style="{ 'view-transition-name': `item-${slug}` }" transition :src="image" alt="car!" />
     </figure>
     <div class="card-body">
       <h2 class="card-title">
