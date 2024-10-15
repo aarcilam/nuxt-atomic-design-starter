@@ -17,7 +17,7 @@
     </div>
     <div class="w-1/2 p-5">
       <div class="flex justify-end">
-        <SharedAtomsButton @click="addInputToNewForm()">Add input</SharedAtomsButton>
+        <AddInputToFormCreatorForm class="w-full" submit-label="Add" @submit="addInputToNewForm" />
       </div>
       <SharedMoleculesFormsFormCreator v-if="newForm.length > 0" :form-config="newForm">
       </SharedMoleculesFormsFormCreator>
@@ -53,13 +53,14 @@ const createNew = () => {
   formKey.value += 1
 }
 
-const addInputToNewForm = () => {
+const addInputToNewForm = (e) => {
+  console.log(e);
   let input = {
-    "type": "text",
-    "name": "nombre",
-    "id": "nombre",
-    "validation": "required | minLength:3",
-    "label": "Nombre"
+    "type": e.type,
+    "name": e.name,
+    "id": e.name,
+    "validation": e.validation,
+    "label": e.name
   }
   newForm.value.push(input);
   testForm.value = { json: newForm.value.toString() };
