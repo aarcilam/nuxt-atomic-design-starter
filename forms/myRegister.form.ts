@@ -1,5 +1,6 @@
-export default () => {
-    const {t} = useI18n()
+import type { FormGroup, FormField } from "@/interfaces/FormConfig"
+
+export default (t): (FormGroup | FormField)[] => {
     return  [
         {
             type: 'text',

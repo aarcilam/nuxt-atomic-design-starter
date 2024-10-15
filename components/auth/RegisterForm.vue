@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import registerForm from './schemas/register.form';
-
 const submit = async (formData: any) => {
     console.log(formData)
     const { data: signUpData, error: signUpError } = await useSupabaseClient().auth.signUp(formData)
@@ -9,5 +7,5 @@ const submit = async (formData: any) => {
 </script>
 
 <template>
-    <SharedMoleculesFormsFormCreator id="register-form" :form-config="registerForm()" @submit="submit" :submit-label="$t('auth.register.submit')" />
+    <MyRegisterForm @submit="submit" :submit-label="$t('auth.register.submit')"></MyRegisterForm>
 </template>

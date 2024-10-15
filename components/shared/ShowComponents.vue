@@ -113,8 +113,7 @@ const navigateBlogs = (item)=>{
                 submit-label="Registrar" 
               />
             '>
-          <SharedMoleculesFormsFormCreator :form-config="registerForm()" submit-label="Registrar">
-          </SharedMoleculesFormsFormCreator>
+          <MyRegisterForm></MyRegisterForm>
         </SharedMoleculesComponentDocumentator>
 
         <SharedMoleculesComponentDocumentator title="Modal" code='
