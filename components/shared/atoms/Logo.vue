@@ -1,7 +1,7 @@
 <template>
   <div>
-    <img class=" max-w-32" v-if="isFull" :src="dark ? '/images/logo-green-black.png' : '/images/logo-green-white.png'" alt="Logo" />
-    <img class=" max-w-11" v-else :src="dark ? '/images/icon-black.png' : '/images/icon-black.png'" alt="Logo" />
+    <NuxtImg class=" max-w-32" v-if="isFull" :src="dark ? '/images/logo-green-black.png' : '/images/logo-green-white.png'" alt="Logo" />
+    <NuxtImg class=" max-w-11" v-else :src="dark ? '/images/icon-black.png' : '/images/icon-black.png'" alt="Logo" />
   </div>
 </template>
 
