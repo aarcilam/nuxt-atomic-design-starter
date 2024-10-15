@@ -5,7 +5,10 @@ const colorStore = useThemeStore();
 <template>
   <div :data-theme="colorStore.colorTheme">
     <transition name="page">
-      <NuxtPage />
+      <NuxtLayout>
+        <NuxtLoadingIndicator/>
+        <NuxtPage />
+      </NuxtLayout>
     </transition>
   </div>
   <div id="stack-cont"></div>
@@ -16,6 +19,7 @@ const colorStore = useThemeStore();
 .page-leave-active {
   transition: all 0.6s;
 }
+
 .page-enter-from,
 .page-leave-to {
   opacity: 0;
