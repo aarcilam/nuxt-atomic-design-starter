@@ -23,5 +23,5 @@ RUN bun run build
 EXPOSE 3000
 
 # Comando para iniciar la aplicación
-CMD ["node", ".output/server/index.mjs"]
+CMD ["bun", "run", ".output/server/index.mjs"]
 # End Generation Here
