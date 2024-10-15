@@ -1,4 +1,7 @@
 <script setup lang="ts">
+definePageMeta({
+  viewTransition: false
+})
 const log = (e)=>{
   console.log(e);
 }

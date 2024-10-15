@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { useCustomBlockStore } from '~/stores/custom-blocks';
 import homeBlocks from '~/utils/homeBlocks';
-
+definePageMeta({
+  viewTransition: false
+})
 const cardItems = [
   {
     id: 1,

@@ -45,8 +45,8 @@ export default defineNuxtConfig({
   supabase: {
     redirect: false
   },
-  css: ['animate.css/animate.min.css'] ,
+  css: ['animate.css/animate.min.css'],
   experimental: {
     viewTransition: true
-},
+  },
 })

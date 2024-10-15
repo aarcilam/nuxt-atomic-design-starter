@@ -3,7 +3,9 @@ import BlocksForm from '@/components/blocks/BlocksForm.vue'
 import DisplayBlocks from '@/components/blocks/DisplayBlocks.vue'
 import Heading1 from '@/components/shared/atoms/Heading1.vue'
 import { useCustomBlockStore } from '~/stores/custom-blocks';
-
+definePageMeta({
+  viewTransition: false
+})
 const themeStore = useCustomBlockStore()
 const blocks = ref(themeStore.blocksArray.length > 0 ? themeStore.blocksArray : showdownBlocks())
 
