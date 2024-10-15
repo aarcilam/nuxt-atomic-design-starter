@@ -95,10 +95,7 @@ const navigateBlogs = (item)=>{
         <SharedMoleculesComponentDocumentator title="Cards"
           code='<SharedMoleculesCard v-for="(pug, index) in pugData" :key="index" class="w-full" :title="pug.title" :description="pug.description" :image="pug.image" :id="pug.id" />'>
           <div class="grid gap-3">
-            <SharedMoleculesCard class="w-full" :glass="true" :title="pugData[0].title"
-              :description="pugData[0].description" :image="pugData[0].image" :id="pugData[0].id" :slug="pugData[0].slug" />
-            <SharedMoleculesCard class="w-full" :side="true" :title="pugData[0].title"
-              :description="pugData[0].description" :image="pugData[0].image" :id="pugData[1].id" :slug="pugData[1].slug" />
+
           </div>
         </SharedMoleculesComponentDocumentator>
 
