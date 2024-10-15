@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import Modal from './Modal.vue';
 import registerForm from '../auth/schemas/register.form';
-const { startViewTransition:navigate } = useViewTransition()
 
 const { showModal, showDrawer } = useStack()
 const openModal = async () => {
@@ -18,7 +17,7 @@ const pugData:any = data.body
 
 const blogs = await queryContent('/blog').find()
 const navigateBlogs = (item)=>{
-  navigate("/blog/"+item.slug)
+  navigateTo("/blog/"+item.slug)
 }
 </script>
 <template>

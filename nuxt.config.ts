@@ -5,6 +5,9 @@ export default defineNuxtConfig({
   //   '/components': { prerender: true },
   //   '/edit-blocks': { ssr: false },
   // },
+  app: {
+    pageTransition: { name: 'page' }
+  },
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   modules: [
@@ -42,8 +45,8 @@ export default defineNuxtConfig({
   supabase: {
     redirect: false
   },
+  css: ['animate.css/animate.min.css'] ,
   experimental: {
     viewTransition: true
-  },
-  css: ['animate.css/animate.min.css'] 
+},
 })
