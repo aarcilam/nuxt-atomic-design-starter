@@ -22,6 +22,8 @@ export default (t) => {
       validation: 'required',
       options: {
         text: 'text',
+        textarea: 'textarea',
+        phone: 'phone',
         select: 'select',
         password: 'password'
       }
