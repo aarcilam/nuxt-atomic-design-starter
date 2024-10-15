@@ -1,5 +1,6 @@
 import { defineNuxtPlugin } from '#app';
-import { defineAsyncComponent, h } from 'vue';
+import { h } from 'vue';
+import FormCreator from '@/components/shared/molecules/forms/FormCreator.vue'; // Importar directamente
 
 export default defineNuxtPlugin((nuxtApp) => {
   const formModules = import.meta.glob('../forms/*.form.ts');
@@ -11,20 +12,48 @@ export default defineNuxtPlugin((nuxtApp) => {
       ?.replace('.form.ts', '')
       .replace(/(?:^|\s)\S/g, (a) => a.toUpperCase())
       .replace(/\./g, '') || '';
-    const componentName = name+'Form'
+    const componentName = name + 'Form';
 
-    const component = defineAsyncComponent(async () => {
-      const formConfig = (await formModules[path]()).default();
+    const component = {
+      async setup(props, { emit }) {
+        const formModule = await formModules[path]();
+        const formConfig = formModule.default();
 
-      return {
-        components: {
-          FormCreator: await import('@/components/shared/molecules/forms/FormCreator.vue'), // Ajusta la ruta según tu estructura
+        const handleSubmit = (formData) => {
+          emit('submit', formData);
+        };
+
+        const handleChange = (formData) => {
+          emit('change', formData);
+        };
+
+        return () => {
+          return h('div', [
+            h('h2', componentName),
+            h(FormCreator, { 
+              formConfig, 
+              id: componentName, 
+              submitLabel: props.submitLabel || 'Enviar', 
+              value: props.value || {},
+              onSubmit: handleSubmit,
+              onChange: handleChange,
+            }),
+          ]);
+        };
+      },
+      props: {
+        submitLabel: {
+          type: String,
+          default: 'Enviar',
         },
-        render() {
-          return h('FormCreator', { formConfig, id: componentName });
+        value: {
+          type: Object,
+          default: () => ({}),
         },
-      };
-    });
+      },
+      emits: ['submit', 'change'],
+    };
+
     nuxtApp.vueApp.component(componentName, component);
   }
 });
