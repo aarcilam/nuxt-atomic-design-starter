@@ -17,7 +17,7 @@
       <SharedMoleculesMockupCode :code="'<SharedMoleculesFormsFormCreator :form-config='+JSON.stringify(newForm)+' />'" lang="js" @update:code="formChange">
       </SharedMoleculesMockupCode>
       <SharedAtomsHeading2 class="mt-5">Form schema</SharedAtomsHeading2>
-      <SharedAtomsBodyText>You can save this scheema in the /forms foldeer nuxt plugin detects and declare component for you , if your schema is called example.form.ts it produces < ExampleForm /></SharedAtomsBodyText>
+      <SharedAtomsBodyText>You can save this schema in the /forms folder nuxt plugin detects and declare component for you , if your schema is called example.form.ts it produces < ExampleForm /></SharedAtomsBodyText>
       <SharedMoleculesMockupCode :code="getFormAutoloadSchema(JSON.stringify(newForm))" lang="js"></SharedMoleculesMockupCode>
     </div>
     <div class="w-1/2 p-5">
@@ -79,7 +79,9 @@ const formChange = (event: any) => {
 
 const getFormAutoloadSchema = (schema)=>{
 return `
-export default (t) => {
+import type { FormGroup, FormField } from "@/interfaces/FormConfig"
+
+export default (t): (FormGroup | FormField)[] => {
   return ${schema}
 }`
 }
