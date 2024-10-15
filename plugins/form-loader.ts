@@ -1,6 +1,7 @@
 import { defineNuxtPlugin } from '#app';
 import { h } from 'vue';
-import FormCreator from '@/components/shared/molecules/forms/FormCreator.vue'; // Importar directamente
+import FormCreator from '@/components/shared/molecules/forms/FormCreator.vue';
+import { useI18n } from 'vue-i18n';
 
 export default defineNuxtPlugin((nuxtApp) => {
   const formModules = import.meta.glob('../forms/*.form.ts');
@@ -16,8 +17,9 @@ export default defineNuxtPlugin((nuxtApp) => {
 
     const component = {
       async setup(props, { emit }) {
+        const { t } = useI18n()
         const formModule = await formModules[path]();
-        const formConfig = formModule.default();
+        const formConfig = formModule.default(t);
 
         const handleSubmit = (formData) => {
           emit('submit', formData);
@@ -29,11 +31,10 @@ export default defineNuxtPlugin((nuxtApp) => {
 
         return () => {
           return h('div', [
-            h('h2', componentName),
-            h(FormCreator, { 
-              formConfig, 
-              id: componentName, 
-              submitLabel: props.submitLabel || 'Enviar', 
+            h(FormCreator, {
+              formConfig,
+              id: componentName,
+              submitLabel: props.submitLabel || 'Enviar',
               value: props.value || {},
               onSubmit: handleSubmit,
               onChange: handleChange,

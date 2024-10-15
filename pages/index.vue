@@ -6,7 +6,7 @@ const log = (e)=>{
 
 <template>
   <NuxtLayout name="basic">
-    <TestForm submit-label="hi" @submit="log"></TestForm>
+    <ExampleForm submit-label="hi" @submit="log"></ExampleForm>
     <BlocksDisplayBlocks :blocks="homeBlocks()"></BlocksDisplayBlocks>
   </NuxtLayout>
 </template>
