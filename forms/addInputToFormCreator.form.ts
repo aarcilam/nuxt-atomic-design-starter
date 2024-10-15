@@ -1,4 +1,6 @@
-export default (t) => {
+import type { FormGroup, FormField } from "@/interfaces/FormConfig"
+
+export default (t): (FormGroup | FormField)[] => {
   return [
     {
       type: 'text',

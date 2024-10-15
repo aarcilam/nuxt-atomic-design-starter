@@ -5,6 +5,7 @@ export interface FormField {
     validation: string;
     label: string;
     accept?: string;
+    options?: Object;
 }
 
 export interface FormGroup {
