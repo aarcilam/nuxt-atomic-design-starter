@@ -48,13 +48,13 @@ const changeTheme= (theme) => {
         </div>
         <div class="flex-none">
             <ul class="menu menu-horizontal px-1">
-                <li><a @click="startViewTransition('/')">Home</a></li>
-                <li><a @click="startViewTransition('/components')">Components</a></li>
-                <li v-if="!user"><a @click="startViewTransition('/login')">Authentication</a></li>
-                <!-- <li><a @click="startViewTransition('/edit-blocks')">Edit Blocks</a></li> -->
-                <!-- <li><a @click="startViewTransition('/edit-blocks/show')">Blocks</a></li> -->
-                <!-- <li><a @click="startViewTransition('/test')">View transition</a></li> -->
-                <li><a @click="startViewTransition('/formCreator')">From Creator</a></li>
+                <li><a @click="startViewTransition('/')" :class="{ 'text-secondary': $route.path === '/' }">Home</a></li>
+                <li><a @click="startViewTransition('/design-system')" :class="{ 'text-secondary': $route.path.includes('/design-system') }">Design System</a></li>
+                <li v-if="!user"><a @click="startViewTransition('/login')" :class="{ 'text-secondary': $route.path.includes('/login') }">Authentication</a></li>
+                <!-- <li><a @click="startViewTransition('/edit-blocks')" :class="{ 'text-secondary': $route.path.includes('/edit-blocks') }">Edit Blocks</a></li> -->
+                <!-- <li><a @click="startViewTransition('/edit-blocks/show')" :class="{ 'text-secondary': $route.path.includes('/edit-blocks/show') }">Blocks</a></li> -->
+                <!-- <li><a @click="startViewTransition('/test')" :class="{ 'text-secondary': $route.path.includes('/test') }">View transition</a></li> -->
+                <li><a @click="startViewTransition('/formCreator')" :class="{ 'text-secondary': $route.path.includes('/formCreator') }">From Creator</a></li>
             </ul>
             <div v-if="props.cart" class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle">

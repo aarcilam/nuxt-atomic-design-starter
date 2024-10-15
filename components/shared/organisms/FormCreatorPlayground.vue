@@ -10,12 +10,15 @@
         <SharedAtomsButton @click="showAddField = !showAddField" v-auto-animate><template v-if="!showAddField">Add field</template><template v-else>Close</template> </SharedAtomsButton>
       </div>
       <AddInputToFormCreatorForm v-if="showAddField" class="w-full" submit-label="Add" @submit="addInputToNewForm" v-auto-animate />
-      <SharedAtomsHeading2 class="mt-5">Form schema</SharedAtomsHeading2>
+      <SharedAtomsHeading2 class="mt-5">Form config</SharedAtomsHeading2>
       <SharedMoleculesMockupCode :code="JSON.stringify(newForm)" :editable="true" lang="js" @update:code="formChange">
       </SharedMoleculesMockupCode>
       <SharedAtomsHeading2>Form component</SharedAtomsHeading2>
       <SharedMoleculesMockupCode :code="'<SharedMoleculesFormsFormCreator :form-config='+JSON.stringify(newForm)+' />'" lang="js" @update:code="formChange">
       </SharedMoleculesMockupCode>
+      <SharedAtomsHeading2 class="mt-5">Form schema</SharedAtomsHeading2>
+      <SharedAtomsBodyText>You can save this scheema in the /forms foldeer nuxt plugin detects and declare component for you , if your schema is called example.form.ts it produces < ExampleForm /></SharedAtomsBodyText>
+      <SharedMoleculesMockupCode :code="getFormAutoloadSchema(JSON.stringify(newForm))" lang="js"></SharedMoleculesMockupCode>
     </div>
     <div class="w-1/2 p-5">
       <SharedMoleculesFormsFormCreator v-if="newForm.length > 0" :form-config="newForm">
@@ -72,6 +75,13 @@ const formChange = (event: any) => {
   testForm.value = event ? { json: event } : { json: {} };
   console.log(newForm.value);
   formKey.value += 1
+}
+
+const getFormAutoloadSchema = (schema)=>{
+return `
+export default (t) => {
+  return ${schema}
+}`
 }
 </script>
 

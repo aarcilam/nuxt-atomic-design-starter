@@ -6,7 +6,7 @@ export default (t) => {
       name: 'name',
       label: "Nombre campo",
       validation: 'required'
-    },    
+    },
     {
       type: 'text',
       id: 'validation-input',
@@ -28,5 +28,5 @@ export default (t) => {
         password: 'password'
       }
     },
-  ];
-};
+  ]
+}
