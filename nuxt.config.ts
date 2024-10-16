@@ -6,47 +6,47 @@ export default defineNuxtConfig({
   //   '/edit-blocks': { ssr: false },
   // },
   app: {
-    pageTransition: { name: 'page' }
+    pageTransition: { name: "page" },
   },
-  compatibilityDate: '2024-04-03',
+  compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
   modules: [
-    '@nuxtjs/tailwindcss',
-    '@formkit/nuxt',
-    '@nuxtjs/supabase',
-    '@nuxt/image',
-    '@pinia/nuxt',
-    '@nuxtjs/i18n',
-    '@vueuse/nuxt',
-    '@nuxt/content',
-    '@formkit/auto-animate/nuxt'
+    "@nuxtjs/tailwindcss",
+    "@formkit/nuxt",
+    "@nuxtjs/supabase",
+    "@nuxt/image",
+    "@pinia/nuxt",
+    "@nuxtjs/i18n",
+    "@vueuse/nuxt",
+    "@nuxt/content",
+    "@formkit/auto-animate/nuxt",
   ],
   pinia: {
-    storesDirs: ['./stores/**'],
+    storesDirs: ["./stores/**"],
   },
   i18n: {
-    langDir: 'locales',
+    langDir: "locales",
     locales: [
       {
-        code: 'en',
-        file: 'en.json'
+        code: "en",
+        file: "en.json",
       },
       {
-        code: 'es',
-        file: 'es.json'
-      }
+        code: "es",
+        file: "es.json",
+      },
     ],
-    defaultLocale: 'es',
-    strategy: 'prefix_except_default',
+    defaultLocale: "es",
+    strategy: "prefix_except_default",
   },
   formkit: {
-    autoImport: true
+    autoImport: true,
   },
   supabase: {
-    redirect: false
+    redirect: false,
   },
-  css: ['animate.css/animate.min.css'],
+  css: ["animate.css/animate.min.css"],
   experimental: {
-    viewTransition: true
+    viewTransition: true,
   },
-})
+});

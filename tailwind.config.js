@@ -1,7 +1,7 @@
 module.exports = {
   // content: ["./components/*.{vue}", "./pages/**/*.{vue}"],
   plugins: [
-    require('daisyui'),
+    require("daisyui"),
   ],
   daisyui: {
     themes: [
@@ -56,4 +56,4 @@ module.exports = {
       "cupcake",
     ],
   },
-}
+};

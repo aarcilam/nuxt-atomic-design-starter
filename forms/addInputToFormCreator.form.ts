@@ -1,34 +1,34 @@
-import type { FormGroup, FormField } from "@/interfaces/FormConfig"
+import type { FormField, FormGroup } from "@/interfaces/FormConfig";
 
 export default (t): (FormGroup | FormField)[] => {
   return [
     {
-      type: 'text',
-      id: 'name-input',
-      name: 'name',
+      type: "text",
+      id: "name-input",
+      name: "name",
       label: "Nombre campo",
-      validation: 'required'
+      validation: "required",
     },
     {
-      type: 'text',
-      id: 'validation-input',
-      name: 'validation',
+      type: "text",
+      id: "validation-input",
+      name: "validation",
       label: "Validacion",
-      validation: ''
+      validation: "",
     },
     {
-      type: 'select',
-      id: 'select-type',
-      name: 'type',
+      type: "select",
+      id: "select-type",
+      name: "type",
       label: "Tipo",
-      validation: 'required',
+      validation: "required",
       options: {
-        text: 'text',
-        textarea: 'textarea',
-        phone: 'phone',
-        select: 'select',
-        password: 'password'
-      }
+        text: "text",
+        textarea: "textarea",
+        phone: "phone",
+        select: "select",
+        password: "password",
+      },
     },
-  ]
-}
+  ];
+};
