@@ -14,6 +14,8 @@ de formularios, y un diseño adaptable.
 - **FormKit** para la creación de formularios avanzados.
 - **Supabase** para la gestión de bases de datos y autenticación.
 - **Pinia** para el manejo del estado global.
+- **Bun**: Utilizado para la gestión de paquetes y la compilación de la aplicación. Bun es un gestor de paquetes y un compilador de código rápido y eficiente, diseñado para reemplazar a npm y yarn. Ofrece una mayor velocidad y eficiencia en la gestión de dependencias y la compilación de la aplicación, lo que reduce el tiempo de desarrollo y mejora la experiencia del desarrollador.
+
 
 ## Tecnologías y Dependencias
 
@@ -69,6 +71,15 @@ de formularios, y un diseño adaptable.
   para Tailwind CSS que permite utilizar una colección de componentes
   preconstruidos y estilos predeterminados. Esto acelera el desarrollo y
   proporciona un diseño consistente sin necesidad de escribir CSS adicional.
+
+## Ejecución con Bun
+
+  Para ejecutar este proyecto, es necesario utilizar Bun, un gestor de paquetes y un ejecutor de scripts rápido y moderno. Asegúrate de tener Bun instalado en tu sistema y ejecuta el siguiente comando:
+
+  ```
+  bun run dev
+```
+
 
 ## Scripts
 
