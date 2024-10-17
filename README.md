@@ -5,7 +5,7 @@ proyecto es ofrecer una base sólida para desarrollar aplicaciones web rápidas 
 modernas, con un enfoque en la modularidad, la internacionalización, el manejo
 de formularios, y un diseño adaptable.
 
-## Características
+## Características especiales
 
 - **Nuxt 3** para una arquitectura modular y un desarrollo más rápido de
   aplicaciones web.
@@ -15,6 +15,7 @@ de formularios, y un diseño adaptable.
 - **Supabase** para la gestión de bases de datos y autenticación.
 - **Pinia** para el manejo del estado global.
 - **Bun**: Utilizado para la gestión de paquetes y la compilación de la aplicación. Bun es un gestor de paquetes y un compilador de código rápido y eficiente, diseñado para reemplazar a npm y yarn. Ofrece una mayor velocidad y eficiencia en la gestión de dependencias y la compilación de la aplicación, lo que reduce el tiempo de desarrollo y mejora la experiencia del desarrollador.
+- **[Plugin de carga de formularios]**: Este plugin carga automáticamente los módulos de formularios definidos en el directorio `../forms/*.form.ts`. Cada módulo de formulario se convierte en un componente de Vue que puede ser utilizado en la aplicación. El plugin utiliza `import.meta.glob` para cargar los módulos de forma dinámica y `useI18n` para internacionalizar los textos de los formularios. Por ejemplo, un archivo `example.form.ts` se convertiría en un componente auto importado `<ExampleForm>`.
 
 
 ## Tecnologías y Dependencias
