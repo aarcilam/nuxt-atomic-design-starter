@@ -1,5 +1,5 @@
 # Start Generation Here
-FROM node:20
+FROM node:20-slim
 
 # Establecer el directorio de trabajo
 WORKDIR /usr/src/app
