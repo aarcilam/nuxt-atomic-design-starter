@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Modal from './Modal.vue';
-import registerForm from '../auth/schemas/register.form';
 
 const { showModal, showDrawer } = useStack()
 const openModal = async () => {
