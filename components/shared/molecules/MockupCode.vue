@@ -24,7 +24,6 @@
 <script setup lang="ts">
 import Prism from "prismjs";
 import "prismjs/themes/prism-okaidia.min.css";
-import { onMounted, ref, watch, defineEmits } from 'vue';
 
 const props = defineProps<{
   code: string;

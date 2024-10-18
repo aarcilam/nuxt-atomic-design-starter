@@ -34,7 +34,8 @@ module.exports = {
             "font-size": "0.8rem",
           },
 
-          "fontFamily": "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace",
+          "fontFamily":
+            "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace",
           ".text-xs": {
             "font-size": "0.75rem",
           },
@@ -95,7 +96,7 @@ module.exports = {
             "font-size": "1rem",
           },
 
-          "fontFamily": 'Comic Sans MS',
+          "fontFamily": "Comic Sans MS",
           ".text-xs": {
             "font-size": "0.75rem",
           },
