@@ -7,7 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "pushdb": "bun x drizzle-kit push"
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",
@@ -21,12 +22,15 @@
     "@vueuse/core": "^11.1.0",
     "@vueuse/nuxt": "^11.1.0",
     "animate.css": "^4.1.1",
+    "drizzle-orm": "^0.35.3",
     "nuxt": "^3.13.0",
+    "postgres": "^3.4.4",
     "prismjs": "^1.29.0",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
-    "daisyui": "^4.12.10"
+    "daisyui": "^4.12.10",
+    "drizzle-kit": "^0.26.2"
   }
 }
