@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { isClient } from '@vueuse/core';
+
 const user = useSupabaseUser()
 const {setLocale, locale} = useI18n()
-const {update} = useThemeStore()
+const {update,setInitialTheme} = useThemeStore()
 
 const props = defineProps({
     cart: {
