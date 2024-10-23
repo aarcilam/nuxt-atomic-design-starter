@@ -129,7 +129,7 @@ construir la imagen de Docker:
 docker build -t starter-app-with-nuxt .
 ```
 
-## Creación de una copia y sincronización con upstream
+## Creación de una copia y sincronización con nuxtstarter
 
 ### 1. Crear un repositorio Git local
 
@@ -155,16 +155,16 @@ docker build -t starter-app-with-nuxt .
 2. **Subir los cambios al repositorio remoto:**
    - git push -u origin main
 
-### 3. Sincronización con el repositorio original (upstream)
+### 3. Sincronización con el repositorio original (nuxtstarter)
 
-1. **Agregar el repositorio original como upstream:**
-   - git remote add upstream https://github.com/usuario/repositorio-original.git
+1. **Agregar el repositorio original como nuxtstarter:**
+   - git remote add nuxtstarter https://github.com/aarcilam/nuxt-atomic-design-starter.git
 
-2. **Traer los cambios desde upstream:**
-   - git fetch upstream
+2. **Traer los cambios desde nuxtstarter:**
+   - git fetch nuxtstarter
 
 3. **Fusionar los cambios en tu rama actual:**
-   - git merge upstream/main --allow-unrelated-histories
+   - git merge nuxtstarter/main --allow-unrelated-histories
 
 4. **Subir los cambios actualizados a tu repositorio remoto:**
    - git push origin main
