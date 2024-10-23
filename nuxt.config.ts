@@ -1,8 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  routeRules: {
-    '/design-system': { prerender: true },
-  },
+  // routeRules: {
+  //   '/': { prerender: true },
+  //   '/design-system': { prerender: true },
+  //   '/edit-blocks': { ssr: false },
+  // },
   app: {
     pageTransition: { name: "page" },
   },
