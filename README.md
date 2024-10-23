@@ -82,6 +82,36 @@ bun run dev
 - **`postinstall`**: Comando que se ejecuta después de instalar las dependencias
   para preparar el entorno de Nuxt.
 
+## Configuración del Entorno
+
+Este proyecto utiliza Supabase como backend y PostgreSQL como base de datos.
+Asegúrate de tener las siguientes variables de entorno configuradas antes de
+ejecutar la aplicación.
+
+### Variables de Entorno
+
+A continuación se presentan las variables de entorno necesarias:
+
+- `DATABASE_URL`: La URL de conexión a tu base de datos PostgreSQL.
+- `SUPABASE_URL`: La URL de tu proyecto en Supabase.
+- `SUPABASE_KEY`: La clave de API para autenticar tus solicitudes hacia
+  Supabase.
+
+```bash
+DATABASE_URL="tu_url_de_base_de_datos"
+SUPABASE_URL="tu_url_de_supabase"
+SUPABASE_KEY="tu_clave_de_supabase"
+```
+
+## Configuración
+
+1. Crea un archivo `.env` en la raíz de tu proyecto y define las variables de
+   entorno necesarias.
+
+2. Asegúrate de instalar las dependencias necesarias en tu proyecto.
+
+3. Ejecuta tu aplicación.
+
 ## Componentes Propios
 
 Aquí puedes describir algunos de los componentes propios que has creado para tu
@@ -158,7 +188,8 @@ docker build -t starter-app-with-nuxt .
 ### 3. Sincronización con el repositorio original (nuxtstarter)
 
 1. **Agregar el repositorio original como nuxtstarter:**
-   - git remote add nuxtstarter https://github.com/aarcilam/nuxt-atomic-design-starter.git
+   - git remote add nuxtstarter
+     https://github.com/aarcilam/nuxt-atomic-design-starter.git
 
 2. **Traer los cambios desde nuxtstarter:**
    - git fetch nuxtstarter
