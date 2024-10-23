@@ -128,3 +128,43 @@ construir la imagen de Docker:
 ```
 docker build -t starter-app-with-nuxt .
 ```
+
+## Creación de una copia y sincronización con upstream
+
+### 1. Crear un repositorio Git local
+
+1. **Crear una carpeta para el proyecto:**
+   - mkdir mi-proyecto
+   - cd mi-proyecto
+
+2. **Inicializar el repositorio Git:**
+   - git init
+
+3. **Crear un archivo README.md:**
+   - echo "# Mi Proyecto" > README.md
+
+4. **Añadir el archivo y realizar el primer commit:**
+   - git add .
+   - git commit -m "Primer commit - inicialización del proyecto"
+
+### 2. Añadir un repositorio remoto (origin)
+
+1. **Añadir tu repositorio remoto como origin:**
+   - git remote add origin https://github.com/usuario/mi-repositorio.git
+
+2. **Subir los cambios al repositorio remoto:**
+   - git push -u origin main
+
+### 3. Sincronización con el repositorio original (upstream)
+
+1. **Agregar el repositorio original como upstream:**
+   - git remote add upstream https://github.com/usuario/repositorio-original.git
+
+2. **Traer los cambios desde upstream:**
+   - git fetch upstream
+
+3. **Fusionar los cambios en tu rama actual:**
+   - git merge upstream/main --allow-unrelated-histories
+
+4. **Subir los cambios actualizados a tu repositorio remoto:**
+   - git push origin main
