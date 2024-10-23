@@ -7,12 +7,14 @@ de formularios, y un diseño adaptable.
 
 ## Características especiales
 
-- **Nuxt 3** para una arquitectura modular y un desarrollo más rápido de
+- **Nuxt 3** para una arquitectura modular y un desarrollo rápido de
   aplicaciones web.
 - **Internacionalización** con `@nuxtjs/i18n` para manejar múltiples idiomas.
 - **Tailwind CSS** y **daisyUI** para estilos y componentes predefinidos.
 - **FormKit** para la creación de formularios avanzados.
 - **Supabase** para la gestión de bases de datos y autenticación.
+- **Drizzle ORM** para interactuar con la base de datos de Supabase de manera
+  sencilla y eficiente.
 - **Pinia** para el manejo del estado global.
 - **Bun**: Utilizado para la gestión de paquetes y la compilación de la
   aplicación. Bun es un gestor de paquetes y un compilador de código rápido y
@@ -31,49 +33,27 @@ de formularios, y un diseño adaptable.
 
 ### Dependencias
 
-- **[@formkit/nuxt](https://github.com/formkit/nuxt)**: Utilizado para
-  simplificar la creación de formularios en Nuxt 3. Ofrece componentes de
-  formularios avanzados, validación de formularios y control sobre el estado del
-  formulario, lo que permite a los desarrolladores centrarse en la lógica de
-  negocio sin preocuparse por los detalles de la creación de formularios.
-
-- **[@nuxt/image](https://github.com/nuxt/image)**: Esta herramienta optimiza
-  automáticamente las imágenes para mejorar el rendimiento de la aplicación. Es
-  especialmente útil para mejorar la velocidad de carga y reducir el consumo de
-  ancho de banda.
-
-- **[@nuxtjs/i18n](https://github.com/nuxt-modules/i18n)**: Agrega soporte de
-  internacionalización a la aplicación. Permite la traducción de textos y la
-  configuración de múltiples idiomas, lo que es esencial para aplicaciones que
-  buscan llegar a un público global.
-
-- **[@nuxtjs/supabase](https://github.com/nuxt-modules/supabase)**: Se integra
+- **[@formkit/nuxt](https://github.com/formkit/nuxt)**: Para la creación y
+  manejo avanzado de formularios.
+- **[@nuxt/image](https://github.com/nuxt/image)**: Optimización automática de
+  imágenes para mejorar el rendimiento.
+- **[@nuxtjs/i18n](https://github.com/nuxt-modules/i18n)**: Soporte para
+  internacionalización, permitiendo la traducción de textos y el manejo de
+  múltiples idiomas.
+- **[@nuxtjs/supabase](https://github.com/nuxt-modules/supabase)**: Integración
   con Supabase para facilitar la autenticación y la interacción con bases de
-  datos. Es útil para aplicaciones que requieren funcionalidades backend como
-  autenticación de usuarios, gestión de datos y más, sin la necesidad de
-  configurar un servidor personalizado.
-
+  datos.
+- **[Drizzle ORM](https://github.com/drizzle-team/drizzle-orm)**: ORM ligero que
+  se integra con Supabase para gestionar las consultas de la base de datos de
+  manera eficiente.
 - **[@nuxtjs/tailwindcss](https://github.com/nuxt-modules/tailwindcss)**:
-  Proporciona una integración directa de Tailwind CSS en Nuxt, facilitando la
-  creación de diseños modernos y adaptables sin escribir CSS personalizado. Es
-  ideal para mantener un código limpio y un diseño coherente.
-
-- **[@pinia/nuxt](https://github.com/vuejs/pinia)**: Utilizado para el manejo
-  del estado global en la aplicación. Pinia es una alternativa moderna y liviana
-  a Vuex, y se integra perfectamente con Nuxt 3, proporcionando un control
-  centralizado y fácil de usar para el estado de la aplicación.
-
+  Integración directa de Tailwind CSS para diseños modernos y adaptables.
+- **[@pinia/nuxt](https://github.com/vuejs/pinia)**: Para el manejo centralizado
+  del estado global en la aplicación.
 - **[nuxt](https://github.com/nuxt/nuxt)**: La columna vertebral del proyecto.
-  Nuxt 3 facilita la creación de aplicaciones Vue modernas con una arquitectura
-  que permite el renderizado del lado del servidor (SSR) y la generación
-  estática, entre otros beneficios.
-
 - **[vue](https://github.com/vuejs/core)** y
-  **[vue-router](https://github.com/vuejs/router)**: Vue.js es el framework base
-  para la construcción de la interfaz de usuario, mientras que Vue Router es
-  esencial para la navegación dentro de la aplicación. Nuxt abstrae muchas de
-  estas configuraciones, pero tener estas dependencias garantiza el control
-  total en la creación de componentes y en la configuración de rutas.
+  **[vue-router](https://github.com/vuejs/router)**: Framework base para la
+  interfaz de usuario y gestión de rutas.
 
 ### DevDependencies
 
