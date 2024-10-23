@@ -1,5 +1,8 @@
 <script setup lang="ts">
-
+definePageMeta({
+  viewTransition: false,
+  middleware: ['load-auth']
+})
 </script>
 
 <template>

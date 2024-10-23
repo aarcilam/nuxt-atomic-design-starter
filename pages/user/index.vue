@@ -1,6 +1,7 @@
 <script setup lang="ts">
 definePageMeta({
-  middleware: 'auth'
+  middleware: 'auth',
+  viewTransition: false
 })
 const { getUser } = useAuth()
 

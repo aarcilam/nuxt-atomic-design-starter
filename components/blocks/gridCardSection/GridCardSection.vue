@@ -9,7 +9,6 @@
 
 <script lang="ts" setup>
 import type { CardItem } from '~/components/shared/molecules/Card.vue';
-import { useViewTransition } from '~/composables/useViewTransition'
 const props = defineProps<{
   items: CardItem[];
   type: "product" | "basic";

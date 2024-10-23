@@ -4,7 +4,8 @@ import RegisterForm from '@/components/auth/RegisterForm.vue'
 import Heading1 from '@/components/shared/atoms/Heading1.vue'
 
 definePageMeta({
-  middleware: 'no-auth'
+  middleware: 'no-auth',
+  viewTransition: false
 })
 
 const submit = (datos: any) => {

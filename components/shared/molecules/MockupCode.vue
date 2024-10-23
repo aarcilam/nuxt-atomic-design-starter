@@ -1,7 +1,7 @@
 <template>
   <div class="mockup-code relative p-5 pt-[35px] mx-auto w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-[1200px] overflow-x-auto">
     <pre v-if="!isEditing" class="overflow-x-auto whitespace-pre-wrap break-words">
-      <code :class="`lang-${lang || 'html'}`">{{ editableCode }}</code>
+      <code :class="`language-${lang || 'html'}`">{{ editableCode }}</code>
     </pre>
     <textarea
       v-else
@@ -24,7 +24,6 @@
 <script setup lang="ts">
 import Prism from "prismjs";
 import "prismjs/themes/prism-okaidia.min.css";
-import { onMounted, ref, watch, defineEmits } from 'vue';
 
 const props = defineProps<{
   code: string;

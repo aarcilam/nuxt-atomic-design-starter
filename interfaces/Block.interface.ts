@@ -2,6 +2,6 @@ import type { JumbotronInterface } from "~/components/blocks/jumbotron/Jumbotron
 import type { MediaSectionInterface } from "~/components/blocks/mediaSection/MediaSection.interface";
 
 export interface Block {
-    key: string,
-    value: JumbotronInterface | MediaSectionInterface
+  key: string;
+  value: JumbotronInterface | MediaSectionInterface;
 }

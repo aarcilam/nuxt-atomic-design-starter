@@ -1,11 +1,20 @@
 <!-- components/modals/ExampleModal.vue -->
 <template>
-
   <h3 class="text-lg font-bold">Hello modal!</h3>
+  <SharedAtomsButton @click="openModal()">Open new modal</SharedAtomsButton>
+  <SharedAtomsButton @click="close()">close</SharedAtomsButton>
 
 </template>
 
 <script setup>
+import Modal from './Modal.vue';
+
+const { showModal } = useStack()
+const openModal = async () => {
+  console.log("modal from modal")
+  const result = await showModal(Modal);
+  console.log(result);
+}
 const emit = defineEmits(['close']);
 const inputValue = ref('');
 

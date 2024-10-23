@@ -12,7 +12,7 @@ console.log(blog);
 <template>
   <NuxtLayout name="basic">
     <figure>
-      <img :v-transition="blog.slug" :src="blog.image" alt="car!" />
+      <NuxtImg :style="{ 'view-transition-name': `item-${blog.slug}` }" :src="blog.image" alt="car!" />
     </figure>
 
       <h2 class="card-title">

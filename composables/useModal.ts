@@ -1,4 +1,4 @@
-import { ref, h, createVNode, render } from 'vue';
+import { createVNode, h, ref, render } from "vue";
 
 export function useModal() {
   const container = ref(null);
@@ -6,7 +6,7 @@ export function useModal() {
   const showModal = (Component, props = {}) => {
     return new Promise((resolve) => {
       // Creamos un contenedor temporal para el modal.
-      const containerElement = document.createElement('div');
+      const containerElement = document.createElement("div");
       container.value = containerElement;
 
       // Creamos el VNode del componente pasado.

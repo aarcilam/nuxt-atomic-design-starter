@@ -1,8 +1,9 @@
 <script setup lang="ts">
-const user = useSupabaseUser()
-const { startViewTransition } = useViewTransition()
+import { isClient } from '@vueuse/core';
+
+const user = useState('user')
 const {setLocale, locale} = useI18n()
-const {update} = useThemeStore()
+const {update,setInitialTheme} = useThemeStore()
 
 const props = defineProps({
     cart: {
@@ -42,19 +43,19 @@ const changeTheme= (theme) => {
 </script>
 
 <template>
-    <div class="navbar w-full z-50" :class="classes">    
+    <div class="navbar w-full z-50 px-5" :class="classes">    
         <div class="flex-1">
-            <a class="btn btn-ghost text-xl">NuxtSolidStart</a>
+            <SharedAtomsLogo></SharedAtomsLogo>
         </div>
         <div class="flex-none">
             <ul class="menu menu-horizontal px-1">
-                <li><a @click="startViewTransition('/')">Home</a></li>
-                <li><a @click="startViewTransition('/components')">Components</a></li>
-                <li v-if="!user"><a @click="startViewTransition('/login')">Authentication</a></li>
-                <!-- <li><a @click="startViewTransition('/edit-blocks')">Edit Blocks</a></li> -->
-                <!-- <li><a @click="startViewTransition('/edit-blocks/show')">Blocks</a></li> -->
-                <!-- <li><a @click="startViewTransition('/test')">View transition</a></li> -->
-                <li><a @click="startViewTransition('/formCreator')">From Creator</a></li>
+                <li><NuxtLink to="/" :class="{ 'text-secondary': $route.path === '/' }">Home</NuxtLink></li>
+                <li><NuxtLink to="/design-system" :class="{ 'text-secondary': $route.path.includes('/design-system') }">Design System</NuxtLink></li>
+                <li v-if="!user"><NuxtLink to="/login" :class="{ 'text-secondary': $route.path.includes('/login') }">Authentication</NuxtLink></li>
+                <!-- <li><NuxtLink to="/edit-blocks" :class="{ 'text-secondary': $route.path.includes('/edit-blocks') }">Edit Blocks</NuxtLink></li> -->
+                <!-- <li><NuxtLink to="/edit-blocks/show" :class="{ 'text-secondary': $route.path.includes('/edit-blocks/show') }">Blocks</NuxtLink></li> -->
+                <!-- <li><NuxtLink to="/test" :class="{ 'text-secondary': $route.path.includes('/test') }">View transition</NuxtLink></li> -->
+                <li><NuxtLink to="/formCreator" :class="{ 'text-secondary': $route.path.includes('/formCreator') }">From Creator</NuxtLink></li>
             </ul>
             <div v-if="props.cart" class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
@@ -121,9 +122,9 @@ const changeTheme= (theme) => {
                 </div>
                 <ul tabindex="0"
                     class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                    <li><a @click="startViewTransition('/user')" v-if="user">User <span class="badge">New</span></a></li>
-                    <li><a>Settings</a></li>
-                    <li><a>Logout</a></li>
+                    <li><NuxtLink to="/user" v-if="user">User <span class="badge">New</span></NuxtLink></li>
+                    <li><NuxtLink >Settings</NuxtLink></li>
+                    <li><NuxtLink >Logout</NuxtLink></li>
                 </ul>
             </div>
         </div>

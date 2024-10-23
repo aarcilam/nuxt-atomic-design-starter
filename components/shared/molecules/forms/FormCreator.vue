@@ -1,4 +1,5 @@
 <script setup lang="ts">
+console.log("form creator iniciado")
 const props = defineProps({
   id:{
     type: String,

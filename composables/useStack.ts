@@ -1,14 +1,14 @@
-import { ref, createVNode, render, h } from 'vue';
-import DrawerLayout from '~/components/shared/molecules/DrawerLayout.vue';
-import ModalLayout from '~/components/shared/molecules/ModalLayout.vue';
-import ToastLayout from '~/components/shared/molecules/ToastLayout.vue';
+import { createVNode, h, ref, render } from "vue";
+import DrawerLayout from "~/components/shared/molecules/DrawerLayout.vue";
+import ModalLayout from "~/components/shared/molecules/ModalLayout.vue";
+import ToastLayout from "~/components/shared/molecules/ToastLayout.vue";
 
 export function useStack() {
   const stack = ref([]);
   const container = ref(null);
 
   const createContainer = () => {
-    const containerElement = document.createElement('div');
+    const containerElement = document.createElement("div");
     document.body.appendChild(containerElement);
     container.value = containerElement;
     return containerElement;
