@@ -1,11 +1,11 @@
 import { posts } from "~/db/schema";
-import db from "./db-service";
+import { useDrizzle } from "./db-service";
 
 
 export default defineEventHandler(async () => {
   try {
-    const response = db.select().from(posts);
-    return { "users" : response}
+    const response = await useDrizzle().select().from(posts);
+    return { "posts" : response}
   } catch (e: any) {
     throw createError({
       statusCode: 400,
