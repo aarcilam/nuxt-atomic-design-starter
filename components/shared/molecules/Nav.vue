@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { isClient } from '@vueuse/core';
 
-const user = useSupabaseUser()
+const user = useState('user')
 const {setLocale, locale} = useI18n()
 const {update,setInitialTheme} = useThemeStore()
 
