@@ -10,6 +10,7 @@
         'outer': 'p-2',
         'input': 'input input-bordered w-full',
       }"
+      :rows="rows"
       @input="emit('input', $event)"
     />
 </template>
@@ -17,6 +18,10 @@
 <script setup lang="ts">
 const emit = defineEmits(['input'])
 defineProps({
+  rows: {
+    type: Number,
+    default: 5
+  },
   name: {
     type: String,
     required: true
