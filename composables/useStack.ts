@@ -41,9 +41,20 @@ export function useStack() {
     });
   };
 
-  const showToast = (Component, props = {}) => {
+  const showToast = (Component, props = {}, duration = 3000) => {
     return new Promise((resolve) => {
       createStackComponent(Component, ToastLayout, props, resolve);
+
+      // Desaparece el toast después de 'duration' milisegundos
+      setTimeout(() => {
+        const lastContainer = stack.value[stack.value.length - 1];
+        if (lastContainer) {
+          render(null, lastContainer); // Desmontamos el toast
+          lastContainer.remove(); // Removemos el contenedor del DOM
+          stack.value.pop(); // Quitamos el contenedor del stack
+          resolve(null); // Resolvemos la promesa
+        }
+      }, duration);
     });
   };
 

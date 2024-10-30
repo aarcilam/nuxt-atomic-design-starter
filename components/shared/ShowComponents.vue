@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Modal from './Modal.vue';
 
-const { showModal, showDrawer } = useStack()
+const { showModal, showDrawer, showToast } = useStack()
 const openModal = async () => {
   const result = await showModal(Modal);
   console.log(result);
@@ -11,6 +11,12 @@ const openDrawer = async (side) => {
   const result = await showDrawer(Modal, { position: side });
   console.log(result);
 }
+
+const openToast = async (side) => {
+  const result = await showToast(Modal, { position: side });
+  console.log(result);
+}
+
 const data = await queryContent('/pugs').findOne()
 const pugData: any = data.body
 
@@ -182,6 +188,15 @@ const navigateBlogs = (item) => {
           <SharedAtomsButton @click="openDrawer('left')">Open Drawer left</SharedAtomsButton>
           <SharedAtomsButton @click="openDrawer('right')" color="secondary">Open Drawer right</SharedAtomsButton>
           <SharedAtomsButton @click="openDrawer('bottom')" color="accent">Open Drawer bottom</SharedAtomsButton>
+        </SharedMoleculesComponentDocumentator>
+
+        <SharedMoleculesComponentDocumentator title="Toast" code='
+          <SharedAtomsButton @click="openToast()">Open Toast</SharedAtomsButton>
+            '>
+          <SharedAtomsButton @click="openToast('top-end')">Open Toast top-end</SharedAtomsButton>
+          <SharedAtomsButton @click="openToast('bottom-end')">Open Toast bottom-end</SharedAtomsButton>
+          <SharedAtomsButton @click="openToast('top-start')">Open Toast top-start</SharedAtomsButton>
+          <SharedAtomsButton @click="openToast('bottom-start')">Open Toast bottom-start</SharedAtomsButton>
         </SharedMoleculesComponentDocumentator>
       </div>
     </SharedAtomsCollapsableCard>
