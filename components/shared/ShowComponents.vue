@@ -8,17 +8,17 @@ const openModal = async () => {
 }
 
 const openDrawer = async (side) => {
-  const result = await showDrawer(Modal, {position: side});
+  const result = await showDrawer(Modal, { position: side });
   console.log(result);
 }
 const data = await queryContent('/pugs').findOne()
-const pugData:any = data.body
+const pugData: any = data.body
 
 const blogs = await queryContent('/blog').find()
 const router = useRouter();
 
-const navigateBlogs = (item)=>{
-    router.push(`/blog/${item.slug}`);
+const navigateBlogs = (item) => {
+  router.push(`/blog/${item.slug}`);
 }
 </script>
 <template>
@@ -91,6 +91,65 @@ const navigateBlogs = (item)=>{
           <SharedMoleculesNav class="bg-neutral text-white" :lang="true" :cart="true"></SharedMoleculesNav>
         </SharedMoleculesComponentDocumentator>
 
+        <SharedMoleculesComponentDocumentator title="Nav" code='<SharedMoleculesTable :columns="" :rows=""></SharedMoleculesTable>'>
+          <SharedMoleculesTable 
+            :columns="[
+              { label: 'Name', field: 'name' },
+              { label: 'Job', field: 'job' },
+              { label: 'Favorite Color', field: 'favoriteColor' },
+            ]" 
+            :rows="[
+              {
+                name: 'Hart Hagerty',
+                location: 'United States',
+                job: 'Zemlak, Daniel and Leannon',
+                position: 'Desktop Support Technician',
+                avatar: 'https://img.daisyui.com/images/profile/demo/2@94.webp',
+                favoriteColor: 'Purple',
+              },
+              {
+                name: 'Brice Swyre',
+                location: 'China',
+                job: 'Carroll Group',
+                position: 'Tax Accountant',
+                avatar: 'https://img.daisyui.com/images/profile/demo/3@94.webp',
+                favoriteColor: 'Red',
+              },
+              {
+                name: 'Marjy Ferencz',
+                location: 'Russia',
+                job: 'Rowe-Schoen',
+                position: 'Office Assistant I',
+                avatar: 'https://img.daisyui.com/images/profile/demo/4@94.webp',
+                favoriteColor: 'Crimson',
+              },
+              {
+                name: 'Yancy Tear',
+                location: 'Brazil',
+                job: 'Wyman-Ledner',
+                position: 'Community Outreach Specialist',
+                avatar: 'https://img.daisyui.com/images/profile/demo/5@94.webp',
+                favoriteColor: 'Indigo',
+              },
+             ]" >
+                 <template #start="{ row, column }">
+                  <div v-if="column.field === 'name'" class="flex items-center gap-3">
+                    <div class="avatar">
+                      <div class="mask mask-squircle h-12 w-12">
+                        <img :src="row.avatar" alt="Avatar" />
+                      </div>
+                    </div>
+                  </div>
+                </template>
+                <template #end="{ row, column }">
+                  <span v-if="column.field === 'job'" class="badge badge-ghost badge-sm">{{ row.position }}</span>
+                </template>
+                <template #actions="{ row }">
+                  <button class="btn btn-ghost btn-xs">View</button>
+                </template>
+          </SharedMoleculesTable>
+        </SharedMoleculesComponentDocumentator>
+
         <SharedMoleculesComponentDocumentator title="Cards"
           code='<SharedMoleculesCard v-for="(pug, index) in pugData" :key="index" class="w-full" :title="pug.title" :description="pug.description" :image="pug.image" :id="pug.id" />'>
           <div class="grid gap-3">
@@ -132,7 +191,8 @@ const navigateBlogs = (item)=>{
       <div class="space-y-5">
         <SharedMoleculesComponentDocumentator title="Card Grid"
           code='<BlocksGridCardSection :items="pugData" type="basic" :full-img="true" class="mb-5" />'>
-          <BlocksGridCardSection :items="blogs" @item-clicked="navigateBlogs" type="basic" :full-img="true" class="mb-5" />
+          <BlocksGridCardSection :items="blogs" @item-clicked="navigateBlogs" type="basic" :full-img="true"
+            class="mb-5" />
           <BlocksGridCardSection :items="pugData" type="product" class="mb-5" />
         </SharedMoleculesComponentDocumentator>
 
