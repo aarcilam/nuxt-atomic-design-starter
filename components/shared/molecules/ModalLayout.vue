@@ -5,7 +5,7 @@
       <form method="dialog">
         <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" @click="close">✕</button>
       </form>
-      <slot></slot>
+      <slot @close="emitClose"></slot>
     </div>
   </div>
 </template>
