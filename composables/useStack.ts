@@ -16,20 +16,24 @@ export function useStack() {
 
   const createStackComponent = (Component, Layout, props = {}, resolve) => {
     const containerElement = createContainer();
+  
+    // Creamos el vnode del layout, y dentro del slot pasamos el Component con la función close
     const vnode = createVNode(Layout, { ...props }, {
-      default: () => h(Component, props),
+      default: ({ close }) => h(Component, { ...props, close }), // Pasamos 'close' como prop
     });
-
+  
     render(vnode, containerElement);
     stack.value.push(containerElement);
-
+  
+    // Configuramos la función de cierre del modal
     vnode.props.onClose = (data) => {
-      render(null, containerElement);
-      containerElement.remove();
-      stack.value.pop();
-      resolve(data);
+      render(null, containerElement); // Desmontamos el modal
+      containerElement.remove(); // Removemos el contenedor del DOM
+      stack.value.pop(); // Quitamos el contenedor del stack
+      resolve(data); // Resolvemos con los datos del cierre
     };
   };
+  
 
   const showModal = (Component, props = {}) => {
     return new Promise((resolve) => {
