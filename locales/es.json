@@ -1,4 +1,12 @@
 {
+  "nav": {
+    "home": "Inicio",
+    "designSystem": "Sistema de Diseño",
+    "authentication": "Autenticación",
+    "formCreator": "Creador de Formularios",
+    "editBlocks": "Editar Bloques",
+    "viewTransition": "Transición de Vista"
+  },
   "welcome": "hola",
   "changeLang": "Cambia el idioma",
   "home": {

@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { isClient } from '@vueuse/core';
 
-const user = useState('user')
-const {setLocale, locale} = useI18n()
-const {update,setInitialTheme} = useThemeStore()
+const { setLocale, locale } = useI18n()
+const { update, setInitialTheme } = useThemeStore()
 
 const props = defineProps({
     cart: {
@@ -29,33 +28,33 @@ const props = defineProps({
 });
 
 let classes = ''
-if(props.fixed) classes += ' fixed'
-if(props.color == 'base-100') classes += ' bg-base-100'
-if(props.color == 'primary') classes += ' bg-primary'
-if(props.color == 'neutral') classes += ' bg-neutral'
+if (props.fixed) classes += ' fixed'
+if (props.color == 'base-100') classes += ' bg-base-100'
+if (props.color == 'primary') classes += ' bg-primary'
+if (props.color == 'neutral') classes += ' bg-neutral'
 
 const changeLocale = (locale) => {
     setLocale(locale)
 }
-const changeTheme= (theme) => {
+const changeTheme = (theme) => {
     update(theme)
 }
 </script>
 
 <template>
-    <div class="navbar w-full z-50 px-5" :class="classes">    
+    <div class="navbar w-full z-50 px-5" :class="classes">
         <div class="flex-1">
             <SharedAtomsLogo></SharedAtomsLogo>
         </div>
         <div class="flex-none">
             <ul class="menu menu-horizontal px-1">
-                <li><NuxtLink to="/" :class="{ 'text-secondary': $route.path === '/' }">Home</NuxtLink></li>
-                <li><NuxtLink to="/design-system" :class="{ 'text-secondary': $route.path.includes('/design-system') }">Design System</NuxtLink></li>
-                <li v-if="!user"><NuxtLink to="/login" :class="{ 'text-secondary': $route.path.includes('/login') }">Authentication</NuxtLink></li>
-                <!-- <li><NuxtLink to="/edit-blocks" :class="{ 'text-secondary': $route.path.includes('/edit-blocks') }">Edit Blocks</NuxtLink></li> -->
-                <!-- <li><NuxtLink to="/edit-blocks/show" :class="{ 'text-secondary': $route.path.includes('/edit-blocks/show') }">Blocks</NuxtLink></li> -->
-                <!-- <li><NuxtLink to="/test" :class="{ 'text-secondary': $route.path.includes('/test') }">View transition</NuxtLink></li> -->
-                <li><NuxtLink to="/formCreator" :class="{ 'text-secondary': $route.path.includes('/formCreator') }">From Creator</NuxtLink></li>
+                <template v-for="(item, index) in menu()" :key="index">
+                    <li v-if="item.visible">
+                        <NuxtLink :to="item.link" :class="{ 'text-secondary': item.active }">
+                            {{ item.name }}
+                        </NuxtLink>
+                    </li>
+                </template>
             </ul>
             <div v-if="props.cart" class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
@@ -81,12 +80,12 @@ const changeTheme= (theme) => {
             <div v-if="props.lang" class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
                     <div class="indicator">
-                        {{locale}}
+                        {{ locale }}
                     </div>
                 </div>
                 <div tabindex="0" class="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow">
                     <div class="card-body">
-                        <span class="text-lg font-bold">{{$t('changeLang')}}</span>
+                        <span class="text-lg font-bold">{{ $t('changeLang') }}</span>
                         <div class="card-actions">
                             <SharedAtomsButton @click="changeLocale('en')">English</SharedAtomsButton>
                             <SharedAtomsButton @click="changeLocale('es')">Español</SharedAtomsButton>
@@ -102,7 +101,7 @@ const changeTheme= (theme) => {
                 </div>
                 <div tabindex="0" class="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow">
                     <div class="card-body">
-                        <span class="text-lg font-bold">{{$t('changeLang')}}</span>
+                        <span class="text-lg font-bold">{{ $t('changeLang') }}</span>
                         <div class="card-actions">
                             <SharedAtomsButton @click="changeTheme('lemonade')">lemonade</SharedAtomsButton>
                             <SharedAtomsButton @click="changeTheme('custom')">custom</SharedAtomsButton>
@@ -122,9 +121,15 @@ const changeTheme= (theme) => {
                 </div>
                 <ul tabindex="0"
                     class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                    <li><NuxtLink to="/user" v-if="user">User <span class="badge">New</span></NuxtLink></li>
-                    <li><NuxtLink >Settings</NuxtLink></li>
-                    <li><NuxtLink >Logout</NuxtLink></li>
+                    <li>
+                        <NuxtLink to="/user" v-if="user">User <span class="badge">New</span></NuxtLink>
+                    </li>
+                    <li>
+                        <NuxtLink>Settings</NuxtLink>
+                    </li>
+                    <li>
+                        <NuxtLink>Logout</NuxtLink>
+                    </li>
                 </ul>
             </div>
         </div>
