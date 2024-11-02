@@ -8,7 +8,7 @@ export default () => {
       value: {
         title: t("home.jumbotron.title"),
         description: t("home.jumbotron.description"),
-        buttonText: "Get Startedddd", // Texto del botón, con un valor por defecto
+        buttonText: "Get Started", // Texto del botón, con un valor por defecto
         buttonLink: "/", // Enlace del botón, ajusta según sea necesario
         alignment: "right", // Alineación, puede ser 'left', 'center' o 'right'
         height: "auto", // Altura, puede ser 'auto', 'screen', 'full', etc.
