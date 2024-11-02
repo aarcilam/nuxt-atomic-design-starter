@@ -92,9 +92,9 @@ const navigateBlogs = (item) => {
       <div class="grid grid-cols-1 gap-4">
         <SharedMoleculesComponentDocumentator title="Nav" code='<SharedMoleculesNav></SharedMoleculesNav>'>
           <SharedMoleculesNav></SharedMoleculesNav>
-          <SharedMoleculesNav class="bg-primary"></SharedMoleculesNav>
-          <SharedMoleculesNav class="bg-secondary" :cart="true"></SharedMoleculesNav>
-          <SharedMoleculesNav class="bg-neutral text-white" :lang="true" :cart="true"></SharedMoleculesNav>
+          <SharedMoleculesNav class="bg-primary" alignment="right"></SharedMoleculesNav>
+          <SharedMoleculesNav class="bg-secondary" alignment="center" :cart="true"></SharedMoleculesNav>
+          <SharedMoleculesNav class="bg-neutral text-white" alignment="left" :lang="true" :cart="true"></SharedMoleculesNav>
         </SharedMoleculesComponentDocumentator>
 
         <SharedMoleculesComponentDocumentator title="Nav" code='<SharedMoleculesTable :columns="" :rows=""></SharedMoleculesTable>'>

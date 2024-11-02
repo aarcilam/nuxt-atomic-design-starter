@@ -2,7 +2,6 @@
 defineProps({
     title: {
         type: String,
-        required: true
     },
     description: {
         type: String,
@@ -41,9 +40,9 @@ defineProps({
                 <p class="py-6">
                     {{ description }}
                 </p>
-                <a :href="buttonLink">
+                <NuxtLinkLocale :to="buttonLink">
                     <SharedAtomsButton class="btn btn-primary">{{ buttonText }}</SharedAtomsButton>
-                </a>
+                </NuxtLinkLocale>
             </div>
 
             <!-- Slot de la derecha -->

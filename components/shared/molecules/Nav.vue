@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { isClient } from '@vueuse/core';
-
 const props = defineProps({
     cart: {
         type: Boolean,
@@ -21,32 +19,41 @@ const props = defineProps({
     color: {
         type: String,
         default: ''
+    },
+    alignment: {
+        type: String,
+        default: 'right', // left, center, right
+        validator: value => ['left', 'center', 'right'].includes(value)
     }
 });
 
-let classes = ''
-if (props.fixed) classes += ' fixed'
-if (props.color == 'base-100') classes += ' bg-base-100'
-if (props.color == 'primary') classes += ' bg-primary'
-if (props.color == 'neutral') classes += ' bg-neutral'
-
+let classes = '';
+if (props.fixed) classes += ' fixed';
+if (props.color == 'base-100') classes += ' bg-base-100';
+if (props.color == 'primary') classes += ' bg-primary';
+if (props.color == 'neutral') classes += ' bg-neutral';
 </script>
 
 <template>
-    <div class="navbar w-full z-50 px-5" :class="classes">
-        <div class="flex-1">
+    <div class="navbar w-full z-50 px-5 flex" :class="classes">
+        <slot name="start" />
+        <div>
             <SharedAtomsLogo></SharedAtomsLogo>
         </div>
-        <div class="flex-none">
+
+        <div class="flex w-full" :class="{'justify-center': props.alignment === 'center', 'justify-start': props.alignment === 'left', 'justify-end': props.alignment === 'right'}">
             <ul class="menu menu-horizontal px-1">
                 <template v-for="(item, index) in menu()" :key="index">
                     <li v-if="item.visible">
-                        <NuxtLink :to="item.link" :class="{ 'text-secondary': item.active }">
+                        <NuxtLinkLocale :to="item.link" :class="{ 'text-secondary': item.active }">
                             {{ item.name }}
-                        </NuxtLink>
+                        </NuxtLinkLocale>
                     </li>
                 </template>
             </ul>
+        </div>
+
+        <div class="flex items-center space-x-4">
             <div v-if="props.cart" class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
                     <div class="indicator">
@@ -72,5 +79,7 @@ if (props.color == 'neutral') classes += ' bg-neutral'
             <SharedMoleculesThemeSelector v-if="props.theme"></SharedMoleculesThemeSelector>
             <SharedMoleculesUserDropdown></SharedMoleculesUserDropdown>
         </div>
+
+        <slot name="end" />
     </div>
 </template>
