@@ -29,15 +29,26 @@ defineProps({
 
 <template>
     <div :class="['p-10 bg-base-200', height === 'screen' ? 'min-h-screen' : height === 'full' ? 'h-full' : 'h-auto']">
-        <div :class="['container mx-auto',alignment === 'left' ? 'text-left' : alignment === 'right' ? 'text-right' : 'text-center']">
-            <div >
-                <SharedAtomsHeading1> {{ title }} </SharedAtomsHeading1>
+        <div class="container mx-auto flex flex-col md:flex-row">
+            <!-- Slot de la izquierda -->
+            <div v-if="$slots.left" class="w-full md:w-1/4 p-4">
+                <slot name="left" />
+            </div>
+
+            <!-- Contenido principal -->
+            <div :class="['w-full', $slots.left || $slots.right ? 'md:w-1/2' : 'md:w-full', alignment === 'left' ? 'text-left' : alignment === 'right' ? 'text-right' : 'text-center']">
+                <SharedAtomsHeading1 v-if="title"> {{ title }} </SharedAtomsHeading1>
                 <p class="py-6">
                     {{ description }}
                 </p>
                 <a :href="buttonLink">
                     <SharedAtomsButton class="btn btn-primary">{{ buttonText }}</SharedAtomsButton>
                 </a>
+            </div>
+
+            <!-- Slot de la derecha -->
+            <div v-if="$slots.right" class="w-full md:w-1/4 p-4">
+                <slot name="right" />
             </div>
         </div>
     </div>
