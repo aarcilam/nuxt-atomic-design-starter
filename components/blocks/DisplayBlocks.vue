@@ -8,8 +8,16 @@ const props = defineProps<{
 
 <template>
   <template v-for="(block, index) in blocks">
-    <BlocksJumbotronComponent v-if="block.key.split('-')[0] === 'jumbotron'" :key="index" :title="block.value.title"
-      :description="block.value.description" />
+    <BlocksJumbotronComponent
+      v-if="block.key.split('-')[0] === 'jumbotron'" 
+      :key="index" 
+      :title="block.value.title"
+      :description="block.value.description"
+      :height="block.value.height" 
+      :alignment="block.value.alignment" 
+      :buttonText="block.value.buttonText"
+      :buttonLink="block.value.buttonLink"
+    />
     <BlocksMediaSectionComponent v-if="block.key.split('-')[0] === 'mediaSection'" :key="index"
       :title="block.value.title" :description="block.value.description" :image="block.value.image" />
   </template>
