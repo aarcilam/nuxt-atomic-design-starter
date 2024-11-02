@@ -1,4 +1,12 @@
 {
+  "nav": {
+    "home": "Home",
+    "designSystem": "Design System",  
+    "authentication": "Authentication",  
+    "formCreator": "Form Creator", 
+    "editBlocks": "Edit Blocks", 
+    "viewTransition": "View Transition"  
+  },
   "welcome": "hi",
   "changeLang": "Change the language",
   "home": {

@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   // routeRules: {
   //   '/': { prerender: true },
-  //   '/components': { prerender: true },
+  //   '/design-system': { prerender: true },
   //   '/edit-blocks': { ssr: false },
   // },
   app: {
@@ -20,7 +20,16 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@nuxt/content",
     "@formkit/auto-animate/nuxt",
+    "@nuxtjs/google-fonts",
   ],
+  googleFonts: {
+    families:{
+      Raleway:{
+        wght: [100, 400],
+        ital: [100]
+      }
+    }
+  },
   pinia: {
     storesDirs: ["./stores/**"],
   },

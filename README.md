@@ -82,6 +82,36 @@ bun run dev
 - **`postinstall`**: Comando que se ejecuta después de instalar las dependencias
   para preparar el entorno de Nuxt.
 
+## Configuración del Entorno
+
+Este proyecto utiliza Supabase como backend y PostgreSQL como base de datos.
+Asegúrate de tener las siguientes variables de entorno configuradas antes de
+ejecutar la aplicación.
+
+### Variables de Entorno
+
+A continuación se presentan las variables de entorno necesarias:
+
+- `DATABASE_URL`: La URL de conexión a tu base de datos PostgreSQL.
+- `SUPABASE_URL`: La URL de tu proyecto en Supabase.
+- `SUPABASE_KEY`: La clave de API para autenticar tus solicitudes hacia
+  Supabase.
+
+```bash
+DATABASE_URL="tu_url_de_base_de_datos"
+SUPABASE_URL="tu_url_de_supabase"
+SUPABASE_KEY="tu_clave_de_supabase"
+```
+
+## Configuración
+
+1. Crea un archivo `.env` en la raíz de tu proyecto y define las variables de
+   entorno necesarias.
+
+2. Asegúrate de instalar las dependencias necesarias en tu proyecto.
+
+3. Ejecuta tu aplicación.
+
 ## Componentes Propios
 
 Aquí puedes describir algunos de los componentes propios que has creado para tu
@@ -128,3 +158,44 @@ construir la imagen de Docker:
 ```
 docker build -t starter-app-with-nuxt .
 ```
+
+## Creación de una copia y sincronización con nuxtstarter
+
+### 1. Crear un repositorio Git local
+
+1. **Crear una carpeta para el proyecto:**
+   - mkdir mi-proyecto
+   - cd mi-proyecto
+
+2. **Inicializar el repositorio Git:**
+   - git init
+
+3. **Crear un archivo README.md:**
+   - echo "# Mi Proyecto" > README.md
+
+4. **Añadir el archivo y realizar el primer commit:**
+   - git add .
+   - git commit -m "Primer commit - inicialización del proyecto"
+
+### 2. Añadir un repositorio remoto (origin)
+
+1. **Añadir tu repositorio remoto como origin:**
+   - git remote add origin https://github.com/usuario/mi-repositorio.git
+
+2. **Subir los cambios al repositorio remoto:**
+   - git push -u origin main
+
+### 3. Sincronización con el repositorio original (nuxtstarter)
+
+1. **Agregar el repositorio original como nuxtstarter:**
+   - git remote add nuxtstarter
+     https://github.com/aarcilam/nuxt-atomic-design-starter.git
+
+2. **Traer los cambios desde nuxtstarter:**
+   - git fetch nuxtstarter
+
+3. **Fusionar los cambios en tu rama actual:**
+   - git merge nuxtstarter/main --allow-unrelated-histories
+
+4. **Subir los cambios actualizados a tu repositorio remoto:**
+   - git push origin main

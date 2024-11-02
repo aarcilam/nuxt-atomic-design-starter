@@ -6,7 +6,7 @@
     }" @input="emit('input', $event)" />
 </template>
 
-<script setup>
+<script setup lang="ts">
 const emit = defineEmits(['input'])
 defineProps({
   name: {
