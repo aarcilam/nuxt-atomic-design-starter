@@ -1,7 +1,7 @@
 <!-- components/modals/ExampleModal.vue -->
 <template>
   <div class="modal z-10" open @click="close" v-auto-animate>
-    <div class="modal-box w-10/12 max-w-4xl animate__animated animate__fadeIn" @click.stop>
+    <div class="modal-box w-10/12 max-w-4xl animate__animated animate__fadeIn animate__faster" @click.stop>
       <form method="dialog">
         <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" @click="close">✕</button>
       </form>

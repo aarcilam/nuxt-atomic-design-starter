@@ -1,6 +1,6 @@
 <template>
   <div class="fixed top-2 left-0 w-screen h-screen z-10" @click.stop="close" v-auto-animate>
-    <div class="p-5 bg-neutral animate__animated" :class="classes" @click.stop>
+    <div class="p-5 bg-neutral animate__animated animate__faster" :class="classes" @click.stop>
       <slot :close="emitClose"></slot>
     </div>
   </div>

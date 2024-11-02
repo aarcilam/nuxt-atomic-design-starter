@@ -35,13 +35,13 @@ if (props.color == 'neutral') classes += ' bg-neutral';
 </script>
 
 <template>
-    <div class="navbar w-full z-50 px-5 flex" :class="classes">
+    <div class="navbar w-full z-50 px-5  justify-between" :class="classes">
         <slot name="start" />
         <div>
             <SharedAtomsLogo></SharedAtomsLogo>
         </div>
 
-        <div class="flex w-full" :class="{'justify-center': props.alignment === 'center', 'justify-start': props.alignment === 'left', 'justify-end': props.alignment === 'right'}">
+        <div class="w-full hidden md:flex" :class="{'justify-center': props.alignment === 'center', 'justify-start': props.alignment === 'left', 'justify-end': props.alignment === 'right'}">
             <ul class="menu menu-horizontal px-1">
                 <template v-for="(item, index) in menu()" :key="index">
                     <li v-if="item.visible">
@@ -79,6 +79,8 @@ if (props.color == 'neutral') classes += ' bg-neutral';
             <SharedMoleculesThemeSelector v-if="props.theme"></SharedMoleculesThemeSelector>
             <SharedMoleculesUserDropdown></SharedMoleculesUserDropdown>
         </div>
+
+        <SharedMoleculesMobileDrawer class="block md:hidden"></SharedMoleculesMobileDrawer>
 
         <slot name="end" />
     </div>

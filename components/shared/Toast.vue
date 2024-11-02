@@ -1,6 +1,6 @@
 <!-- components/modals/ExampleModal.vue -->
 <template>
-  <SharedAtomsHeading1>{{msg}}</SharedAtomsHeading1>
+  <SharedAtomsBodyText>{{msg}}</SharedAtomsBodyText>
 </template>
 
 <script setup lang="ts">
