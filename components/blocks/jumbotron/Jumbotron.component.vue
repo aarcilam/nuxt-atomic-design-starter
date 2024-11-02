@@ -31,7 +31,7 @@ defineProps({
     <div :class="['p-10 bg-base-200', height === 'screen' ? 'min-h-screen' : height === 'full' ? 'h-full' : 'h-auto']">
         <div class="container mx-auto flex flex-col md:flex-row">
             <!-- Slot de la izquierda -->
-            <div v-if="$slots.left" class="w-full md:w-1/4 p-4">
+            <div v-if="$slots.left" class="w-full md:w-1/2 p-4">
                 <slot name="left" />
             </div>
 
@@ -47,7 +47,7 @@ defineProps({
             </div>
 
             <!-- Slot de la derecha -->
-            <div v-if="$slots.right" class="w-full md:w-1/4 p-4">
+            <div v-if="$slots.right" class="w-full md:w-1/2 p-4">
                 <slot name="right" />
             </div>
         </div>
