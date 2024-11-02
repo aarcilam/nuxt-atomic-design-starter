@@ -28,7 +28,7 @@ defineProps({
 
 <template>
     <div :class="['p-10 bg-base-200', height === 'screen' ? 'min-h-screen' : height === 'full' ? 'h-full' : 'h-auto']">
-        <div class="container mx-auto flex flex-col md:flex-row">
+        <div class="container mx-auto items-center flex flex-col md:flex-row">
             <!-- Slot de la izquierda -->
             <div v-if="$slots.left" class="w-full md:w-1/4 p-4">
                 <slot name="left" />
